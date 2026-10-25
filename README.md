@@ -121,7 +121,7 @@ A kernel string carries the upstream version, KMI, commit, vendor build, and pag
 
 [Live table: Root My Galaxy payloads](https://github.com/BuSung-dev/Root-My-Galaxy-Payloads#supported-payloads) · [targets-v3.json](https://github.com/BuSung-dev/Root-My-Galaxy-Payloads/blob/main/support/targets-v3.json) · [ghostlock-a17 target](https://github.com/mobilehackinglab/ghostlock-a17#target) · [SM-A166W build](https://github.com/jojobear691/SM-A166W-DZG1-Temporary-Root#exact-supported-build) · [ghostlock-s26 firmware](https://github.com/snothin/ghostlock-s26#supported-firmware)
 
-</details>
+</details><br>
 
 Notes:
 
@@ -159,7 +159,7 @@ All rows use [Root My Pixel](https://github.com/alex193a/Root-My-Pixel), which r
 
 [Live table: Root My Pixel supported devices](https://github.com/alex193a/Root-My-Pixel#supported-devices--build-profiles)
 
-</details>
+</details><br>
 
 Root My Pixel reports the exploit is unreliable: many users needed more than 20 attempts, and as with any GhostLock run a failed attempt can reboot the phone. [GhostLock App](https://github.com/YuKongA/ghostlock-app) also carries Pixel 7, 9a, 9 Pro, and 9 Pro Fold profiles; treat those as candidates rather than confirmed targets.
 
@@ -182,7 +182,7 @@ Root My Pixel reports the exploit is unreliable: many users needed more than 20 
 
 [Live table: ghostlock-oneplus verified devices](https://github.com/JoinChang/ghostlock-oneplus#supported-devices) · [not-feasible layouts](https://github.com/JoinChang/ghostlock-oneplus#not-feasible-stack-layout-incompatible) · [Root My Device OnePlus Pad 3](https://github.com/tqmane/Root-My-Device/blob/main/devices/oneplus-pad-3/README.md#supported-target)
 
-</details>
+</details><br>
 
 Notes:
 
@@ -204,7 +204,7 @@ Notes:
 
 [Live table: RootMyVivo payload catalog](https://github.com/zenyxx-xd/RootMyVivo-Payloads/blob/main/support/targets-vivo.json) · [iQOO Z9 / vivo T3 port](https://github.com/ankitrawatgit/iQOO-Z9_5G-vivo-T3_5G-Root-GhostLock)
 
-</details>
+</details><br>
 
 Note: the `6.6.127` build on an iQOO Neo 11 is a different image where the fix is present. The app matches the full GKI string, so the 6.6.89 payload does not cover it. iQOO 13 India, iQOO Neo10 Pro, and vivo X200/X200 Pro are experimental ports.
 
@@ -225,7 +225,7 @@ This group spans several independent loaders: ghostlock-oneplus, Root My Device,
 
 [Live list: Root My Device targets](https://github.com/WitAqua-tools/Root-My-Device-Payloads/releases/latest/download/targets-v2.json) · [Nothing Phone (3a)](https://github.com/tqmane/Root-My-Device/blob/main/devices/nothing-phone-3a/README.md#supported-exact-targets) · [zenfone9-ghostlock](https://github.com/CKwasd/zenfone9-ghostlock)
 
-</details>
+</details><br>
 
 Notes:
 
@@ -249,7 +249,7 @@ GhostLock-5.10 covers the Fire devices, while the Shield TV and Quest 3 have ded
 
 [Live table: GhostLock-5.10 supported builds](https://github.com/R0rt1z2/GhostLock#supported-devices) · [NVIDIA Shield validated target](https://github.com/cyberbalsa/GhostLock-NVIDIA-Shield-9.2.4#validated-target) · [Root My Device targets](https://github.com/WitAqua-tools/Root-My-Device-Payloads/releases/latest/download/targets-v2.json)
 
-</details>
+</details><br>
 
 Notes:
 
@@ -511,7 +511,7 @@ A GhostLock panic is a failed attempt at a race, not by itself a brick. Wait for
 
 A DirtyFrag panic more often points to a wrong KMI, a profile mismatch, or vendor hardening rather than timing.
 
-</details>
+</details><br>
 
 <details>
 <summary>Samsung shows "reboot device - d2" or will not enter download mode</summary>
@@ -520,21 +520,21 @@ There are two causes. The download-mode gate on One UI 8.5 and later refuses dow
 
 A modified protected image is different: the bootloader rejects it and Android does not boot. Key combinations will not help. If the phone does not enumerate over USB, contact Samsung or a repair service. If download mode opens, flash signed stock firmware for the exact model and region with Odin. Do not mix firmware from another model, and do not use a "D2 bypass" APK.
 
-</details>
+</details><br>
 
 <details>
 <summary>ADB does not list the device or says unauthorized</summary>
 
 Check the cable, port, and USB debugging setting, then run `adb devices` again. For `unauthorized`, unlock the phone and accept the RSA prompt. For `no devices`, try another cable and port and check `lsusb`. Wireless debugging must be paired before it appears.
 
-</details>
+</details><br>
 
 <details>
 <summary>The loader reports "not vulnerable" or "patching failed"</summary>
 
 The kernel is patched, the vendor backported a fix, or the build has an accidental mitigation. There is no app-side fix, and downgrading firmware on a locked phone can wipe data or brick it. Check the upstream issue tracker and stop.
 
-</details>
+</details><br>
 
 ### FAQ
 
@@ -543,63 +543,63 @@ The kernel is patched, the vendor backported a fix, or the build has an accident
 
 No. A full reboot loads the stock kernel, unloads the module, and removes the `su` daemon and module mounts. Files under `/data/adb` can remain but are inactive. If the build is still supported, run the loader again.
 
-</details>
+</details><br>
 
 <details>
 <summary>Does a soft reboot keep root?</summary>
 
 Usually. A soft reboot restarts Android's userspace and `system_server`, not the Linux kernel, so the late-loaded module stays and module mounts reactivate. That is why module installs often ask for one. `adb reboot` is a full reboot.
 
-</details>
+</details><br>
 
 <details>
 <summary>Does the method unlock the bootloader or wipe data?</summary>
 
 No. It does not unlock the bootloader, and there is no unlock-induced wipe. A failed run, a module bootloop, or a recovery attempt can still cost data, so back up first.
 
-</details>
+</details><br>
 
 <details>
 <summary>How do I know whether my device is supported?</summary>
 
 Record the model code, build display ID, and full `uname -r`, find the device in [Supported devices](#supported-devices), then confirm the target in the loader's live table. If the exact build is missing from both, stop.
 
-</details>
+</details><br>
 
 <details>
 <summary>Why does the exact kernel build matter?</summary>
 
 Offsets come from a specific `vmlinux` or boot image. Stack layout moves with compiler optimization, LTO, and PGO. A 4K-page profile does not cover a 16 KB page build. Vendor hardening such as KDP, DEFEX, and RKP changes the escalation path, and a vendor can backport the fix without changing the version string. An OTA can move the build or close the bug, so recheck before updating.
 
-</details>
+</details><br>
 
 <details>
 <summary>Do I need a computer or Shizuku?</summary>
 
 Not always. DirtyFrag, Root My Galaxy, GhostLock App, RootMyVivo, and Root My Device can run on the phone itself. Root My Pixel needs Shizuku, which can be started over wireless debugging without a PC. Some profiles need a one-time ADB setup, and command-line ports are easier from a computer. Shizuku is an ADB bridge, not root.
 
-</details>
+</details><br>
 
 <details>
 <summary>Which root manager should I install?</summary>
 
 The one the loader documents. It must ship `libksud.so`, because DirtyFrag 1.10 and later stage `ksud` from the selected manager. Samsung DirtyFrag requires diabl0w's KernelSU build; Root My Pixel expects the BakaSU/ReSukiSU manager named in its README. A manager alone does not give temporary root.
 
-</details>
+</details><br>
 
 <details>
 <summary>Which modules can work?</summary>
 
 Modules that mount files or hook apps at runtime, using the late-load stages that remain available. Modules that need early boot, `init.rc`, `post-fs-data`, a kernel driver, or a partition write generally cannot. See [Modules](#modules), install one at a time, and keep the loader's module-disable switch reachable.
 
-</details>
+</details><br>
 
 <details>
 <summary>Root is missing after a run that looked successful</summary>
 
 The exploit likely completed and the late-load failed. Check that you installed the manager the loader names, that it ships `libksud.so`, that it was selected in the loader, and that the KMI matches. Disable auto reboot if it is on, then run again and read the log. If the log shows a patched kernel or a profile mismatch, stop.
 
-</details>
+</details><br>
 
 <details>
 <summary>What do I do after a module bootloop?</summary>
@@ -608,21 +608,21 @@ A full reboot clears root and the kernel module. Open the loader, set modules to
 
 If Android does not start, try safe mode (hold Volume Down during boot; Android may also offer it after repeated crashes). Safe mode may not disable a late-loaded kernel module, so the loader switch remains the reliable path. On a user build, `adb uninstall <loader-package>` removes the loader without root. If the phone does not enumerate over USB and neither recovery nor download mode opens, stop and seek service support.
 
-</details>
+</details><br>
 
 <details>
 <summary>Will banking apps or Play Integrity work?</summary>
 
 Maybe, but nothing here guarantees it. A locked bootloader helps some checks, while root, manager packages, module files, and SELinux state are all detectable. Strong integrity verdicts usually fail. Test the app before you depend on it.
 
-</details>
+</details><br>
 
 <details>
 <summary>How do I report a new device or module result?</summary>
 
 Open an issue or pull request with the exact model, build, full `uname -r`, Android version, loader and manager versions, module version, result, and the relevant log tail. The format is in [Contributing](#contributing-and-disclaimer). One reproducible result is worth more than a list of guesses.
 
-</details>
+</details><br>
 
 [↑ Back to contents](#contents)
 
