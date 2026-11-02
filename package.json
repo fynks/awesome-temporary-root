@@ -1,0 +1,25 @@
+{
+  "name": "temp-root-checker",
+  "version": "1.0.0",
+  "description": "Android temporary root compatibility reference tool",
+  "type": "module",
+  "scripts": {
+    "data:generate": "node scripts/generate-data.mjs",
+    "data:validate": "node scripts/validate-data.mjs",
+    "build": "node scripts/build.mjs",
+    "test": "node --test",
+    "lint": "echo \"No linting configured yet\""
+  },
+  "keywords": [
+    "android",
+    "temporary-root",
+    "compatibility",
+    "kernel",
+    "firmware"
+  ],
+  "author": "fynks",
+  "license": "MIT",
+  "devDependencies": {
+    "ajv": "^8.17.1"
+  }
+}
