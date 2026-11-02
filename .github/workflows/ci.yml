@@ -1,9 +1,13 @@
 name: CI
+
 on:
   push:
     branches: [ main, "arena/b7a0b610-awesome-temporary-root" ]
   pull_request:
     branches: [ main ]
+
+permissions:
+  contents: read
 
 jobs:
   build-and-test:
@@ -54,3 +58,21 @@ jobs:
           name: site
           path: dist
           retention-days: 1
+
+  deploy:
+    needs: build-and-test
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download built site
+        uses: actions/download-artifact@v8
+        with:
+          name: site
+          path: dist
+
+      - name: Deploy with Wrangler
+        uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages publish dist --project-name temp-root-checker
