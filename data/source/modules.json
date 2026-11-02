@@ -1,0 +1,22 @@
+[
+  {
+    "id": "lsposed",
+    "name": "LSPosed",
+    "description": "Xposed framework",
+    "category": "Framework",
+    "version": null,
+    "sourceUrl": "https://github.com/LSPosed/LSPosed",
+    "documentationUrl": null,
+    "supportedRootMethods": ["KernelSU"],
+    "androidVersions": [],
+    "supportedDevices": [],
+    "status": "tested",
+    "testedAt": "2026-11-01",
+    "evidence": [
+      "https://github.com/fynks/awesome-temporary-root#modules"
+    ],
+    "notes": [
+      "Needs a Zygisk provider. GPS can misbehave. Scope changes need a soft reboot."
+    ]
+  }
+]

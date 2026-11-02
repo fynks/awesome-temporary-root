@@ -1,0 +1,52 @@
+[
+  {
+    "id": "samsung-galaxy-s24-ultra-international",
+    "manufacturer": "Samsung",
+    "deviceName": "Galaxy S24 Ultra International",
+    "modelNumbers": ["SM-S928B"],
+    "aliases": [],
+    "codenames": [],
+    "androidVersions": ["14"],
+    "compatibilityRecords": [
+      {
+        "id": "s24-ultra-int-001",
+        "firmware": "S928BXXS6DZF2",
+        "kernel": "6.1.145",
+        "androidVersion": "14",
+        "region": "International",
+        "rootMethod": "Root My Galaxy",
+        "status": "tested",
+        "testedAt": "2026-11-01",
+        "evidence": [
+          "https://github.com/fynks/awesome-temporary-root#supported-devices"
+        ],
+        "notes": []
+      }
+    ]
+  },
+  {
+    "id": "pixel-11",
+    "manufacturer": "Google",
+    "deviceName": "Pixel 11",
+    "modelNumbers": [],
+    "aliases": [],
+    "codenames": [],
+    "androidVersions": ["16"],
+    "compatibilityRecords": [
+      {
+        "id": "pixel-11-001",
+        "firmware": "CD1A.260618.001.C2",
+        "kernel": "android16-6.12",
+        "androidVersion": "16",
+        "region": null,
+        "rootMethod": "Root My Pixel",
+        "status": "tested",
+        "testedAt": "2026-11-01",
+        "evidence": [
+          "https://github.com/fynks/awesome-temporary-root#supported-devices"
+        ],
+        "notes": []
+      }
+    ]
+  }
+]
