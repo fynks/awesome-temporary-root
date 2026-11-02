@@ -1,28 +1,27 @@
-let cachedDevices = null;
-let cachedModules = null;
+let cached = null;
 
-  // Fetch data from the correct relative path (dist/data is one level up from dist/website)
-  async function loadData() {
-    if (cachedDevices && cachedModules) {
-      return { devices: cachedDevices, modules: cachedModules };
-    }
+export async function loadData() {
+  if (cached) return cached;
 
-    try {
-      // Relative path from website/js/ to dist/data/ is ../../dist/data/
-      // Since the preview server serves dist/ as root, the data is at /data/
-      const devicesResp = await fetch('/data/devices.json');
-      const modulesResp = await fetch('/data/modules.json');
+  // Serve dist/ as the site root; dist/data lives at /data/
+  const [devicesResp, modulesResp] = await Promise.all([
+    fetch('/data/devices.json'),
+    fetch('/data/modules.json'),
+  ]);
 
-      if (!devicesResp.ok || !modulesResp.ok) {
-        throw new Error('Failed to load JSON datasets');
-      }
-
-      cachedDevices = await devicesResp.json();
-      cachedModules = await modulesResp.json();
-
-      return { devices: cachedDevices, modules: cachedModules };
-    } catch (err) {
-      console.error('Data load error:', err);
-      throw err;
-    }
+  if (!devicesResp.ok || !modulesResp.ok) {
+    throw new Error('Failed to load JSON datasets');
   }
+
+  try {
+    const [devices, modules] = await Promise.all([
+      devicesResp.json(),
+      modulesResp.json(),
+    ]);
+    cached = { devices, modules };
+    return cached;
+  } catch (err) {
+    console.error('Data load error:', err);
+    throw err;
+  }
+}

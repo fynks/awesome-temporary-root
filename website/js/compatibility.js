@@ -2,61 +2,62 @@ export function normalize(text) {
   return text.trim().toLowerCase();
 }
 
+/**
+ * Builds a lookup index once per dataset so checks are O(1) per field
+ * instead of re-normalizing every string on every query.
+ */
+export function buildIndex(devices) {
+  const byModel = new Map(); // normalized model string -> [{ device, record }]
+  const models = new Set();
+  const firmwares = new Set();
+  const kernels = new Set();
+
+  for (const device of devices) {
+    const modelKeys = [...device.modelNumbers, ...device.aliases, ...device.codenames].map(normalize);
+
+    for (const record of device.compatibilityRecords) {
+      const entry = { device, record };
+      for (const key of modelKeys) {
+        if (!byModel.has(key)) byModel.set(key, []);
+        byModel.get(key).push(entry);
+      }
+      if (record.firmware) firmwares.add(normalize(record.firmware));
+      if (record.kernel) kernels.add(normalize(record.kernel));
+    }
+
+    for (const key of modelKeys) models.add(key);
+  }
+
+  return { byModel, anyField: { models, firmwares, kernels } };
+}
+
 export function checkCompatibility(devices, modelInput, firmwareInput, kernelInput) {
+  if (!devices.__compatIndex) devices.__compatIndex = buildIndex(devices);
+  const { byModel, anyField } = devices.__compatIndex;
   const model = normalize(modelInput);
   const firmware = normalize(firmwareInput);
   const kernel = normalize(kernelInput);
 
-  // 1. Exact match search
-  for (const device of devices) {
-    for (const record of device.compatibilityRecords) {
-      const recFirmware = normalize(record.firmware || '');
-      const recKernel = normalize(record.kernel || '');
-      
-      // Check if model matches (any of modelNumbers or aliases or codenames)
-      const modelMatches = device.modelNumbers.some(m => normalize(m) === model) ||
-                           device.aliases.some(a => normalize(a) === model) ||
-                           device.codenames.some(c => normalize(c) === model);
-
-      if (modelMatches && recFirmware === firmware && recKernel === kernel) {
-        return {
-          type: 'exact_match',
-          device,
-          record,
-          status: record.status
-        };
-      }
+  // 1. Exact match: candidates pre-grouped by model
+  for (const entry of byModel.get(model) || []) {
+    const { record } = entry;
+    const recFirmware = record.firmware ? normalize(record.firmware) : '';
+    const recKernel = record.kernel ? normalize(record.kernel) : '';
+    if (recFirmware === firmware && recKernel === kernel) {
+      return { type: 'exact_match', device: entry.device, record, status: record.status };
     }
   }
 
-  // 2. Partial match search
-  let matchedFields = [];
-  for (const device of devices) {
-    const modelMatches = device.modelNumbers.some(m => normalize(m) === model) ||
-                         device.aliases.some(a => normalize(a) === model) ||
-                         device.codenames.some(c => normalize(c) === model);
-    
-    if (modelMatches) matchedFields.push('Model');
-    
-    for (const record of device.compatibilityRecords) {
-      const recFirmware = normalize(record.firmware || '');
-      const recKernel = normalize(record.kernel || '');
-      
-      if (recFirmware === firmware) matchedFields.push('Firmware');
-      if (recKernel === kernel) matchedFields.push('Kernel');
-    }
-  }
+  // 2. Partial match: deduped membership checks against sets
+  const matchedFields = [];
+  if (anyField.models.has(model)) matchedFields.push('Model');
+  if (anyField.firmwares.has(firmware)) matchedFields.push('Firmware');
+  if (anyField.kernels.has(kernel)) matchedFields.push('Kernel');
 
-  const uniqueMatches = [...new Set(matchedFields)];
-  if (uniqueMatches.length > 0) {
-    return {
-      type: 'partial_match',
-      matchedFields: uniqueMatches
-    };
+  if (matchedFields.length > 0) {
+    return { type: 'partial_match', matchedFields };
   }
 
   // 3. No match
-  return {
-    type: 'no_match'
-  };
+  return { type: 'no_match' };
 }

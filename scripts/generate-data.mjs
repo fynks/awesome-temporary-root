@@ -1,68 +1,40 @@
 import fs from 'fs/promises';
 import path from 'path';
-import { fileURLToPath } from 'url';
+import { fileURLToPath, pathToFileURL } from 'url';
+import { validateDataset } from './validate-data.mjs';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const repoRoot = path.resolve(__dirname, '..');
 
-async function main() {
+export async function generate() {
   console.log('Starting data generation...');
-  
-  const repoRoot = '/home/user/awesome-temporary-root';
-  
-  const sourceDevicesPath = path.join(repoRoot, 'data', 'source', 'devices.json');
-  const sourceModulesPath = path.join(repoRoot, 'data', 'source', 'modules.json');
-  
-  const distDataDir = path.join(repoRoot, 'dist', 'data');
-  await fs.mkdir(distDataDir, { recursive: true });
 
-  const devices = JSON.parse(await fs.readFile(sourceDevicesPath, 'utf8'));
-  const modules = JSON.parse(await fs.readFile(sourceModulesPath, 'utf8'));
-
-  // Validate
-  const devicesSchema = JSON.parse(await fs.readFile(path.join(repoRoot, 'data', 'schema', 'device.schema.json'), 'utf8'));
-  const modulesSchema = JSON.parse(await fs.readFile(path.join(repoRoot, 'data', 'schema', 'module.schema.json'), 'utf8'));
-
-  function validate(data, schema) {
-    const required = schema.required || [];
-    for (const req of required) {
-      if (!(req in data)) {
-        throw new Error(`Missing required field: ${req}`);
-      }
-    }
-    if (data.compatibilityRecords) {
-      const recSchema = schema.properties.compatibilityRecords.items;
-      const recReq = recSchema.required || [];
-      for (const rec of data.compatibilityRecords) {
-        for (const req of recReq) {
-          if (!(req in rec)) {
-            throw new Error(`Missing required record field: ${req}`);
-          }
-        }
-        if (!recSchema.properties.status.enum.includes(rec.status)) {
-          throw new Error(`Invalid status: ${rec.status}`);
-        }
-      }
-    }
-    return true;
+  const { devices, modules, errors } = await validateDataset();
+  if (errors.length > 0) {
+    for (const message of errors) console.error(`  ✗ ${message}`);
+    throw new Error(`${errors.length} validation error(s) — not generating data`);
   }
 
-  for (const d of devices) validate(d, devicesSchema);
-  for (const m of modules) validate(m, modulesSchema);
+  const distDataDir = path.join(repoRoot, 'dist', 'data');
+  await fs.mkdir(distDataDir, { recursive: true });
 
   // Sort deterministically
   devices.sort((a, b) => a.id.localeCompare(b.id));
   modules.sort((a, b) => a.id.localeCompare(b.id));
 
-  // Write output
-  await fs.writeFile(path.join(distDataDir, 'devices.json'), JSON.stringify(devices, null, 2), 'utf8');
-  await fs.writeFile(path.join(distDataDir, 'modules.json'), JSON.stringify(modules, null, 2), 'utf8');
+  // Write output (minified: served publicly, smaller payloads)
+  await fs.writeFile(path.join(distDataDir, 'devices.json'), JSON.stringify(devices), 'utf8');
+  await fs.writeFile(path.join(distDataDir, 'modules.json'), JSON.stringify(modules), 'utf8');
 
   console.log(`Generated ${devices.length} devices and ${modules.length} modules.`);
   console.log('Data generation complete.');
 }
 
-main().catch(err => {
-  console.error('Error:', err);
-  process.exit(1);
-});
+// Only run as a CLI, not when imported by build
+const isMain = process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href;
+if (isMain) {
+  generate().catch(err => {
+    console.error('Error:', err);
+    process.exit(1);
+  });
+}

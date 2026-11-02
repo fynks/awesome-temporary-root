@@ -2,11 +2,12 @@ import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const repoRoot = '/home/user/awesome-temporary-root';
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const repoRoot = path.resolve(__dirname, '..');
 
-async function generateMarkdownTables() {
+async function main() {
+  console.log('Generating README tables...');
+
   const devicesPath = path.join(repoRoot, 'dist', 'data', 'devices.json');
   const modulesPath = path.join(repoRoot, 'dist', 'data', 'modules.json');
   
@@ -63,7 +64,7 @@ async function generateMarkdownTables() {
   }
 }
 
-generateMarkdownTables().catch(err => {
+main().catch(err => {
   console.error('Error generating tables:', err);
   process.exit(1);
 });
