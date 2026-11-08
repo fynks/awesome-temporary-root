@@ -1,0 +1,45 @@
+---
+/**
+ * CopyPrompt — a one-line prompt with a Copy prompt button, for readers to
+ * paste into an AI coding agent.
+ *
+ *   <CopyPrompt text="Read https://example.com/start.md then help me get started." />
+ *
+ * The prompt truncates to one line on screen, but the full text is copied.
+ */
+import { cn } from "@/lib/cn";
+import type { HTMLAttributes } from "astro/types";
+import { buttonVariants } from "../button/variants";
+
+interface Props extends HTMLAttributes<"div"> {
+  /** The prompt to display and copy. */
+  text: string;
+}
+
+const { text, class: className, ...attrs } = Astro.props;
+---
+
+<div
+  data-slot="copy-prompt"
+  data-nb-copy-prompt
+  class={cn(
+    "not-prose my-6 flex items-center gap-3 rounded-lg border border-primary/30 bg-primary/5 p-3 sm:gap-4",
+    className,
+  )}
+  {...attrs}
+>
+  <p data-slot="copy-prompt-text" title={text} class="m-0 min-w-0 flex-1 truncate text-foreground">
+    <span data-nb-copy-prompt-text>{text}</span>
+  </p>
+  <button type="button" data-slot="copy-prompt-button" class={buttonVariants({ variant: "primary", size: "base" })}>
+    {/* Both labels share one grid cell so the button never changes width. */}
+    <span class="grid justify-items-center" aria-live="polite">
+      <span class="col-start-1 row-start-1" data-nb-copy-prompt-idle>Copy prompt</span>
+      <span class="invisible col-start-1 row-start-1" data-nb-copy-prompt-done>Copied!</span>
+    </span>
+  </button>
+</div>
+
+<script>
+  import "./copy-prompt.client";
+</script>
