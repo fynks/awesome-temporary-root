@@ -4,6 +4,7 @@ import nimbus, {
   defineConfig as defineNimbusConfig,
 } from "@cloudflare/nimbus-docs";
 import { tableScroll } from "@cloudflare/nimbus-docs/markdown";
+import { githubAlerts } from "./src/lib/github-alerts";
 
 const nimbusConfig = defineNimbusConfig({
   // CHANGE_ME: your site's canonical origin (no trailing slash). Drives
@@ -17,7 +18,7 @@ const nimbusConfig = defineNimbusConfig({
   locale: "en",
   // CHANGE_ME: your repository — shown as the GitHub link in the header.
   github: "https://github.com/fynks/awesome-temporary-root",
-  socialImageAlt: "Nimbus documentation preview",
+  socialImageAlt: "Awesome Temporary Root documentation preview",
   // The home page leads the sidebar; every other page joins it automatically.
   sidebar: {
     items: ["index", { autogenerate: { collection: "docs" } }],
@@ -53,8 +54,10 @@ export default defineConfig({
       },
       markdown: {
         // Wrap wide tables so they scroll instead of overflowing the page
-        // (styled by `.nb-table-scroll` in src/styles/prose.css).
-        hastPlugins: [tableScroll()],
+        // (styled by `.nb-table-scroll` in src/styles/prose.css), and turn
+        // GitHub `> [!TIP]` blockquotes into styled callouts (styled by
+        // `.nb-alert` in the same file).
+        hastPlugins: [githubAlerts(), tableScroll()],
         // `## Install {#install}` gives a heading a fixed id. A heading that
         // ends in other `{…}` text, such as `{account_id}` in a .md file, is
         // read as attributes too; remove this to keep it as text.

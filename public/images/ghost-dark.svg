@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-labelledby="ghost-dark-title ghost-dark-desc">
+  <title id="ghost-dark-title">Awesome Temporary Root ghost logo</title>
+  <desc id="ghost-dark-desc">A minimal ghost silhouette with two eyes and a hash symbol cut out of its body.</desc>
+  <mask id="ghost-dark-cutouts">
+    <rect width="128" height="128" fill="#ffffff"/>
+    <rect x="39" y="45" width="13" height="19" rx="6.5" fill="#000000"/>
+    <rect x="76" y="45" width="13" height="19" rx="6.5" fill="#000000"/>
+    <rect x="58" y="73" width="5" height="27" fill="#000000"/>
+    <rect x="65" y="73" width="5" height="27" fill="#000000"/>
+    <rect x="52" y="80" width="24" height="5" fill="#000000"/>
+    <rect x="52" y="89" width="24" height="5" fill="#000000"/>
+  </mask>
+  <path d="M16 112V60C16 33.5 37.5 12 64 12s48 21.5 48 48v52q-12 10-24 0-12 10-24 0-12 10-24 0-12 10-24 0z" fill="#f8fafc" mask="url(#ghost-dark-cutouts)"/>
+</svg>

@@ -54,7 +54,7 @@ const Logo = (height: number): CardNode => ({
     width: Math.round((height * logo.width) / logo.height),
     height,
     viewBox: `0 0 ${logo.width} ${logo.height}`,
-    children: logo.paths.map((d) => ({ type: "path", props: { d, fill: FOREGROUND } })),
+    children: logo.paths.map((d) => ({ type: "path", props: { d, fill: FOREGROUND, fillRule: logo.fillRule } })),
   },
 });
 
@@ -62,7 +62,7 @@ async function card({ section, title, sizes }: { section?: string; title: string
   const heading = await renderer.fit(title, { width: COLUMN, sizes, lines: 3, style: TITLE });
   const label = section ? await renderer.fit(section, { width: COLUMN, sizes: [26], lines: 1, style: SECTION }) : undefined;
   return el("div", { width: WIDTH, height: HEIGHT, display: "flex", position: "relative", background: BACKGROUND }, [
-    el("div", { position: "absolute", left: LEFT, top: 72, display: "flex" }, Logo(32)),
+    el("div", { position: "absolute", left: LEFT, top: 72, display: "flex" }, Logo(40)),
     el("div", { position: "absolute", left: LEFT, right: LEFT, top: 148, height: 0, borderTop: `1.5px solid ${BORDER}` }),
     // Hung from the hairline rather than set on the bottom margin: X crops
     // the card to 2:1 and covers its foot with the link's domain.

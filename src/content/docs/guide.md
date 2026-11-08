@@ -3,19 +3,21 @@ title: Complete guide
 description: Device support, temporary-root basics, safety, setup, tools, modules, troubleshooting, and sources.
 ---
 
+<!-- Generated from README.md by scripts/sync-readme.mjs. Edit README.md, not this file. -->
+
 <div align="center">
 
 <picture>
-  <source media="(prefers-color-scheme: light)" srcset="docs/public/images/ghost-light.svg">
-  <source media="(prefers-color-scheme: dark)" srcset="docs/public/images/ghost-dark.svg">
-  <img src="docs/public/images/ghost-light.svg" alt="Awesome Temporary Root ghost logo: a ghost silhouette with a hash symbol cut out of its body" width="112" height="112">
+  <source media="(prefers-color-scheme: light)" srcset="/images/ghost-light.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="/images/ghost-dark.svg">
+  <img src="/images/ghost-light.svg" alt="Awesome Temporary Root ghost logo: a ghost silhouette with a hash symbol cut out of its body" width="112" height="112">
 </picture>
 
 # Awesome Temporary Root
 
 Root access on a locked Android bootloader, for one boot at a time.
 
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](https://github.com/fynks/awesome-temporary-root/blob/main/LICENSE)
 [![Listed targets](https://img.shields.io/badge/listed_targets-64-brightgreen?style=flat-square)](#supported-devices)
 [![Kernels](https://img.shields.io/badge/kernels-4.9--6.12-informational?style=flat-square)](#supported-devices)
 [![GitHub stars](https://img.shields.io/github/stars/fynks/awesome-temporary-root?style=flat-square)](https://github.com/fynks/awesome-temporary-root/stargazers)

@@ -99,7 +99,7 @@
 	--nb-m-other-line: var(--nb-border);
  
  	/* Layout */
-	--nb-sidebar-width: 18.75rem;
+	--nb-sidebar-width: 17.5rem;
 	--nb-toc-width: 18rem;
 	--nb-content-max: 43.5rem;
 	/* The sticky header's height: taller on phones when the section tabs take
@@ -634,6 +634,7 @@ pre.astro-code .highlighted-word {
 @layer components {
 	:is(.nb-sidebar-link, :is([data-nb-sidebar], [data-nb-api-nav], [data-nb-nav-results]) li > a),
 	:is(.nb-sidebar-row, :is([data-nb-sidebar], [data-nb-api-nav]) details > summary) {
+		position: relative;
 		display: flex;
 		min-height: 2rem;
 		align-items: center;
@@ -644,6 +645,9 @@ pre.astro-code .highlighted-word {
 		font-weight: 500;
 		color: var(--nb-muted-foreground);
 		overflow-wrap: break-word;
+		transition:
+			background-color 0.15s ease,
+			color 0.15s ease;
 	}
 	:is(.nb-sidebar-link, :is([data-nb-sidebar], [data-nb-api-nav], [data-nb-nav-results]) li > a) {
 		text-decoration: none;
@@ -670,6 +674,19 @@ pre.astro-code .highlighted-word {
 		background-color: var(--nb-brand-wash);
 		color: var(--nb-brand);
 	}
+	/* The current row gets a short rule on the inline-start edge, so it stays
+	   legible when the wash is barely visible on a dim display. */
+	:is(.nb-sidebar-link, :is([data-nb-sidebar], [data-nb-nav-results]) li > a)[aria-current="page"]::before {
+		content: "";
+		position: absolute;
+		inset-inline-start: 0.25rem;
+		top: 50%;
+		height: 1rem;
+		width: 2px;
+		translate: 0 -50%;
+		border-radius: 999px;
+		background-color: currentColor;
+	}
 	:is(.nb-sidebar-link, :is([data-nb-sidebar], [data-nb-api-nav], [data-nb-nav-results]) li > a):focus-visible,
 	:is(.nb-sidebar-row, :is([data-nb-sidebar], [data-nb-api-nav]) details > summary):focus-visible {
 		outline-offset: -2px;
@@ -689,6 +706,9 @@ pre.astro-code .highlighted-word {
 		opacity: 0.4;
 		mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Cpath d='M96 48l80 80-80 80' fill='none' stroke='black' stroke-width='24' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
 			no-repeat center / contain;
+		transition:
+			rotate 0.15s ease,
+			opacity 0.15s ease;
 	}
 	:is(.nb-sidebar-row, :is([data-nb-sidebar], [data-nb-api-nav]) details > summary):hover::after {
 		opacity: 1;
@@ -741,6 +761,12 @@ pre.astro-code .highlighted-word {
 }
 
 /* ---- Mobile sidebar toggle ---- */
+
+/* Reserve the scrollbar's width so opening a long tree doesn't shift rows. */
+[data-nb-sidebar-tree] {
+	scrollbar-gutter: stable;
+}
+
 
 /* Hide hamburger on pages without a sidebar dialog. */
 body:not(:has([data-mobile-sidebar])) [data-menu-btn] {

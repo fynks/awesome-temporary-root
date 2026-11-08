@@ -12,6 +12,7 @@ import Logo from "@/components/Logo.astro";
 import { config } from "virtual:nimbus/config";
 import { Banner } from "@/components/ui/banner";
 import { Sidebar, SidebarFilter } from "@/components/ui/sidebar";
+import SidebarFooter from "@/components/SidebarFooter.astro";
 import { TOC, MobileTOC } from "@/components/ui/toc";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { Pagination } from "@/components/ui/pagination";
@@ -49,6 +50,13 @@ const currentSiblingUrl = versionAlternates?.canonical?.url
   ? withBase(versionAlternates.canonical.url, import.meta.env.BASE_URL)
   : null;
 const homeHref = withBase("/", import.meta.env.BASE_URL);
+
+// Leaf rows arrive without icons from Nimbus, so the site maps the stable
+// page hrefs it owns. Anything unmapped stays text-only.
+const sidebarIcons: Record<string, string> = {
+  "/": "ph:house-simple",
+  "/guide": "ph:book-open-text",
+};
 
 // Page-body attribute resolution:
 //   - If the user opted out via `searchable: false` (or `noindex: true`
@@ -112,9 +120,13 @@ const showToc = headings !== false && (hasToc || headings.length > 0);
                 {hasSidebar ? (
                   <slot name="sidebar" />
                 ) : (
-                  <nav class="px-4 pb-12 pt-5">
+                  <nav aria-label="Documentation" class="flex min-h-full flex-col px-4 pb-8 pt-5">
+                    <p class="mb-2 px-3 text-[0.6875rem] font-semibold uppercase tracking-[0.08em] text-muted-foreground">
+                      Documentation
+                    </p>
                     {showFilter && <SidebarFilter />}
-                    <Sidebar items={sidebar} persist />
+                    <Sidebar items={sidebar} persist icons={sidebarIcons} />
+                    <SidebarFooter />
                   </nav>
                 )}
               </div>
@@ -293,10 +305,10 @@ const showToc = headings !== false && (hasToc || headings.length > 0);
     >
       <div data-mobile-sidebar-panel class="flex h-full w-(--nb-sidebar-width) max-w-[85vw] -translate-x-full flex-col border-e border-border bg-card transition-transform duration-250 ease-out group-data-[state=open]:translate-x-0 rtl:translate-x-full rtl:group-data-[state=open]:translate-x-0 motion-reduce:transition-none">
         <div class="sticky top-0 z-[1] flex items-center justify-between border-b border-border bg-card px-4 py-3">
-          {/* The logo, as in the header; the site title stays as its accessible name. */}
-          <a href={homeHref} class="flex items-center text-foreground transition-opacity hover:opacity-70">
-            <Logo class="h-5 w-8 shrink-0" />
-            <span class="sr-only">{config.title}</span>
+          {/* The mark and title, as in the header. */}
+          <a href={homeHref} class="flex min-w-0 items-center gap-2 text-foreground transition-opacity hover:opacity-70">
+            <Logo class="h-6 w-6 shrink-0" />
+            <span class="truncate text-sm font-semibold tracking-tight">{config.title}</span>
           </a>
           <button data-close-sidebar class="flex items-center justify-center w-8 h-8 rounded-md text-muted-foreground hover:bg-accent hover:text-foreground transition-colors" aria-label="Close sidebar">
             <Icon name="ph:x" class="w-5 h-5" />

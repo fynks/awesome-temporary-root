@@ -2,12 +2,14 @@
 /**
  * Sidebar — recursive navigation tree from a `SidebarItem[]`. Composes
  * SidebarGroup + SidebarLink. Pass `persist` to opt into sessionStorage
- * for open/scroll state (desktop only).
+ * for open/scroll state (desktop only), and `icons` to give leaf rows a
+ * leading mark without changing the Nimbus sidebar data shape.
  */
 import { cn } from "@/lib/cn";
 import type { HTMLAttributes } from "astro/types";
 import SidebarGroup from "./SidebarGroup.astro";
 import SidebarLink from "./SidebarLink.astro";
+import { resolveSidebarIcon } from "./icon-map";
 import type { SidebarItem } from "@cloudflare/nimbus-docs/types";
 import { sidebarHash } from "@cloudflare/nimbus-docs/runtime";
 
@@ -15,9 +17,11 @@ interface Props extends HTMLAttributes<"div"> {
   items: SidebarItem[];
   /** Persist open/scroll state to sessionStorage. Desktop sidebar only. */
   persist?: boolean;
+  /** Optional href -> astro-icon map for leaf rows. */
+  icons?: Record<string, string>;
 }
 
-const { items, persist = false, class: className, ...attrs } = Astro.props;
+const { items, persist = false, icons, class: className, ...attrs } = Astro.props;
 const hash = sidebarHash(items);
 ---
 
@@ -42,6 +46,7 @@ const hash = sidebarHash(items);
             indexHref={item.indexHref}
             indexIsCurrent={item.indexIsCurrent}
             indexIsExternal={item.indexIsExternal}
+            icons={icons}
           />
         </li>
       ) : item.type === "external" ? (
@@ -50,11 +55,20 @@ const hash = sidebarHash(items);
         </li>
       ) : (
         <li>
-          <SidebarLink label={item.label} href={item.href} isCurrent={item.isCurrent} badge={item.badge} />
+          <SidebarLink
+            label={item.label}
+            href={item.href}
+            isCurrent={item.isCurrent}
+            badge={item.badge}
+            icon={resolveSidebarIcon(icons, item.href)}
+          />
         </li>
       ),
     )}
   </ul>
+  <p data-nb-sidebar-empty hidden class="px-3 py-6 text-xs leading-5 text-muted-foreground" role="status">
+    No pages match that filter.
+  </p>
 </div>
 
 <script>

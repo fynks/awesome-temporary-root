@@ -1,0 +1,37 @@
+---
+/**
+ * SidebarFooter — the rail's source note. It fills the dead space under a
+ * short tree and tells readers (and maintainers) that the guide is generated
+ * from README.md on every build.
+ */
+import Icon from "@cloudflare/nimbus-docs/components/Icon.astro";
+import { config } from "virtual:nimbus/config";
+
+const repo = config.github?.replace(/\/+$/, "");
+const readmeHref = repo ? `${repo}/blob/main/README.md` : null;
+---
+
+<footer class="mt-auto pt-8">
+  <div class="rounded-lg border border-border/80 bg-muted/40 p-3">
+    <p class="text-[0.6875rem] font-semibold uppercase tracking-[0.08em] text-muted-foreground">
+      Source
+    </p>
+    <p class="mt-1.5 text-xs leading-5 text-muted-foreground">
+      Docs stay in sync with{" "}
+      <code class="rounded bg-[var(--nb-code-tint)] px-1 py-0.5 font-mono text-[0.6875rem] text-foreground">README.md</code>{" "}
+      on every deploy.
+    </p>
+    {readmeHref && (
+      <a
+        href={readmeHref}
+        target="_blank"
+        rel="noopener"
+        class="mt-3 inline-flex items-center gap-1.5 text-xs font-medium text-foreground no-underline transition-colors hover:text-brand"
+      >
+        <Icon name="ph:github-logo" class="h-3.5 w-3.5" />
+        View the README
+        <Icon name="ph:arrow-up-right" class="h-3 w-3 opacity-60" />
+      </a>
+    )}
+  </div>
+</footer>

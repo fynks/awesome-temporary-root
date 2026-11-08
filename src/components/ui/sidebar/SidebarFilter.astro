@@ -1,5 +1,6 @@
 ---
 /** SidebarFilter — text input that filters the adjacent Sidebar. Press "/" to focus. */
+import Icon from "@cloudflare/nimbus-docs/components/Icon.astro";
 import { cn } from "@/lib/cn";
 import type { HTMLAttributes } from "astro/types";
 
@@ -7,16 +8,21 @@ interface Props extends HTMLAttributes<"div"> {
   placeholder?: string;
 }
 
-const { class: className, placeholder = "Filter…", ...attrs } = Astro.props;
+const { class: className, placeholder = "Filter pages…", ...attrs } = Astro.props;
 ---
 
-<div data-slot="sidebar-filter" class={cn("relative mb-3", className)} {...attrs}>
+<div data-slot="sidebar-filter" role="search" class={cn("relative mb-3", className)} {...attrs}>
+  <Icon
+    name="ph:magnifying-glass"
+    class="pointer-events-none absolute start-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground opacity-70"
+  />
   <input
     data-nb-sidebar-filter-input
     type="search"
     placeholder={placeholder}
-    class="peer w-full rounded-md border border-border bg-card py-1.5 ps-3 pe-9 text-sm text-foreground placeholder:text-muted-foreground transition-colors focus-visible:border-brand focus-visible:outline-2 focus-visible:outline-ring [&:not(:placeholder-shown)]:pe-2"
+    class="peer w-full rounded-md border border-border bg-card py-1.5 ps-9 pe-9 text-sm text-foreground placeholder:text-muted-foreground transition-colors focus-visible:border-brand focus-visible:outline-2 focus-visible:outline-ring [&:not(:placeholder-shown)]:pe-2"
     aria-label="Filter navigation"
+    aria-keyshortcuts="/"
     autocomplete="off"
   />
   {/* Shortcut hint — press "/" to focus. Hidden once the input is focused or has a value. */}

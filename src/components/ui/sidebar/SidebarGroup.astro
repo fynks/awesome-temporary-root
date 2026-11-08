@@ -12,6 +12,7 @@
 import type { HTMLAttributes } from "astro/types";
 import SidebarGroupHeader from "./SidebarGroupHeader.astro";
 import SidebarLink from "./SidebarLink.astro";
+import { resolveSidebarIcon } from "./icon-map";
 import type { SidebarItem, SidebarBadge } from "@cloudflare/nimbus-docs/types";
 
 interface Props extends HTMLAttributes<"details"> {
@@ -28,6 +29,8 @@ interface Props extends HTMLAttributes<"details"> {
   indexIsExternal?: boolean;
   /** Optional leading icon (astro-icon name) rendered before the label. */
   icon?: string;
+  /** Optional href -> astro-icon map for leaf rows. */
+  icons?: Record<string, string>;
 }
 
 const {
@@ -39,6 +42,7 @@ const {
   indexIsCurrent,
   indexIsExternal,
   icon,
+  icons,
   class: className,
   ...attrs
 } = Astro.props;
@@ -74,6 +78,7 @@ const isOpen = Boolean(hasActive || collapsed === false || collapsed === undefin
           isCurrent={indexIsCurrent}
           target={indexIsExternal ? "_blank" : undefined}
           rel={indexIsExternal ? "noopener" : undefined}
+          icon={resolveSidebarIcon(icons, indexHref)}
         />
       </li>
     )}
@@ -89,11 +94,18 @@ const isOpen = Boolean(hasActive || collapsed === false || collapsed === undefin
             indexHref={item.indexHref}
             indexIsCurrent={item.indexIsCurrent}
             indexIsExternal={item.indexIsExternal}
+            icons={icons}
           />
         ) : item.type === "external" ? (
           <SidebarLink label={item.label} href={item.href} badge={item.badge} target="_blank" rel="noopener" />
         ) : (
-          <SidebarLink label={item.label} href={item.href} isCurrent={item.isCurrent} badge={item.badge} />
+          <SidebarLink
+            label={item.label}
+            href={item.href}
+            isCurrent={item.isCurrent}
+            badge={item.badge}
+            icon={resolveSidebarIcon(icons, item.href)}
+          />
         )}
       </li>
     ))}

@@ -87,6 +87,12 @@ function resetFilter(root: HTMLElement): void {
       group.open = false;
       group.removeAttribute("data-nb-opened-by-filter");
     });
+  setEmpty(root, false);
+}
+
+function setEmpty(root: HTMLElement, empty: boolean): void {
+  const message = root.querySelector<HTMLElement>("[data-nb-sidebar-empty]");
+  if (message) message.hidden = !empty;
 }
 
 function applyFilter(root: HTMLElement, query: string): void {
@@ -114,6 +120,11 @@ function applyFilter(root: HTMLElement, query: string): void {
     group.querySelectorAll<HTMLElement>("li > a, details")
       .forEach((child) => child.removeAttribute("data-nb-sidebar-hidden"));
   });
+
+  setEmpty(
+    root,
+    !Array.from(links).some((link) => !link.hasAttribute("data-nb-sidebar-hidden")),
+  );
 }
 
 function revealAncestors(el: HTMLElement, scope: Element): void {

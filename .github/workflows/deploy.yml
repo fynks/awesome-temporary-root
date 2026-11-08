@@ -10,17 +10,23 @@ on:
 permissions:
   contents: read
 
+# One deploy per branch: a newer push supersedes an in-flight one.
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v2
         with:
-          bun-version: latest
+          bun-version: 1.4.4
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 26
       - run: bun install --frozen-lockfile
       - run: bun run build
       - uses: actions/upload-artifact@v4
@@ -32,6 +38,7 @@ jobs:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     needs: build
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     permissions:
       contents: read
       deployments: write
@@ -40,10 +47,9 @@ jobs:
         with:
           name: pages-site
           path: dist
-      - uses: cloudflare/pages-action@v1
+      - uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          projectName: awesome-temporary-root
-          directory: dist
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          wranglerVersion: "4"
+          command: pages deploy dist --project-name=awesome-temporary-root --branch=main
