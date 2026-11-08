@@ -342,6 +342,25 @@
   white-space: nowrap;
 }
 
+/* On phones, tables read better without a sideways scroll. Headers and cell
+   text — including long kernel strings and model codes — wrap instead of
+   setting a wide minimum width. Desktop keeps identifiers on one line. */
+@media (max-width: 48rem) {
+  .docs-content :where(th:not([class])),
+  .docs-content :where(td:not([class])) {
+    overflow-wrap: anywhere;
+  }
+
+  .docs-content :where(th:not([class])) {
+    white-space: normal;
+  }
+
+  .docs-content :where(td:not([class])) :where(code:not([class])) {
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+}
+
 .docs-content :where(tbody:not([class]) tr:not([class]):last-child td:not([class])) {
   border-bottom: none;
 }
