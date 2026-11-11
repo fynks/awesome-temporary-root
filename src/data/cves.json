@@ -1,0 +1,130 @@
+{
+  "$schema": "../../scripts/data-schema.json",
+  "generated": "2026-11-11",
+  "note": "CVE patch floors from the README and upstream loader documentation. Vendors backport fixes out of order and sometimes change a kernel without changing the version string, so treat these numbers as a hint; the loader's own vulnerability check decides. CVE record lookups via cve.org returned TLS errors; the CVE IDs and fix kernels below come from the loader documentation cited in each row.",
+  "cves": [
+    {
+      "id": "CVE-2026-43284",
+      "name": "DirtyFrag",
+      "description": "Android kernel page-cache write primitive reached through ESP-in-UDP (IPsec) decryption. Crafting IV = AES_ECB_DEC(key, current_content) XOR desired_content lets any 16-byte-aligned block in a mapped shared library be overwritten without write permission and without copy-on-write. The exploit patches shellcode into libc++.so in the kernel's page cache via a crash_dump64 bridge, then loads a custom kernel module (dfroot.ko) via insmod. Deterministic: a run either works or stops with an error. Root is ephemeral - the module and su are gone after reboot.",
+      "type": "Local privilege escalation (kernel)",
+      "patchFloors": {
+        "5.10": "5.10.255",
+        "5.15": "5.15.205",
+        "6.1": "6.1.171",
+        "6.6": "6.6.138",
+        "6.12": "6.12.87",
+        "6.18": "6.18.28",
+        "7.0": "7.0.5"
+      },
+      "affectedBranchesNote": "DirtyFrag affects older branches than the patch floors listed; vendor backports vary.",
+      "loaders": [
+        "DirtyFrag",
+        "DFRoot",
+        "GhostSam (dirtyfrag path)",
+        "DirtyInit"
+      ],
+      "sources": [
+        "mitschud/DirtyFrag README",
+        "diabl0w/DFRoot README",
+        "MocLG/GhostSam README"
+      ],
+      "cveRecord": "https://www.cve.org/CVERecord?id=CVE-2026-43284",
+      "nvd": "https://nvd.nist.gov/vuln/detail/CVE-2026-43284",
+      "verified": "Not independently verified against CVE/NVD (CVE record lookup blocked by TLS). Source: loader documentation."
+    },
+    {
+      "id": "CVE-2026-98260",
+      "name": "98260 UAF",
+      "description": "POSIX CPU timers use-after-free (exec: Cleanup POSIX timers right after de_thread()). Used by RootMyS24's 98260 engine on One UI 9.0 / kernel 6.1.162 for Galaxy S24/S24 Ultra (CN/HK/TW), Z Flip6, and China Z Fold6. Implements a UMH pipe chain (uhexec \u2192 call_usermodehelper) without writing cred structures. Runs in a Shizuku UserService process; a failed attempt parks a zombie and the app allows one attempt per boot. Pairs with KernelSU 3.2.5 (ephemeral, --ephemeral) or 3.3.0 (experimental).",
+      "type": "Local privilege escalation (kernel)",
+      "patchFloors": {},
+      "affectedBranchesNote": "Samsung Galaxy S24 series on One UI 9.0 / kernel 6.1.162. Documented by RootMyS24; not yet in the main CVE patch-floor table used for DirtyFrag/GhostLock.",
+      "loaders": [
+        "RootMyS24"
+      ],
+      "sources": [
+        "NanoTurtle1145/root-my-s24 README (en)"
+      ],
+      "cveRecord": "https://www.cve.org/CVERecord?id=CVE-2026-98260",
+      "nvd": "https://nvd.nist.gov/vuln/detail/CVE-2026-98260",
+      "verified": "Not independently verified against CVE/NVD (CVE record lookup blocked by TLS). Source: RootMyS24 documentation."
+    },
+    {
+      "id": "CVE-2026-43499",
+      "name": "GhostLock",
+      "description": "Futex PI (Priority Inheritance) use-after-free in the Linux kernel. The pselect6 syscall copies fd_set data onto the kernel stack; combined with the futex PI waiter mechanism, a freed stack frame can be reclaimed as an rt_mutex_waiter structure. The rb-tree rebalance during PI chain walk writes controlled values to arbitrary kernel addresses. Two root paths: Path A (UMH root, C ashmem devices) and Path B (Direct PI write, fallback). A race, so retries and kernel panics are normal; a working payload is tied to the exact kernel layout. Feasibility depends on compiler PGO/LTO profiles, not just kernel version.",
+      "type": "Local privilege escalation (kernel)",
+      "patchFloors": {
+        "5.10": "5.10.261",
+        "5.15": "5.15.212",
+        "6.1": "6.1.175",
+        "6.6": "6.6.140",
+        "6.12": "6.12.86",
+        "6.18": "6.18.27",
+        "7.0": "7.0.4"
+      },
+      "affectedBranchesNote": "Linux kernel 5.7 ~ 7.1. Fixed in stable 6.1.175, 6.6.140, 6.12.86. Most Android devices remain unpatched as of September 2026. RootMyVivo GhostLock accepts 6.6 up to 6.6.139 and 6.1 up to 6.1.144; later releases carry the fix. Meta fixed GhostLock in Quest 3 incremental 52345320040100520 and Quest 3S 3697600032300610.",
+      "loaders": [
+        "GhostLock App",
+        "Root My Galaxy",
+        "Root My Pixel",
+        "RootMyVivo",
+        "ghostlock-oneplus",
+        "GhostSam (GhostLock chains)",
+        "GhostLock-Galaxy",
+        "ghostlock-a17",
+        "GhostLock-5.10",
+        "GhostLock NVIDIA Shield",
+        "GhostLock-X200",
+        "MT6989-ghostlock",
+        "ANB Root",
+        "cve-2025-21479_iqooneo8 (Adreno, distinct)",
+        "RootMyS24",
+        "Root My Device (Witaqua/tqmane)",
+        "IonStackQuest3"
+      ],
+      "sources": [
+        "JoinChang/ghostlock-oneplus README",
+        "YuKongA/ghostlock-app README + SUPPORTED_DEVICES.md",
+        "MocLG/GhostSam README",
+        "R0rt1z2/GhostLock README",
+        "cyberbalsa/GhostLock-NVIDIA-Shield-9.2.4 README",
+        "F-19-F/IonStackQuest3 README"
+      ],
+      "cveRecord": "https://www.cve.org/CVERecord?id=CVE-2026-43499",
+      "nvd": "https://nvd.nist.gov/vuln/detail/CVE-2026-43499",
+      "verified": "Not independently verified against CVE/NVD (CVE record lookup blocked by TLS). Source: loader documentation."
+    },
+    {
+      "id": "CVE-2025-21479",
+      "name": "Adreno GPU route",
+      "description": "GPU command-packet defect that lets the GPU overwrite its own page tables for physical read/write. RootMyVivo ships it for older 5.10/5.15 Snapdragon 8-class vivo and iQOO devices whose GPU firmware predates Qualcomm's June 2025 fix. Disables SELinux and spawns a root shell.",
+      "type": "Local privilege escalation (GPU/KGSL)",
+      "patchFloors": {
+        "5.10": "5.10.198",
+        "5.15": "5.15.178"
+      },
+      "affectedBranchesNote": "Qualcomm Adreno KGSL issue fixed June 2025. Devices with GPU firmware predating the fix remain vulnerable. RootMyVivo catalog maxFixedKernel: 5.15.178 / 5.10.198.",
+      "loaders": [
+        "RootMyVivo (Adreno route)",
+        "cve-2025-21479_iqooneo8"
+      ],
+      "sources": [
+        "zenyxx-xd/RootMyVivo-Payloads targets-vivo.json",
+        "Qingizi7/cve-2025-21479_iqooneo8 README"
+      ],
+      "cveRecord": "https://www.cve.org/CVERecord?id=CVE-2025-21479",
+      "nvd": "https://nvd.nist.gov/vuln/detail/CVE-2025-21479",
+      "verified": "Not independently verified against CVE/NVD (CVE record lookup blocked by TLS). Source: loader documentation."
+    }
+  ],
+  "safetySummary": {
+    "temporaryVsPermanent": "Temporary root lasts until a full reboot. KernelSU late-load, Magisk/APatch boot-image installs are permanent and need an unlocked bootloader. Do not confuse them.",
+    "shizukuIsNotRoot": "Shizuku runs a service as the shell user (UID 2000) through ADB. It is not root, though several loaders use it as a transport.",
+    "noGuarantees": "No risk-free, recovery, warranty, Knox, or Play Integrity guarantees. Strong integrity verdicts usually fail on rooted devices.",
+    "authorizedDevicesOnly": "Only use hardware you own or have explicit permission to modify. Back up data you cannot lose.",
+    "noApkHosting": "This site does not host APKs or binaries. Download from each project's own release page.",
+    "exactMatchRequired": "Match exact model, build, and uname -r. A partial match is not enough; offsets come from a specific kernel build."
+  }
+}
