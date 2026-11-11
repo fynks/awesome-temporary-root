@@ -1,0 +1,548 @@
+{
+  "$schema": "../../scripts/data-schema.json",
+  "generated": "2026-11-11",
+  "sourceNote": "Module statuses come from the upstream Temporal Root Modules List (rushiranpise/temporal-root-modules-list) and community reports. Most reports come from a single device: a Galaxy S25 SM-S931B on One UI 8.5 with Root My Galaxy. A second run on a Redmi Note 14 4G with GhostLock App covers the HyperOS modules. Treat as starting points, not device-independent results.",
+  "statuses": ["Working","Caveat","Broken","Avoid","Reported","Outdated"],
+  "modules": [
+    {
+      "id": "lsposed",
+      "name": "LSPosed",
+      "repo": "https://github.com/LSPosed/LSPosed",
+      "description": "Xposed framework",
+      "notes": "Needs a Zygisk provider. GPS can misbehave. Scope changes need a soft reboot.",
+      "status": "Working",
+      "source": "Temporal Root Modules List"
+    },
+    {
+      "id": "zygisknext",
+      "name": "ZygiskNext",
+      "repo": "https://github.com/Dr-TSNG/ZygiskNext",
+      "description": "Zygisk implementation for KernelSU",
+      "notes": "Confirmed buggy in the upstream list; stays the provider paired with the tested LSPosed row.",
+      "status": "Caveat",
+      "source": "Temporal Root Modules List"
+    },
+    {
+      "id": "vector",
+      "name": "Vector",
+      "repo": "https://github.com/JingMatrix/Vector/releases",
+      "description": "LSPosed fork",
+      "notes": "Confirmed buggy in the upstream list; keep the tested LSPosed pairing. Latest CI and canary builds previously reported working.",
+      "status": "Caveat",
+      "source": "Temporal Root Modules List"
+    },
+    {
+      "id": "adclose",
+      "name": "AdClose",
+      "repo": "https://github.com/zjyzip/AdClose",
+      "description": "Blocks ads and app limits through Xposed",
+      "notes": "",
+      "status": "Working",
+      "source": "Temporal Root Modules List"
+    },
+    {
+      "id": "adguard-certificate",
+      "name": "AdGuard Certificate",
+      "repo": "https://github.com/AdguardTeam/adguardcert",
+      "description": "HTTPS filtering certificate as a module",
+      "notes": "",
+      "status": "Working",
+      "source": "Temporal Root Modules List"
+    },
+    {
+      "id": "afwall",
+      "name": "AFWall+",
+      "repo": "https://github.com/ukanth/afwall",
+      "description": "iptables firewall app",
+      "notes": "Root app. A bad rule can cut off ADB.",
+      "status": "Working",
+      "source": "Temporal Root Modules List"
+    },
+    {
+      "id": "bindhosts",
+      "name": "bindhosts",
+      "repo": "https://github.com/bindhosts/bindhosts",
+      "description": "Systemless hosts",
+      "notes": "",
+      "status": "Working",
+      "source": "Temporal Root Modules List"
+    },
+    {
+      "id": "discover-ads-filter",
+      "name": "Discover Ads Filter",
+      "repo": "https://github.com/hxreborn/discover-ads-filter",
+      "description": "Removes ads from Google Discover",
+      "notes": "",
+      "status": "Working",
+      "source": "Temporal Root Modules List"
+    },
+    {
+      "id": "amznkiller",
+      "name": "amznkiller",
+      "repo": "https://github.com/hxreborn/amznkiller",
+      "description": "Removes Amazon app ads",
+      "notes": "",
+      "status": "Working",
+      "source": "Temporal Root Modules List"
+    },
+    {
+      "id": "facebook-app-ads-remover",
+      "name": "Facebook App Ads Remover",
+      "repo": "https://github.com/Loukious/FacebookAppAdsRemover",
+      "description": "Removes Facebook app ads",
+      "notes": "",
+      "status": "Working",
+      "source": "Temporal Root Modules List"
+    },
+    {
+      "id": "nexalloy",
+      "name": "NexAlloy",
+      "repo": "https://github.com/nexalloy/NexAlloy",
+      "description": "App modification toolkit",
+      "notes": "",
+      "status": "Working",
+      "source": "Temporal Root Modules List"
+    },
+    {
+      "id": "hma",
+      "name": "HMA",
+      "repo": "https://github.com/frknkrc44/HMA-OSS",
+      "description": "Hides apps from selected apps",
+      "notes": "Works on latest CI and canary builds. Needs a soft restart to start its service.",
+      "status": "Working",
+      "source": "Temporal Root Modules List"
+    },
+    {
+      "id": "rex",
+      "name": "Re:X",
+      "repo": "https://github.com/Xposed-Modules-Repo/one.dot.rex",
+      "description": "Xposed module for X",
+      "notes": "",
+      "status": "Working",
+      "source": "Temporal Root Modules List"
+    },
+    {
+      "id": "revancedxposed-spotify",
+      "name": "ReVancedXposed_Spotify",
+      "repo": "https://github.com/TheWinner02/ReVancedXposed_Spotify",
+      "description": "Spotify patches",
+      "notes": "",
+      "status": "Working",
+      "source": "Temporal Root Modules List"
+    },
+    {
+      "id": "wadeepdark",
+      "name": "WaDeepDark",
+      "repo": "https://github.com/Dhangofa/WaDeepDark",
+      "description": "WhatsApp theming",
+      "notes": "",
+      "status": "Working",
+      "source": "Temporal Root Modules List"
+    },
+    {
+      "id": "youtube-revanced",
+      "name": "YouTube ReVanced",
+      "repo": "https://github.com/Zy0x/YouTube-Revanced/",
+      "description": "YouTube patches",
+      "notes": "Check reports before updating.",
+      "status": "Working",
+      "source": "Temporal Root Modules List"
+    },
+    {
+      "id": "iamnotadeveloper",
+      "name": "IAmNotADeveloper",
+      "repo": "https://github.com/xfqwdsj/IAmNotADeveloper",
+      "description": "Hides developer-options state",
+      "notes": "",
+      "status": "Working",
+      "source": "Temporal Root Modules List"
+    },
+    {
+      "id": "migrate-oss",
+      "name": "Migrate-OSS",
+      "repo": "https://github.com/BaltiApps/Migrate-OSS",
+      "description": "Backup and migration",
+      "notes": "",
+      "status": "Working",
+      "source": "Temporal Root Modules List"
+    },
+    {
+      "id": "pairipfix",
+      "name": "pairipfix",
+      "repo": "https://github.com/mezo123451A/pairipfix",
+      "description": "Bypasses PairIP signature checks",
+      "notes": "",
+      "status": "Working",
+      "source": "Temporal Root Modules List"
+    },
+    {
+      "id": "update-locker",
+      "name": "Update Locker",
+      "repo": "https://github.com/Xposed-Modules-Repo/ru.mike.updatelocker/",
+      "description": "Stops selected apps from updating",
+      "notes": "",
+      "status": "Working",
+      "source": "Temporal Root Modules List"
+    },
+    {
+      "id": "zygisk-detach",
+      "name": "Zygisk Detach",
+      "repo": "https://github.com/j-hc/zygisk-detach",
+      "description": "Detaches apps from the Play Store",
+      "notes": "Needs a working Zygisk provider.",
+      "status": "Working",
+      "source": "Temporal Root Modules List"
+    },
+    {
+      "id": "corepatch",
+      "name": "CorePatch",
+      "repo": "https://github.com/LSPosed/CorePatch",
+      "description": "Disables signature verification",
+      "notes": "Confirmed buggy; soft-bootloop reports. Keep the module-disable switch reachable.",
+      "status": "Caveat",
+      "source": "Temporal Root Modules List"
+    },
+    {
+      "id": "duckusb",
+      "name": "DuckUSB",
+      "repo": "https://github.com/Bouteillepleine/DuckUSB",
+      "description": "Hides USB debugging from scoped apps",
+      "notes": "",
+      "status": "Working",
+      "source": "Temporal Root Modules List"
+    },
+    {
+      "id": "mt-manager",
+      "name": "MT Manager",
+      "repo": "https://mt2.cn/download/",
+      "description": "File manager and APK editor",
+      "notes": "Do not edit system files on a locked phone.",
+      "status": "Working",
+      "source": "Temporal Root Modules List"
+    },
+    {
+      "id": "oneui-settings-hook",
+      "name": "OneUI Settings Hook",
+      "repo": "https://github.com/HeheJuice/OneUI-Settings-Hook",
+      "description": "Adds and changes One UI settings",
+      "notes": "Samsung only.",
+      "status": "Working",
+      "source": "Temporal Root Modules List"
+    },
+    {
+      "id": "oneuix",
+      "name": "OneUIX",
+      "repo": "https://github.com/SoClear/OneUIX",
+      "description": "One UI customization",
+      "notes": "",
+      "status": "Working",
+      "source": "Temporal Root Modules List"
+    },
+    {
+      "id": "app-manager",
+      "name": "App Manager",
+      "repo": "https://github.com/Muntashirakon/AppManager",
+      "description": "Package manager and debloat tool",
+      "notes": "",
+      "status": "Working",
+      "source": "Temporal Root Modules List"
+    },
+    {
+      "id": "net-switch",
+      "name": "net-switch",
+      "repo": "https://github.com/Rem01Gaming/net-switch",
+      "description": "Network mode switching",
+      "notes": "",
+      "status": "Working",
+      "source": "Temporal Root Modules List"
+    },
+    {
+      "id": "scene",
+      "name": "Scene",
+      "repo": "https://omarea.com/",
+      "description": "Performance and battery profiles",
+      "notes": "Avoid kernel or voltage changes.",
+      "status": "Working",
+      "source": "Temporal Root Modules List"
+    },
+    {
+      "id": "frosty",
+      "name": "Frosty",
+      "repo": "https://github.com/Drsexo/Frosty",
+      "description": "Battery and Google services optimization",
+      "notes": "Buggy; possible wake-lock issues.",
+      "status": "Caveat",
+      "source": "Temporal Root Modules List"
+    },
+    {
+      "id": "viperfx-re",
+      "name": "ViPERFX_RE",
+      "repo": "https://github.com/likelikeslike/ViPERFX_RE",
+      "description": "ViPER4Android audio processing",
+      "notes": "Follow its install order; it expects KernelSU.",
+      "status": "Caveat",
+      "source": "Temporal Root Modules List"
+    },
+    {
+      "id": "enable-screenshot",
+      "name": "Enable Screenshot (Disable FLAG_SECURE)",
+      "repo": "https://modules.lsposed.org/module/io.github.lsposed.disableflagsecure/",
+      "description": "Disables FLAG_SECURE",
+      "notes": "Reboots the device on the test build.",
+      "status": "Broken",
+      "source": "Temporal Root Modules List"
+    },
+    {
+      "id": "privacyspace",
+      "name": "PrivacySpace",
+      "repo": "https://github.com/Xposed-Modules-Repo/cn.geektang.privacyspace",
+      "description": "Privacy space",
+      "notes": "Does not work.",
+      "status": "Broken",
+      "source": "Temporal Root Modules List"
+    },
+    {
+      "id": "neozygisk",
+      "name": "NeoZygisk",
+      "repo": "https://github.com/JingMatrix/NeoZygisk",
+      "description": "Zygisk provider",
+      "notes": "Reboots the device.",
+      "status": "Broken",
+      "source": "Temporal Root Modules List"
+    },
+    {
+      "id": "rezygisk",
+      "name": "ReZygisk",
+      "repo": "https://github.com/PerformanC/ReZygisk",
+      "description": "Zygisk provider",
+      "notes": "Reboots the device.",
+      "status": "Broken",
+      "source": "Temporal Root Modules List"
+    },
+    {
+      "id": "treat-wheel-zygisk",
+      "name": "Treat-Wheel-Zygisk",
+      "repo": "https://github.com/PerformanC/Treat-Wheel-Zygisk",
+      "description": "Zygisk provider",
+      "notes": "Reboots the device.",
+      "status": "Broken",
+      "source": "Temporal Root Modules List"
+    },
+    {
+      "id": "magisk",
+      "name": "Magisk",
+      "repo": "https://github.com/topjohnwu/Magisk",
+      "description": "Systemless root",
+      "notes": "Direct Install writes protected images. On a locked Samsung this has caused a permanent hardbrick and the D2 screen. Its install model assumes an unlocked bootloader; Direct Install on a locked phone is the mistake.",
+      "status": "Avoid",
+      "source": "Temporal Root Modules List"
+    },
+    {
+      "id": "konabess-next",
+      "name": "KonaBess-Next",
+      "repo": "https://github.com/KonaBess-Next/KonaBess-Next",
+      "description": "GPU voltage and clock control",
+      "notes": "Reported permanent hardbrick on the test device.",
+      "status": "Avoid",
+      "source": "Temporal Root Modules List"
+    },
+    {
+      "id": "konabess",
+      "name": "KonaBess",
+      "repo": "https://github.com/libxzr/KonaBess",
+      "description": "Older GPU modification tool",
+      "notes": "",
+      "status": "Outdated",
+      "source": "Temporal Root Modules List"
+    },
+    {
+      "id": "tailscale-module",
+      "name": "Tailscale module",
+      "repo": "https://github.com/anasfanani/magisk-tailscaled",
+      "description": "Runs Tailscale as a root service",
+      "notes": "Worked for at least one user.",
+      "status": "Reported",
+      "source": "Community report"
+    },
+    {
+      "id": "crond4android",
+      "name": "Crond4Android",
+      "repo": "https://github.com/powerAn2020/crond4android",
+      "description": "Cron daemon with a UI",
+      "notes": "",
+      "status": "Reported",
+      "source": "Community report"
+    },
+    {
+      "id": "sui",
+      "name": "Sui",
+      "repo": "https://github.com/XiaoTong6666/Sui",
+      "description": "Alternative superuser interface",
+      "notes": "Do not run alongside KernelSU without reading both projects.",
+      "status": "Reported",
+      "source": "Community report"
+    },
+    {
+      "id": "pm-install-from-anywhere",
+      "name": "pm-install-from-anywhere",
+      "repo": "https://github.com/1ndevelopment/pm-install-from-anywhere",
+      "description": "Lets pm install APKs from any path",
+      "notes": "",
+      "status": "Reported",
+      "source": "Community report"
+    },
+    {
+      "id": "capturesposed",
+      "name": "CaptureSposed",
+      "repo": "https://github.com/99keshav99/CaptureSposed",
+      "description": "Disables Android 14 screenshot detection",
+      "notes": "Conflicts with the Enable Screenshot failure report.",
+      "status": "Reported",
+      "source": "Community report"
+    },
+    {
+      "id": "hyperlink",
+      "name": "HyperLock",
+      "repo": "https://github.com/LXRylex/HyperLock",
+      "description": "HyperOS SystemUI theming (HyperDuo fork)",
+      "notes": "Tested by its author on a Redmi Note 13 Pro 4G.",
+      "status": "Reported",
+      "source": "Community report"
+    },
+    {
+      "id": "hyperceiler",
+      "name": "HyperCeiler",
+      "repo": "https://github.com/ReChronoRain/HyperCeiler",
+      "description": "HyperOS enhancement module",
+      "notes": "Reported working on a Redmi Note 14 4G, but its 'Icon in Settings' option duplicates the icon on every Settings open/close; count grows until Settings crashes.",
+      "status": "Reported",
+      "source": "Community report (Redmi Note 14 4G, GhostLock App v1.2)"
+    },
+    {
+      "id": "hyperlight",
+      "name": "HyperLight",
+      "repo": "https://github.com/KiminonawaResa/HyperLight",
+      "description": "HyperOS theming module",
+      "notes": "Reported working on a Redmi Note 14 4G, but shares the HyperCeiler 'Icon in Settings' duplication.",
+      "status": "Reported",
+      "source": "Community report (Redmi Note 14 4G, GhostLock App v1.2)"
+    },
+    {
+      "id": "fingerprint-catalogue",
+      "name": "Fingerprint Catalogue",
+      "repo": "https://github.com/Xposed-Modules-Repo/com.custombeta.fingerprintcataloge",
+      "description": "Fingerprint catalogue Xposed module",
+      "notes": "",
+      "status": "Reported",
+      "source": "Community report"
+    },
+    {
+      "id": "enable-miui-adb",
+      "name": "Enable Miui ADB",
+      "repo": "https://github.com/Ylarod/enable-miui-adb",
+      "description": "Enables adb install on MIUI without a Mi account or SIM",
+      "notes": "",
+      "status": "Reported",
+      "source": "Community report"
+    },
+    {
+      "id": "chromekt",
+      "name": "ChromeKt",
+      "repo": "https://github.com/JingMatrix/ChromeXt",
+      "description": "UserScript and DevTools support for Chromium browsers",
+      "notes": "",
+      "status": "Reported",
+      "source": "Community report"
+    },
+    {
+      "id": "tiktokpatchxposed",
+      "name": "TiktokPatchXposed",
+      "repo": "https://github.com/hik0w/TiktokPatchXposed",
+      "description": "TikTok patches for LSPosed",
+      "notes": "",
+      "status": "Reported",
+      "source": "Community report"
+    },
+    {
+      "id": "devicespooflab-hooks",
+      "name": "DeviceSpoofLab-Hooks",
+      "repo": "https://github.com/yubunus/DeviceSpoofLab-Hooks",
+      "description": "Spoofs device fingerprints and identifiers",
+      "notes": "",
+      "status": "Reported",
+      "source": "Community report"
+    },
+    {
+      "id": "hyperunlocked",
+      "name": "HyperUnlocked",
+      "repo": "https://github.com/ukriu/HyperUnlocked",
+      "description": "Unlocks high-end Xiaomi features",
+      "notes": "",
+      "status": "Reported",
+      "source": "Community report"
+    },
+    {
+      "id": "perfgame",
+      "name": "PerfGame",
+      "repo": "https://github.com/adivenxnataly/PerfGame",
+      "description": "Custom resolution and frame-rate control for games",
+      "notes": "",
+      "status": "Reported",
+      "source": "Community report"
+    },
+    {
+      "id": "play-store-adblock",
+      "name": "Play Store AdBlock",
+      "repo": "https://github.com/Xposed-Modules-Repo/eu.hxreborn.gplayadblock",
+      "description": "Google Play Store ad blocker",
+      "notes": "",
+      "status": "Reported",
+      "source": "Community report"
+    },
+    {
+      "id": "gmail-hide-ads",
+      "name": "Gmail Hide Ads",
+      "repo": "https://github.com/MrxSiN/GmailHideAds",
+      "description": "Removes sponsored rows from the Gmail app",
+      "notes": "",
+      "status": "Reported",
+      "source": "Community report"
+    },
+    {
+      "id": "hyperbackground",
+      "name": "HyperBackground",
+      "repo": "https://github.com/Solomonstery/HyperBackground",
+      "description": "Settings background hook for HyperOS 4",
+      "notes": "",
+      "status": "Reported",
+      "source": "Community report"
+    },
+    {
+      "id": "hyperisland",
+      "name": "HyperIsland",
+      "repo": "https://github.com/1812z/HyperIsland",
+      "description": "HyperOS dynamic island enhancer",
+      "notes": "",
+      "status": "Reported",
+      "source": "Community report"
+    },
+    {
+      "id": "waenhancer-x",
+      "name": "WaEnhancer X",
+      "repo": "https://github.com/WaEnhancerX/WaEnhancerX",
+      "description": "WhatsApp privacy and UI module",
+      "notes": "",
+      "status": "Reported",
+      "source": "Community report"
+    },
+    {
+      "id": "vector-sr",
+      "name": "Vector-SR",
+      "repo": "https://github.com/byemaxx/Vector-SR",
+      "description": "Xposed framework variant",
+      "notes": "",
+      "status": "Reported",
+      "source": "Community report"
+    }
+  ]
+}

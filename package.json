@@ -1,11 +1,11 @@
 {
   "name": "awesome-temporary-root",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "type": "module",
   "packageManager": "bun@1.4.4",
   "engines": {
-    "node": ">=26"
+    "node": ">=22"
   },
   "scripts": {
     "sync:readme": "node scripts/sync-readme.mjs",
@@ -13,7 +13,7 @@
     "build": "node scripts/sync-readme.mjs && astro build",
     "preview": "astro preview --host 0.0.0.0",
     "check": "astro check",
-    "lint:docs": "nimbus-docs lint"
+    "lint:docs": "nimbus-docs lint && bun run scripts/validate-data.mjs"
   },
   "dependencies": {
     "@cloudflare/nimbus-docs": "^0.19.4",

@@ -21,7 +21,13 @@ const nimbusConfig = defineNimbusConfig({
   socialImageAlt: "Awesome Temporary Root documentation preview",
   // The home page leads the sidebar; every other page joins it automatically.
   sidebar: {
-    items: ["index", { autogenerate: { collection: "docs" } }],
+    items: [
+      "index",
+      { label: "Device Explorer", link: "/explore" },
+      { label: "Tools & Managers", link: "/tools" },
+      { label: "Identify My Device", link: "/identify" },
+      { autogenerate: { collection: "docs" } },
+    ],
   },
 });
 
