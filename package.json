@@ -5,7 +5,7 @@
   "type": "module",
   "packageManager": "bun@1.4.4",
   "engines": {
-    "node": ">=22"
+    "node": ">=26"
   },
   "scripts": {
     "sync:readme": "node scripts/sync-readme.mjs",
