@@ -15,7 +15,7 @@ Root access on a locked Android bootloader, for one boot at a time.
 [![Kernels](https://img.shields.io/badge/kernels-4.9--6.12-informational?style=flat-square)](#supported-devices)
 [![GitHub stars](https://img.shields.io/github/stars/fynks/awesome-temporary-root?style=flat-square)](https://github.com/fynks/awesome-temporary-root/stargazers)
 
-[Devices](#supported-devices) · [Live tables](#live-upstream-tables) · [Tools](#tools-and-managers) · [Modules](#modules) · [Firmware & recovery](#firmware-recovery-resources) · [Research](#research-resources) · [Quick start](#quick-start) · [Troubleshooting](#troubleshooting-and-faq) · [Contributing](#contributing-and-disclaimer)
+[Devices](#supported-devices) · [Tools](#tools-and-managers) · [Modules](#modules) · [Quick start](#quick-start) · [Troubleshooting](#troubleshooting-and-faq)
 
 <sub>Verified against upstream projects and CVE records in November 2026. 73 listed targets (62 tested, 3 experimental, 5 upstream profiles, 2 community reported, 1 unverified candidate). Hardware-confirmed targets only.</sub>
 
@@ -34,7 +34,7 @@ Root access on a locked Android bootloader, for one boot at a time.
   - [Live upstream tables](#live-upstream-tables)
 - [Tools and managers](#tools-and-managers)
 - [Modules](#modules)
-- [Firmware & recovery resources](#firmware-recovery-resources)
+- [Firmware & recovery resources](#firmware--recovery-resources)
 - [Research resources](#research-resources)
 - [Quick start](#quick-start)
 - [Troubleshooting and FAQ](#troubleshooting-and-faq)
