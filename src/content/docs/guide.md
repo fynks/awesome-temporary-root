@@ -18,13 +18,13 @@ description: Device support, temporary-root basics, safety, setup, tools, module
 Root access on a locked Android bootloader, for one boot at a time.
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](https://github.com/fynks/awesome-temporary-root/blob/main/LICENSE)
-[![Listed targets](https://img.shields.io/badge/listed_targets-73-brightgreen?style=flat-square)](#supported-devices)
+[![Listed targets](https://img.shields.io/badge/listed_targets-65-brightgreen?style=flat-square)](#supported-devices)
 [![Kernels](https://img.shields.io/badge/kernels-4.9--6.12-informational?style=flat-square)](#supported-devices)
 [![GitHub stars](https://img.shields.io/github/stars/fynks/awesome-temporary-root?style=flat-square)](https://github.com/fynks/awesome-temporary-root/stargazers)
 
-[Devices](#supported-devices) · [Live tables](#live-upstream-tables) · [Tools](#tools-and-managers) · [Modules](#modules) · [Firmware & recovery](#firmware-recovery-resources) · [Research](#research-resources) · [Quick start](#quick-start) · [Troubleshooting](#troubleshooting-and-faq) · [Contributing](#contributing-and-disclaimer)
+[Devices](#supported-devices) · [Live tables](#live-upstream-tables) · [Tools](#tools-and-managers) · [Modules](#modules) · [Quick start](#quick-start) · [Troubleshooting](#troubleshooting-and-faq) · [Contributing](#contributing-and-disclaimer)
 
-<sub>Verified against upstream projects and CVE records in November 2026. 73 listed targets (62 tested, 3 experimental, 5 upstream profiles, 2 community reported, 1 unverified candidate). Hardware-confirmed targets only.</sub>
+<sub>Verified against upstream projects and CVE records in November 2026. Hardware-confirmed targets only.</sub>
 
 </div>
 
@@ -41,8 +41,6 @@ Root access on a locked Android bootloader, for one boot at a time.
   - [Live upstream tables](#live-upstream-tables)
 - [Tools and managers](#tools-and-managers)
 - [Modules](#modules)
-- [Firmware & recovery resources](#firmware-recovery-resources)
-- [Research resources](#research-resources)
 - [Quick start](#quick-start)
 - [Troubleshooting and FAQ](#troubleshooting-and-faq)
 - [Contributing and disclaimer](#contributing-and-disclaimer)
@@ -71,8 +69,6 @@ The loaders use one of these kernel bugs:
 - **Adreno GPU route (CVE-2025-21479)**: a GPU command-packet defect that lets the GPU overwrite its own page tables for physical read/write. RootMyVivo ships it for older 5.10/5.15 Snapdragon 8-class vivo and iQOO devices whose GPU firmware predates Qualcomm's June 2025 fix.
 
 A few ports use other device-specific routes, such as a vendor service on MIUI or Honor, or a fastboot-issued permissive command line. Their table row says so.
-
-RootMyS24 also uses CVE-2026-98260 (a POSIX CPU timers use-after-free) for Galaxy S24 series devices on One UI 9.0 / kernel 6.1.162. It has no published stable-kernel patch floor yet.
 
 CVE records give these patch floors. DirtyFrag and GhostLock affect older branches than the ones listed.
 
@@ -120,12 +116,8 @@ Only targets with a documented hardware run are listed, with the exact build and
 
 | Status | Meaning |
 | --- | --- |
-| <kbd>Tested</kbd> | A completed hardware run on that exact model, build, and kernel, including the full temporary-root chain where the loader provides one. |
+| <kbd>Tested</kbd> | A completed run on that exact target, including the full temporary-root chain where the loader provides one. |
 | <kbd>Experimental</kbd> | A partial, shell-only, or explicitly experimental hardware run. |
-| <kbd>Upstream profile</kbd> | The upstream project lists an exact kernel profile for this device, but no documented hardware run confirms it. A candidate, not a confirmed test. |
-| <kbd>Community reported</kbd> | A community project ships per-build tables for this series, but no hardware run is documented in this list. |
-| <kbd>Unverified candidate</kbd> | The loader has a profile for this kernel, but it is not a confirmed run on this model. |
-| <kbd>Deprecated/unavailable</kbd> | The upstream project or loader is archived, removed, or no longer distributed. |
 
 Match the full kernel release your phone reports. Two phones on the same Android release can differ in kernel build, page size, and vendor hardening, so a partial match is not enough.
 
@@ -631,37 +623,6 @@ Do not install LSPosed, a Zygisk provider, three Xposed modules, and a kernel tw
 If a loader offers autorun, leave it off until the module set is known good: autorun plus a bootlooping module re-runs the failure on every boot. Grant root per app and revoke it when the session ends.
 
 Indexes for finding modules: the [LSPosed module repository](https://modules.lsposed.org/) and [MMRL](https://github.com/MMRLApp/MMRL). Neither tests for late-load compatibility.
-
-[↑ Back to contents](#contents)
-
----
-
-## Firmware & recovery resources
-
-Temporary root does not replace recovery or flash a boot image, but every loader needs the stock kernel and boot artifacts to build offsets. Use these only to obtain your own device's firmware for offset extraction or recovery — never to distribute proprietary images.
-
-| Resource | What it provides | Notes |
-| --- | --- | --- |
-| [Samsung Firmware (SamFw)](https://github.com/SamsungFirmware/Server) | Stock Samsung firmware by model/CSC | Source for boot.img/xbl_config.img used by GhostLock offset extraction |
-| [Odin](https://odindownload.com/) | Samsung flash tool | Restore signed stock firmware if download mode still works |
-| [Google Pixel factory images](https://developers.google.com/android/images) | Official Pixel factory images | Boot.img for Pixel KMI/offset derivation |
-| [vivo boot.img sources](https://github.com/zenyxx-xd/RootMyVivo-Payloads) | RootMyVivo payload catalog | Exact kernel builds per vivo/iQOO model |
-| [NVIDIA Shield firmware](https://developer.nvidia.com/shield-download) | Shield Experience images | mdarcy 9.2.4 target image |
-
-> Firmware images are proprietary. Download them only from the vendor or the project that distributes them, and only for devices you own. This site does not host or mirror any firmware, boot image, or APK.
-
-## Research resources
-
-Primary sources for temporary-root research. These document the exploits, offsets, and porting workflows — they are not root tools themselves.
-
-| Resource | What it covers |
-| --- | --- |
-| [NebuSec IonStack (CyberMeowfia)](https://github.com/NebuSec/CyberMeowfia) | Original IonStack PoC for CVE-2026-43499 (GhostLock) |
-| [GhostLock App porting guide](https://github.com/YuKongA/ghostlock-app/blob/main/docs/kernel_profiles/README.md) | Kernel profile porting, `uname -r` matching, MediaTek `kernel_phys_load`/`kernel_phys_offset` |
-| [Root My Galaxy payload notes](https://github.com/BuSung-dev/Root-My-Galaxy-Payloads) | Samsung per-build offsets and payload structure |
-| [ghostlock-oneplus offset extraction](https://github.com/JoinChang/ghostlock-oneplus) | `extract_target.py`, `extract_btf.py`, stack-layout feasibility |
-| [DirtyFrag / DFRoot](https://github.com/diabl0w/DFRoot) | DirtyFrag (CVE-2026-43284) technique and page-cache write primitive |
-| [CVE records](https://www.cve.org/) | CVE-2026-43284, CVE-2026-43499, CVE-2025-21479, CVE-2026-98260 |
 
 [↑ Back to contents](#contents)
 
