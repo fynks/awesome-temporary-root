@@ -17,8 +17,6 @@ Root access on a locked Android bootloader, for one boot at a time.
 
 [Devices](#supported-devices) · [Tools](#tools-and-managers) · [Modules](#modules) · [Quick start](#quick-start) · [Troubleshooting](#troubleshooting-and-faq)
 
-<sub>Verified against upstream projects and CVE records in November 2026. 73 listed targets (62 tested, 3 experimental, 5 upstream profiles, 2 community reported, 1 unverified candidate). Hardware-confirmed targets only.</sub>
-
 </div>
 
 ## Contents
