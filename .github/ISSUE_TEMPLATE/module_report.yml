@@ -24,11 +24,11 @@ body:
     attributes:
       label: Observed outcome
       options:
-        - "🟢 Working"
-        - "🟡 Caveat — buggy in some cases"
-        - "🟠 Caveat — buggy on some devices"
-        - "🔴 Avoid — confirmed buggy"
-        - "? Needs testing"
+        - Working
+        - Occasional issues
+        - Device-dependent
+        - Not recommended
+        - Needs testing
     validations:
       required: true
   - type: textarea

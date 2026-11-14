@@ -40,7 +40,7 @@ Use **not supplied** or **unknown** for missing information. Never guess a kerne
 - **Maintainer Verified** — reserved for a hardware result supplied or directly confirmed by a maintainer of this repository, with a linked report. If the maintainer's confirmation omits environment details, mark them **not supplied** and limit the claim to that confirmation. It is not a security audit or a guarantee for other builds.
 - **User Reported** — a community result that this repository's maintainer has not independently verified. Merging a report does not promote it to Maintainer Verified.
 - **Tested**, **Experimental**, and module outcome labels describe the result, not who verified it. An upstream maintainer's test is not automatically a test by this repository's maintainer.
-- Current module/app ratings use **Working**, **Caveat** (yellow/orange), **Avoid** (red), and **Needs testing** (?). Keep the rating separate from provenance; a green community entry remains User Reported.
+- Module/app statuses are text labels: **Working**, **Occasional issues**, **Device-dependent**, **Not recommended**, and **Needs testing**. Keep status separate from provenance; community entries remain User Reported.
 - Profiles, generated offsets, shared kernel strings, and model aliases are candidates until a hardware result supports them. Preserve unavailable/deprecated history rather than presenting an old download as current.
 
 Do not self-assign Maintainer Verified. Keep disputes and missing evidence visible until a maintainer reviews them.
