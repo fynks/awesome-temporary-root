@@ -15,7 +15,7 @@ Root access on a locked Android bootloader, for one boot at a time.
 [![Kernels](https://img.shields.io/badge/kernels-4.9--6.12-informational?style=flat-square)](#supported-devices)
 [![GitHub stars](https://img.shields.io/github/stars/fynks/awesome-temporary-root?style=flat-square)](https://github.com/fynks/awesome-temporary-root/stargazers)
 
-[Devices](#supported-devices) · [Tools](#tools-and-managers) · [Modules](#modules) · [Quick start](#quick-start) · [Troubleshooting](#troubleshooting-and-faq)
+[**Jump to Devices ⤓**](#supported-devices)
 
 </div>
 
