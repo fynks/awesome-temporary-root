@@ -1,0 +1,49 @@
+name: Module report
+description: Report a module's behavior under temporary root.
+title: "[Module]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Report exact versions and conditions. A normal boot-time root result does not verify late-load compatibility. See [CONTRIBUTING.md](https://github.com/fynks/awesome-temporary-root/blob/main/CONTRIBUTING.md).
+  - type: input
+    id: module
+    attributes:
+      label: Module name, version, and upstream URL
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Test environment
+      description: Device/model, full firmware build, Android version, full kernel release, loader/version, manager/version, and required providers or other modules.
+    validations:
+      required: true
+  - type: dropdown
+    id: outcome
+    attributes:
+      label: Observed outcome
+      options:
+        - Working
+        - Occasional issues
+        - Device-dependent
+        - Not recommended
+        - Needs testing
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Steps, evidence, and limitations
+      description: Include setup order, soft/full reboot behavior, the feature tested, and a redacted log or linked report. Do not claim support for versions you did not test.
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I tested under temporary root on hardware I own or am authorized to modify, and removed personal data.
+          required: true
+        - label: I understand this is a user report, not Maintainer Verified.
+          required: true

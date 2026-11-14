@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Loader bugs and device-port requests
+    url: https://github.com/fynks/awesome-temporary-root#tools-and-managers
+    about: Find the loader's upstream project and use its issue tracker. Porting is out of scope here.
+  - name: Contribution and evidence guide
+    url: https://github.com/fynks/awesome-temporary-root/blob/main/CONTRIBUTING.md
+    about: Read the reporting rules before opening an issue or pull request.

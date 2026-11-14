@@ -7,16 +7,16 @@ import { tableScroll } from "@cloudflare/nimbus-docs/markdown";
 import { githubAlerts } from "./src/lib/github-alerts";
 
 const nimbusConfig = defineNimbusConfig({
-  // CHANGE_ME: your site's canonical origin (no trailing slash). Drives
+  // CHANGE_ME: your site's canonical origin, with no trailing slash. It drives
   // canonical URLs, absolute OG image URLs, robots.txt, sitemap, and the
-  // links in /llms.txt — leaving the placeholder breaks all of them.
+  // links in /llms.txt. Leaving the placeholder breaks all of them.
   site: "https://awesome-temporary-root.pages.dev",
-  // CHANGE_ME: your project's name — used for <title>, the home H1, and OG.
+  // CHANGE_ME: your project's name. Used for <title>, the home H1, and OG.
   title: "Awesome Temporary Root",
-  // CHANGE_ME: a one-line description of your docs — used for meta + OG.
-  description: "Hardware-confirmed temporary-root targets, tools, modules, setup, and safety guidance for Android devices.",
+  // CHANGE_ME: a one-line description of your docs. Used for meta + OG.
+  description: "Temporary-root device reports, tools, modules, setup, and safety guidance for Android devices.",
   locale: "en",
-  // CHANGE_ME: your repository — shown as the GitHub link in the header.
+  // CHANGE_ME: your repository. Shown as the GitHub link in the header.
   github: "https://github.com/fynks/awesome-temporary-root",
   socialImageAlt: "Awesome Temporary Root documentation preview",
   // The home page leads the sidebar; every other page joins it automatically.
@@ -28,9 +28,9 @@ const nimbusConfig = defineNimbusConfig({
 export default defineConfig({
   // nimbus:adapter
   output: "static",
-  // Tailwind v4 via its Vite plugin (the integration Astro recommends for
-  // Tailwind v4 — replaces the PostCSS plugin, which doesn't build under
-  // Astro 7's Vite 8 bundler).
+  // Tailwind v4 via its Vite plugin. This is the integration Astro recommends
+  // for Tailwind v4. It replaces the PostCSS plugin, which does not build under
+  // Astro 7's Vite 8 bundler.
   vite: {
     plugins: [tailwindcss()],
   },
@@ -42,12 +42,11 @@ export default defineConfig({
   },
   integrations: [
     nimbus(nimbusConfig, {
-      // Authoring rules are opt-in by design — your repo, your taste. The
-      // two below are the load-bearing pair: frontmatter has to validate
-      // against the content schema for the page to render properly, and
-      // broken internal links are 404s for your readers. Add the others
-      // (heading hierarchy, code-block language, style, etc.) when you're
-      // ready to enforce them — see `nimbus-docs lint --help`.
+      // Authoring rules are opt-in. The two below matter most: frontmatter
+      // must validate against the content schema for the page to render, and
+      // broken internal links become 404s. Add the others, such as heading
+      // hierarchy, code-block language, and style, when you want to enforce
+      // them. See `nimbus-docs lint --help`.
       rules: {
         "nimbus/frontmatter-shape": "error",
         "nimbus/internal-link": "error",
@@ -59,8 +58,8 @@ export default defineConfig({
         // `.nb-alert` in the same file).
         hastPlugins: [githubAlerts(), tableScroll()],
         // `## Install {#install}` gives a heading a fixed id. A heading that
-        // ends in other `{…}` text, such as `{account_id}` in a .md file, is
-        // read as attributes too; remove this to keep it as text.
+        // ends in other `{...}` text, such as `{account_id}` in a .md file, is
+        // read as attributes too. Remove this to keep it as text.
         features: { headingAttributes: true },
       },
     }),

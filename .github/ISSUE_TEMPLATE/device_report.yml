@@ -1,0 +1,57 @@
+name: Device report
+description: Report a temporary-root result for an exact device and firmware build.
+title: "[Device]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Results belong here. Requests to port a loader do not. Use the loader's upstream tracker for porting and loader bugs. See [CONTRIBUTING.md](https://github.com/fynks/awesome-temporary-root/blob/main/CONTRIBUTING.md).
+  - type: input
+    id: device
+    attributes:
+      label: Device, model/codename, and region
+      placeholder: "Redmi Note 13 4G, sapphire, Global"
+    validations:
+      required: true
+  - type: textarea
+    id: firmware
+    attributes:
+      label: Exact firmware and kernel
+      description: Include the full build, Android/vendor OS, security patch, full uname -r, and page size. Write unknown if unavailable. Do not guess.
+      placeholder: "Build: ...\nAndroid / vendor OS: ...\nSecurity patch: YYYY-MM-DD\nKernel: ...\nPage size: ..."
+    validations:
+      required: true
+  - type: textarea
+    id: tools
+    attributes:
+      label: Loader, manager, and method
+      description: Link the loader and include its version, manager name/version, and exploit method.
+      placeholder: "Loader URL/version: ...\nManager/version: ...\nMethod: ..."
+    validations:
+      required: true
+  - type: dropdown
+    id: outcome
+    attributes:
+      label: Observed outcome
+      options:
+        - Successful temporary root
+        - Partial / shell-only / experimental
+        - Failed
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence and limitations
+      description: Describe verification (for example su -c id), retries, reboots, and side effects. Link upstream support or attach a redacted log tail; logs are especially important for failures.
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I searched existing reports and used hardware I own or am authorized to test.
+          required: true
+        - label: I removed personal data and understand this is a user report, not Maintainer Verified.
+          required: true
