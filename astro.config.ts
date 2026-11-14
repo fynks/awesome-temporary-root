@@ -14,7 +14,7 @@ const nimbusConfig = defineNimbusConfig({
   // CHANGE_ME: your project's name — used for <title>, the home H1, and OG.
   title: "Awesome Temporary Root",
   // CHANGE_ME: a one-line description of your docs — used for meta + OG.
-  description: "Hardware-confirmed temporary-root targets, tools, modules, setup, and safety guidance for Android devices.",
+  description: "Temporary-root device reports, tools, modules, setup, and safety guidance for Android devices.",
   locale: "en",
   // CHANGE_ME: your repository — shown as the GitHub link in the header.
   github: "https://github.com/fynks/awesome-temporary-root",

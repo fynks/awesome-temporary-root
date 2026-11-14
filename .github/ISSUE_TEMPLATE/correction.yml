@@ -1,0 +1,27 @@
+name: Correction
+description: Flag a stale status, broken link, or inaccurate documentation.
+title: "[Correction]: "
+body:
+  - type: input
+    id: location
+    attributes:
+      label: Affected entry or page
+      description: Link the README section, guide page, or table row.
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: Current claim and proposed correction
+    validations:
+      required: true
+  - type: textarea
+    id: source
+    attributes:
+      label: Primary source
+      description: Link the upstream README, support table, release, CVE record, or hardware report. Include the date checked for changing information.
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: "Small, sourced fixes can go directly to a PR. Edit README.md and run `npm run sync:readme`; do not hand-edit the generated guide. Device-port requests are out of scope."

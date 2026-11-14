@@ -4,8 +4,8 @@
  * The guide page is generated, never hand-edited. Every `dev` and `build`
  * run regenerates it, so a deploy can never ship README content from a
  * previous commit. Only a few display-only paths are rewritten (GitHub's
- * repo-relative asset paths and the LICENSE link) so the same Markdown
- * renders correctly in both places. GitHub alert blockquotes (`> [!TIP]`)
+ * repo-relative asset paths and the LICENSE/CONTRIBUTING links) so the same
+ * Markdown renders correctly in both places. GitHub alert blockquotes (`> [!TIP]`)
  * stay in the source; src/lib/github-alerts.ts turns them into callouts
  * when the page is rendered.
  */
@@ -29,6 +29,8 @@ const body = readme
   .replaceAll("docs/public/images/", "/images/")
   .replaceAll("](LICENSE)", "](https://github.com/fynks/awesome-temporary-root/blob/main/LICENSE)")
   .replaceAll("](./LICENSE)", "](https://github.com/fynks/awesome-temporary-root/blob/main/LICENSE)")
+  .replaceAll("](CONTRIBUTING.md)", "](https://github.com/fynks/awesome-temporary-root/blob/main/CONTRIBUTING.md)")
+  .replaceAll("](./CONTRIBUTING.md)", "](https://github.com/fynks/awesome-temporary-root/blob/main/CONTRIBUTING.md)")
   .trimStart()
   .replace(/\s*$/, "\n");
 
