@@ -11,7 +11,7 @@
 Root access on a locked Android bootloader, for one boot at a time.
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
-[![Listed entries](https://img.shields.io/badge/listed_entries-70-brightgreen?style=flat-square)](#supported-devices)
+[![Listed entries](https://img.shields.io/badge/listed_entries-71-brightgreen?style=flat-square)](#supported-devices)
 [![Kernels](https://img.shields.io/badge/kernels-4.9--6.12-informational?style=flat-square)](#supported-devices)
 [![GitHub stars](https://img.shields.io/github/stars/fynks/awesome-temporary-root?style=flat-square)](https://github.com/fynks/awesome-temporary-root/stargazers)
 
@@ -227,7 +227,7 @@ Root My Pixel reports the exploit is unreliable: many users needed more than 20 
 [ghostlock-oneplus](https://github.com/JoinChang/ghostlock-oneplus) is the main loader for OnePlus and OPPO builds. The OnePlus Pad 3 uses a dedicated Root My Device build, and the Realme GT 7T has its own port.
 
 <details>
-<summary>Click to show <strong>9 OnePlus, OPPO, and Realme entries</strong></summary>
+<summary>Click to show <strong>10 OnePlus, OPPO, and Realme entries</strong></summary>
 
 <br>
 
@@ -242,8 +242,9 @@ Root My Pixel reports the exploit is unreliable: many users needed more than 20 
 | OPPO Pad 4 Pro<br><kbd>Tested</kbd> | n/a | `6.6.89-android15-8-g096cdb6ecefc-ab14358676-4k`<br>Loader: ghostlock-oneplus |
 | OnePlus Pad 3<br><kbd>Tested</kbd> | OPD2415 | `OPD2415_16.0.9.400(EX01)`, `6.6.118-android15-8-g2e6b9c3812c5-ab15114928-4k`<br>Loader: [Root My Device (tqmane)](https://github.com/tqmane/Root-My-Device) |
 | Realme GT 7T<br><kbd>Tested</kbd> | RMX5085 | `6.6.118-android15-8`<br>Loader: [ghostlock-rmx5085](https://github.com/Nixbones/ghostlock-rmx5085) |
+| Realme Note 50<br><kbd>User Reported</kbd> | RMX3834export / RE5C9F | Android 15; fingerprint `realme/RMX3834/RE5C9F:15/AP3A.240905.015.A2/T.R4T2.1784276895:user/release-keys`; security patch `2026-07-01`; `5.15.189-android13-8-g746e08b68bca-ab1`<br>KernelSU LKM `v3.3.1 (32680-5)`; SELinux Enforcing; Seccomp Filter<br>Loader: DirtyFrag (CVE-2026-43284); app fork/version not supplied |
 
-[Live table: ghostlock-oneplus verified devices](https://github.com/JoinChang/ghostlock-oneplus#supported-devices) · [not-feasible layouts](https://github.com/JoinChang/ghostlock-oneplus#not-feasible-stack-layout-incompatible) · [Root My Device OnePlus Pad 3](https://github.com/tqmane/Root-My-Device/blob/main/devices/oneplus-pad-3/README.md#supported-target)
+[User report: Realme Note 50](https://github.com/fynks/awesome-temporary-root/pull/10) · [Live table: ghostlock-oneplus verified devices](https://github.com/JoinChang/ghostlock-oneplus#supported-devices) · [not-feasible layouts](https://github.com/JoinChang/ghostlock-oneplus#not-feasible-stack-layout-incompatible) · [Root My Device OnePlus Pad 3](https://github.com/tqmane/Root-My-Device/blob/main/devices/oneplus-pad-3/README.md#supported-target)
 
 </details><br>
 
@@ -255,6 +256,8 @@ Root My Pixel reports the exploit is unreliable: many users needed more than 20 
 - The PLK110 OnePlus 15 entry is the Android 17 Beta 3 kernel. A stable build with a different kernel is not covered.
 - OnePlus 13 `IN2060` and OPPO Pad 4 Pro use a different root path (UMH).
 - ghostlock-oneplus also has offsets for devices it has not tested, and a list of devices its layout cannot support. Check both before you try a build.
+- The Realme Note 50 entry is a user report, not a maintainer verification. The title says `RMX3834export`; the manager screenshot reports `realme RMX3834`, and the fingerprint supplies `RE5C9F`. The DirtyFrag app fork/version was not supplied.
+- A post-OTA follow-up in the same report says root still worked and shows Android 16 (36), manager `v3.4.2-spoofed (33355-5)`, Tracepoint hook mode, Hybrid Mount `6.2.6-rc.4`, SuSFS `v2.3.0 (GKI)`, and Zygisk Next `1.5.2 (864-a4a72ce-release)`. Its kernel transcription (`5.15.180-android13-8-00004-gbl7f7albdf1l-abl3 511974`) has ambiguous characters/spacing, and no post-OTA fingerprint or security patch was supplied. Treat it as a separate, unconfirmed build; the Android 15 row does not cover it.
 
 </details>
 
@@ -536,7 +539,7 @@ Samsung's DEFEX path rules and KDP add another way for a module that works on a 
 
 | Status | Meaning |
 | --- | --- |
-| **Maintainer Verified** | A result supplied or directly confirmed by this repository's maintainer, with a linked report and exact test environment. |
+| **Maintainer Verified** | A result supplied or directly confirmed by this repository's maintainer, with a linked report. Missing environment details must be stated explicitly and limit the claim. |
 | **User Reported** | A linked community result not independently verified by this repository's maintainer. |
 | **Working** | Reported working on temporary root by the [upstream module list](https://github.com/rushiranpise/temporal-root-modules-list) or a community test; an outcome label, not maintainer verification. |
 | **Caveat** | Works with a known bug, instability, or setup requirement. |
@@ -544,15 +547,16 @@ Samsung's DEFEX path rules and KDP add another way for a module that works on a 
 | **Avoid** | Known hardbrick or serious failure on a locked device. |
 | **Outdated** | Superseded or unmaintained. |
 
-The [upstream list](https://github.com/rushiranpise/temporal-root-modules-list) is the maintained source; the tables below summarize it. Most reports come from one device: a Galaxy S25 `SM-S931B` on One UI 8.5 with Root My Galaxy. A second run on a Redmi Note 14 4G with GhostLock App covers the HyperOS modules below. Treat them as starting points, not device-independent results. Unless explicitly marked **Maintainer Verified**, these are upstream or **User Reported** results; the outcome labels below do not change their provenance.
+The [upstream list](https://github.com/rushiranpise/temporal-root-modules-list) is the maintained source; the tables below summarize it. Most reports come from one device: a Galaxy S25 `SM-S931B` on One UI 8.5 with Root My Galaxy. A second run on a Redmi Note 14 4G with GhostLock App covers the HyperOS modules below, and a third user report covers a Realme Note 50 on DirtyFrag. Treat them as starting points, not device-independent results. Unless explicitly marked **Maintainer Verified**, these are upstream or **User Reported** results; the outcome labels below do not change their provenance.
 
 ### Working or caveated
 
 | Module | What it does and notes | Status |
 | --- | --- | --- |
 | [LSPosed](https://github.com/LSPosed/LSPosed) | Xposed framework<br>Upstream reports occasional GPS problems. A compatible Zygisk provider is required; no particular provider pairing is verified by this repository. | Working |
-| [ZygiskNext](https://github.com/Dr-TSNG/ZygiskNext) | Zygisk implementation for KernelSU<br>Marked buggy in the upstream list, which recommends LSPosed instead. Keep a recovery path before testing a provider. | Caveat |
-| [Vector](https://github.com/JingMatrix/Vector/releases) | LSPosed fork<br>Marked buggy in the upstream list, which recommends LSPosed. Reports about CI/canary builds are version-specific, not a guarantee for the current release. | Caveat |
+| [ZygiskNext](https://github.com/Dr-TSNG/ZygiskNext) | Zygisk implementation for KernelSU<br>Marked buggy in the upstream list. A post-OTA Realme Note 50 screenshot shows Zygisk Next `1.5.2 (864-a4a72ce-release)` enabled, but the exact post-OTA build is not confirmed. Keep a recovery path. | Caveat |
+| [NeoZygisk](https://github.com/JingMatrix/NeoZygisk) | Zygisk implementation<br>Repository maintainer confirms it works. Module version, device, firmware, and loader were not supplied; do not generalize. The upstream module list still carries a reboot report from another setup. | Maintainer Verified |
+| [Vector](https://github.com/JingMatrix/Vector/releases) | LSPosed fork<br>Marked buggy in the upstream list. The Realme Note 50 reporter tested `v2.2` on the initial Android 15 run but warned that Vector/LSPosed may cause a bootloop. Treat the result as version/setup-specific. | Caveat |
 | [AdClose](https://github.com/zjyzip/AdClose) | Blocks ads and app limits through Xposed | Working |
 | [AdGuard Certificate](https://github.com/AdguardTeam/adguardcert) | HTTPS filtering certificate as a module | Working |
 | [AFWall+](https://github.com/ukanth/afwall) | iptables firewall app<br>Root app. A bad rule can cut off ADB. | Working |
@@ -560,7 +564,7 @@ The [upstream list](https://github.com/rushiranpise/temporal-root-modules-list) 
 | [Discover Ads Filter](https://github.com/hxreborn/discover-ads-filter) | Removes ads from Google Discover | Working |
 | [amznkiller](https://github.com/hxreborn/amznkiller) | Removes Amazon app ads | Working |
 | [Facebook App Ads Remover](https://github.com/Loukious/FacebookAppAdsRemover) | Removes Facebook app ads | Working |
-| [NexAlloy](https://github.com/NexAlloy/NexAlloy) | App modification toolkit | Working |
+| [NexAlloy](https://github.com/NexAlloy/NexAlloy) | App modification toolkit<br>The Realme Note 50 reporter tested `v2.0.112` as an LSPosed module. | Working |
 | [Re:X](https://github.com/Xposed-Modules-Repo/one.dot.rex) | Xposed module for X | Working |
 | [ReVancedXposed_Spotify](https://github.com/TheWinner02/ReVancedXposed_Spotify) | Spotify patches | Working |
 | [WaDeepDark](https://github.com/Dhangofa/WaDeepDark) | WhatsApp theming | Working |
@@ -587,11 +591,9 @@ The [upstream list](https://github.com/rushiranpise/temporal-root-modules-list) 
 | --- | --- | --- |
 | [Enable Screenshot (Disable FLAG_SECURE)](https://modules.lsposed.org/module/io.github.lsposed.disableflagsecure/) | Reboots the device on the test build. | Broken |
 | [PrivacySpace](https://github.com/Xposed-Modules-Repo/cn.geektang.privacyspace) | Does not work. | Broken |
-| [NeoZygisk](https://github.com/JingMatrix/NeoZygisk) | Reboots the device. | Broken |
-| [ReZygisk](https://github.com/PerformanC/ReZygisk) | Reboots the device. | Broken |
 | [Treat-Wheel-Zygisk](https://github.com/PerformanC/Treat-Wheel-Zygisk) | Reboots the device. | Broken |
 
-LSPosed remains the working base, but every standalone Zygisk provider or LSPosed fork in this table now carries a bug or reboot report upstream: NeoZygisk, ReZygisk, and Treat-Wheel-Zygisk reboot the phone, and ZygiskNext and Vector are flagged buggy. Do not swap providers "for stability" without current evidence.
+Treat-Wheel-Zygisk still carries an upstream reboot report. NeoZygisk is maintainer-verified with an unspecified environment; ReZygisk has conflicting user and upstream reports; ZygiskNext and Vector remain caveated. Do not swap providers "for stability" without current evidence and a recovery path.
 
 ### Avoid on a locked phone
 
@@ -607,6 +609,16 @@ The Magisk entry does not mean Magisk is malware. Its install model assumes an u
 
 | Module | What it does and notes | Status |
 | --- | --- | --- |
+| [ReZygisk](https://github.com/PerformanC/ReZygisk) | Zygisk implementation<br>The initial Realme Note 50 report used it successfully; version not supplied. The upstream list reports reboots on another setup, and the post-OTA screenshot shows Zygisk Next instead. | User Reported |
+| [AshReXcue / AshLooper](https://github.com/RipperHybrid/AshLooper) | Bootloop protector<br>Realme Note 50 report lists `v10.1`. Late-load KernelSU lacks early boot events, so do not assume it can recover every bootloop. | User Reported |
+| [Block OTA Update](https://github.com/manhgdev/Block-OTA-Update) | OTA blocker<br>Realme Note 50 report says `v7.3` did not disable OTA because the phone was detected as an Oppo device. The reporter tested a [RMX3834 fork](https://github.com/tranducquy0/Block-OTA-Update). | User Reported |
+| [KernelSU Tuner](https://github.com/ylh440104/KernelSU-Tuner) | Kernel parameter tuner<br>Realme Note 50 report lists `v3.5.9`. Avoid voltage/clock changes on a locked device. | User Reported |
+| [KSU Grant Toast](https://github.com/NativeStar/ksuGrantToast) | Root-grant toast<br>Realme Note 50 report lists `v2.4`; upstream releases checked here expose `v2.2` as the latest named release, so the reported version is not upstream-matched. | User Reported |
+| [QuickSwitch fork](https://github.com/skittles9823/QuickSwitch) | Quickstep launcher enabler<br>Realme Note 50 report lists fork `v4.0.4f`; the fork URL was not supplied. Upstream QuickSwitch releases checked here stop at `4.0.3`. | User Reported |
+| [ClearBox](https://github.com/FLYCOM-E/ClearBox) | Cleaning/optimization module<br>Realme Note 50 report lists `v5.2.1`. | User Reported |
+| [StevenBlock](https://github.com/mikropsoft/StevenBlock) | Ad-blocking module<br>Realme Note 50 report lists `v2.0`. | User Reported |
+| [TrustAnyCert](https://github.com/gorkemgun/TrustAnyCert) | System CA certificate installer<br>Realme Note 50 report lists `v1.0`. Installing CA certificates changes trust; understand the security impact. | User Reported |
+| [Global Icon Pack](https://github.com/RichardLuo0/global-icon-pack-android) | Global icon-pack Xposed module<br>Realme Note 50 report lists `v0.6.2` under the tested LSPosed modules. | User Reported |
 | [HMA](https://github.com/frknkrc44/HMA-OSS) | Hides apps from selected apps<br>[Upstream issue #130](https://github.com/frknkrc44/HMA-OSS/issues/130) reports OSS-166's service does not activate in late-load mode. A modified third-party fork had partial success with broken features; it is not an endorsed replacement. Current releases need a new late-load test. | User Reported |
 | [Tailscale module](https://github.com/anasfanani/magisk-tailscaled) | Runs Tailscale as a root service<br>Worked for at least one user. | User Reported |
 | [Crond4Android](https://github.com/powerAn2020/crond4android) | Cron daemon with a UI | User Reported |
@@ -630,7 +642,9 @@ The Magisk entry does not mean Magisk is malware. Its install model assumes an u
 | [WaEnhancer X](https://github.com/WaEnhancerX/WaEnhancerX) | WhatsApp privacy and UI module | User Reported |
 | [Vector-SR](https://github.com/byemaxx/Vector-SR) | Xposed framework variant | User Reported |
 
-The other module rows in this section come from a single user-reported run: 18 modules on a Redmi Note 14 4G (24117RN76L) running Android 16 on kernel `6.12.30-android16-5-g6e872b4863d6-ab13847919-4k`, with GhostLock App v1.2 and KernelSU v3.3.1. The reporter saw no major failures. The one exception was the "Icon in Settings" option in HyperCeiler and HyperLight: with both enabled, each open and close of Settings adds another copy of each module's icon, and the count grows until Settings crashes. The modules' own changes survive the crash, and turning off "Icon in Settings" in both modules avoids it. Treat these rows as one report, not a reproduced result.
+The HyperOS-specific rows above come from a single user-reported run: 18 modules on a Redmi Note 14 4G (24117RN76L) running Android 16 on kernel `6.12.30-android16-5-g6e872b4863d6-ab13847919-4k`, with GhostLock App v1.2 and KernelSU v3.3.1. The reporter saw no major failures. The one exception was the "Icon in Settings" option in HyperCeiler and HyperLight: with both enabled, each open and close of Settings adds another copy of each module's icon, and the count grows until Settings crashes. The modules' own changes survive the crash, and turning off "Icon in Settings" in both modules avoids it. Treat these rows as one report, not a reproduced result.
+
+The Realme Note 50 module rows come from one user report: an initial Android 15 / KernelSU LKM `v3.3.1` run using ReZygisk, followed by an OTA screenshot showing a different Android 16 setup with Zygisk Next. The reporter also listed Vector `v2.2`, NexAlloy `v2.0.112`, and Global Icon Pack `v0.6.2` as tested. These are not reproduced results, and the post-OTA build is not exact-match confirmed.
 
 ### Reducing module risk
 
@@ -901,7 +915,7 @@ This is a community-maintained index. It does not develop, audit, or guarantee t
 - Device and profile sources: [Root My Galaxy payloads](https://github.com/BuSung-dev/Root-My-Galaxy-Payloads), [GhostLock App supported devices](https://github.com/YuKongA/ghostlock-app/blob/main/docs/kernel_profiles/SUPPORTED_DEVICES.md), [RootMyVivo catalog](https://github.com/zenyxx-xd/RootMyVivo-Payloads/blob/main/support/targets-vivo.json), [Root My Device payloads](https://github.com/WitAqua-tools/Root-My-Device-Payloads), [Root My Device project](https://github.com/tqmane/Root-My-Device).
 - Loader documentation: [ghostlock-oneplus](https://github.com/JoinChang/ghostlock-oneplus), [GhostSam](https://github.com/MocLG/GhostSam), [GhostLock-Galaxy](https://github.com/wxxsfxyzm/GhostLock-Galaxy), [R0rt1z2/GhostLock branches](https://github.com/R0rt1z2/GhostLock/branches), [GhostLock NVIDIA Shield](https://github.com/cyberbalsa/GhostLock-NVIDIA-Shield-9.2.4), [ghostlock-a17](https://github.com/mobilehackinglab/ghostlock-a17), [ghostlock-s26](https://github.com/snothin/ghostlock-s26), [GhostLock-X200](https://github.com/xiaohj233/ghostlock-x200-root), [ANB Root](https://github.com/Chuniex-0631/honor-anb-an00-root), [cve-2025-21479_iqooneo8](https://github.com/Qingizi7/cve-2025-21479_iqooneo8), [redmik70pro](https://github.com/Berge520/redmik70pro).
 - Module status: [Temporal Root Modules List](https://github.com/rushiranpise/temporal-root-modules-list), [XDA testing thread, now closed](https://xdaforums.com/t/list-of-modules-working-on-temporal-root.4796105/).
-- Maintainer report: [Redmi Note 13 4G (sapphire), DirtyFrag](https://github.com/fynks/awesome-temporary-root/issues/9#issuecomment-6871968996).
-- User reports: [Redmi Note 14 4G compatibility report](https://github.com/fynks/awesome-temporary-root/issues/6) (GhostLock v1.2, 18 modules tested).
+- Maintainer reports: [Redmi Note 13 4G (sapphire), DirtyFrag](https://github.com/fynks/awesome-temporary-root/issues/9#issuecomment-6871968996); [NeoZygisk confirmation recorded in PR #10](https://github.com/fynks/awesome-temporary-root/pull/10) (environment not supplied).
+- User reports: [Redmi Note 14 4G compatibility report](https://github.com/fynks/awesome-temporary-root/issues/6) (GhostLock v1.2, 18 modules tested); [Realme Note 50 report recorded in PR #10](https://github.com/fynks/awesome-temporary-root/pull/10) (DirtyFrag, initial Android 15 run and post-OTA follow-up).
 - Update checks: [DirtyFrag v1.17](https://github.com/mitschud/DirtyFrag/releases/tag/v1.17), [RootMyS24 supported firmware](https://github.com/NanoTurtle1145/root-my-s24#支持设备), [ANB Root v2.4.0](https://github.com/Chuniex-0631/honor-anb-an00-root/releases/tag/v2.4.0), [HMA late-load issue #130](https://github.com/frknkrc44/HMA-OSS/issues/130).
 - Background: [awesome-android-root](https://github.com/awesome-android-root/awesome-android-root), [NebuSec IonStack](https://github.com/NebuSec/CyberMeowfia/tree/main/IonStack/CVE-2026-43499).
