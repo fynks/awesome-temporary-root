@@ -24,4 +24,4 @@ body:
       required: true
   - type: markdown
     attributes:
-      value: "Small, sourced fixes can go directly to a PR. Edit README.md and run `npm run sync:readme`; do not hand-edit the generated guide. Device-port requests are out of scope."
+      value: "Small, sourced fixes can go directly to a PR. Edit README.md and run `npm run sync:readme`. Do not hand-edit the generated guide. Device-port requests are out of scope."

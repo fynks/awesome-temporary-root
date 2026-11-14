@@ -5,7 +5,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Results belong here; requests to port a loader do not. Use the loader's upstream tracker for porting and loader bugs. See [CONTRIBUTING.md](https://github.com/fynks/awesome-temporary-root/blob/main/CONTRIBUTING.md).
+        Results belong here. Requests to port a loader do not. Use the loader's upstream tracker for porting and loader bugs. See [CONTRIBUTING.md](https://github.com/fynks/awesome-temporary-root/blob/main/CONTRIBUTING.md).
   - type: input
     id: device
     attributes:
@@ -17,8 +17,8 @@ body:
     id: firmware
     attributes:
       label: Exact firmware and kernel
-      description: Include the full build, Android/vendor OS, security patch, full uname -r, and page size. Write unknown if unavailable; do not guess.
-      placeholder: "Build: …\nAndroid / vendor OS: …\nSecurity patch: YYYY-MM-DD\nKernel: …\nPage size: …"
+      description: Include the full build, Android/vendor OS, security patch, full uname -r, and page size. Write unknown if unavailable. Do not guess.
+      placeholder: "Build: ...\nAndroid / vendor OS: ...\nSecurity patch: YYYY-MM-DD\nKernel: ...\nPage size: ..."
     validations:
       required: true
   - type: textarea
@@ -26,7 +26,7 @@ body:
     attributes:
       label: Loader, manager, and method
       description: Link the loader and include its version, manager name/version, and exploit method.
-      placeholder: "Loader URL/version: …\nManager/version: …\nMethod: …"
+      placeholder: "Loader URL/version: ...\nManager/version: ...\nMethod: ..."
     validations:
       required: true
   - type: dropdown

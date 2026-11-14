@@ -10,9 +10,9 @@ Help improve the index with reproducible device/module results, corrections, and
 
 Use the [issue templates](https://github.com/fynks/awesome-temporary-root/issues/new/choose):
 
-- **Device report** — a success, partial result, or failure on an exact device/build.
-- **Module report** — a module's behavior under temporary root.
-- **Correction** — a stale status, broken link, incorrect claim, or documentation fix.
+- Use a device report for a success, partial result, or failure on an exact device/build.
+- Use a module report for a module's behavior under temporary root.
+- Use a correction for a stale status, broken link, incorrect claim, or documentation fix.
 
 Search existing issues first. Add new evidence to an existing report instead of opening a duplicate.
 
@@ -33,14 +33,14 @@ adb shell getconf PAGE_SIZE
 
 Also include the loader URL and version, manager name and version, method, results, and module names/versions where relevant. Link the upstream support entry, release, or test report. For failures, attach the relevant log tail (normally the last 50 lines), preserving the error and last successful stage.
 
-Use **not supplied** or **unknown** for missing information. Never guess a kernel, build suffix, offset, or tool version. A report about one model or firmware build does not verify another.
+Use "not supplied" or "unknown" for missing information. Never guess a kernel, build suffix, offset, or tool version. A report about one model or firmware build does not verify another.
 
 ## Status rules
 
-- **Maintainer Verified** — reserved for a hardware result supplied or directly confirmed by a maintainer of this repository, with a linked report. If the maintainer's confirmation omits environment details, mark them **not supplied** and limit the claim to that confirmation. It is not a security audit or a guarantee for other builds.
-- **User Reported** — a community result that this repository's maintainer has not independently verified. Merging a report does not promote it to Maintainer Verified.
-- **Tested**, **Experimental**, and module outcome labels describe the result, not who verified it. An upstream maintainer's test is not automatically a test by this repository's maintainer.
-- Module/app statuses are text labels: **Working**, **Occasional issues**, **Device-dependent**, **Not recommended**, and **Needs testing**. Keep status separate from provenance; community entries remain User Reported.
+- Maintainer Verified is reserved for a hardware result that a maintainer of this repository supplied or directly confirmed, with a linked report. If the confirmation omits environment details, mark them "not supplied" and limit the claim to that confirmation. It is not a security audit or a guarantee for other builds.
+- User Reported marks a community result that this repository's maintainer has not independently verified. Merging a report does not promote it to Maintainer Verified.
+- Tested, Experimental, and module outcome labels describe the result, not who verified it. An upstream maintainer's test is not automatically a test by this repository's maintainer.
+- Module/app statuses use the text labels Working, Occasional issues, Device-dependent, Not recommended, and Needs testing. Keep status separate from provenance. Community entries remain User Reported.
 - Profiles, generated offsets, shared kernel strings, and model aliases are candidates until a hardware result supports them. Preserve unavailable/deprecated history rather than presenting an old download as current.
 
 Do not self-assign Maintainer Verified. Keep disputes and missing evidence visible until a maintainer reviews them.
@@ -48,8 +48,8 @@ Do not self-assign Maintainer Verified. Keep disputes and missing evidence visib
 ## Pull requests
 
 1. Keep changes focused and cite primary sources: upstream README/support data, release notes, CVE records, or a linked hardware report. Include the date checked when updating live information.
-2. Edit **`README.md`**, the canonical guide source. Do not hand-edit `src/content/docs/guide.md`.
-3. Run `npm run sync:readme` and review both files. For site changes, use Node 26 and the package manager declared in `package.json`; run the relevant build/check commands.
+2. Edit `README.md`, the canonical guide source. Do not hand-edit `src/content/docs/guide.md`.
+3. Run `npm run sync:readme` and review both files. For site changes, use Node 26 and the package manager declared in `package.json`. Run the relevant build/check commands.
 4. Check links, table columns, status wording, and target counts. Keep the generated guide in sync.
 5. Explain what changed, link the evidence, and distinguish hardware verification from source-only checks.
 
@@ -57,6 +57,6 @@ Do not submit exploit offsets for unsupported devices, requests to port a loader
 
 ## Safety and privacy
 
-Test only on hardware you own or are authorized to modify. Back up first; kernel exploits and modules can cause crashes or data loss. Redact serial numbers, IMEIs, account names, tokens, private paths, and unrelated log data. Do not upload proprietary firmware or boot images.
+Test only on hardware you own or are authorized to modify. Back up first. Kernel exploits and modules can cause crashes or data loss. Redact serial numbers, IMEIs, account names, tokens, private paths, and unrelated log data. Do not upload proprietary firmware or boot images.
 
 Content contributions are accepted under the repository's [MIT license](LICENSE). Linked tools retain their own licenses.
