@@ -24,10 +24,11 @@ body:
     attributes:
       label: Observed outcome
       options:
-        - Working
-        - Working with limitations
-        - Broken / bootloop / crash
-        - Needs retest
+        - "🟢 Working"
+        - "🟡 Caveat — buggy in some cases"
+        - "🟠 Caveat — buggy on some devices"
+        - "🔴 Avoid — confirmed buggy"
+        - "? Needs testing"
     validations:
       required: true
   - type: textarea
