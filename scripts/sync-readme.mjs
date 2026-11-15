@@ -1,11 +1,9 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
-import { fileURLToPath } from "node:url";
 
 // Generate docs/guide.md from README.md on every dev and build run. Do not hand-edit docs/guide.md.
-const root = fileURLToPath(new URL("..", import.meta.url));
-const readmePath = join(root, "README.md");
-const guidePath = join(root, "docs/guide.md");
+const readmePath = join(import.meta.dirname, "../README.md");
+const guidePath = join(import.meta.dirname, "../docs/guide.md");
 
 const readme = await readFile(readmePath, "utf8");
 
