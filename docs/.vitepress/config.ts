@@ -36,6 +36,13 @@ export default withPwa(
             'Temporary-root hardware reports, kernel loaders, late-load modules, setup, and safety guidance for locked Android bootloaders.',
         },
       ],
+      [
+        'meta',
+        {
+          name: 'google-site-verification',
+          content: 'yh6OZ9qZhOAVRs3tkFAwwBYIb3BKrveBy6C0QEVHpw0',
+        },
+      ],
     ],
     markdown: {
       config(md) {
