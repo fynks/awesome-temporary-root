@@ -12,6 +12,7 @@ const readme = await readFile(readmePath, "utf8");
 // Rewrite repo-relative GitHub paths so the same Markdown renders in VitePress under docs/.
 const body = readme
   .replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n/, "")
+  .replace(/<!--\s*web-app-link:start\s*-->[\s\S]*?<!--\s*web-app-link:end\s*-->\r?\n?/g, "")
   .replaceAll("docs/public/images/", "/images/")
   .replaceAll("](docs/", "](")
   .replaceAll("](./docs/", "](")

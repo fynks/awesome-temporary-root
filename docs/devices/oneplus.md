@@ -7,7 +7,17 @@ description: Temporary-root device reports, exact firmware builds, and compatibi
 
 [ghostlock-oneplus](https://github.com/JoinChang/ghostlock-oneplus) is the main loader for OnePlus builds, paired with [Anchor](https://github.com/byemaxx/ghostlock-anchor) on supported OnePlus 13 kernels. The OnePlus Pad 3 uses a dedicated [Root My Device (tqmane)](https://github.com/tqmane/Root-My-Device) build.
 
-See [Supported Devices](./index.md#status-definitions) for status definitions and matching rules.
+## Status definitions
+
+| Status | Meaning |
+| --- | --- |
+| <kbd>Maintainer Verified</kbd> | Hardware result directly confirmed by a repository maintainer with a linked report. |
+| <kbd>User Reported</kbd> | Community hardware report with linked evidence, not independently verified by a maintainer. |
+| <kbd>Tested</kbd> | Hardware run documented by the upstream loader project on this exact target. |
+| <kbd>Experimental</kbd> | Partial, shell-only, or unstable result. |
+| <kbd>Upstream profile</kbd> | Device kernel profile shipped upstream with no documented hardware run yet. |
+| <kbd>Unverified candidate</kbd> | Matching kernel profile exists, but this model is unconfirmed on hardware. |
+| <kbd>Deprecated/unavailable</kbd> | Upstream loader or repository is archived or removed. |
 
 ## Supported builds
 

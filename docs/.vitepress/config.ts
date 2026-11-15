@@ -49,7 +49,10 @@ export default withPwa(
           sidebar: [
             {
               text: 'Overview',
-              items: [{ text: 'Complete Guide', link: '/guide' }],
+              items: [
+                { text: 'Complete Guide', link: '/guide' },
+                { text: 'Modules and Apps', link: '/modules/' },
+              ],
             },
             {
               text: 'Supported Devices',
@@ -110,7 +113,7 @@ export default withPwa(
           ],
         },
         { text: 'Tools and Managers', link: '/guide#tools-and-managers' },
-        { text: 'Modules', link: '/guide#modules' },
+        { text: 'Modules and Apps', link: '/modules/' },
         { text: 'Quick Start', link: '/guide#quick-start' },
         { text: 'FAQ', link: '/guide#troubleshooting-and-faq' },
       ],
@@ -120,6 +123,7 @@ export default withPwa(
           items: [
             { text: 'Home', link: '/' },
             { text: 'Complete Guide', link: '/guide' },
+            { text: 'Modules and Apps', link: '/modules/' },
           ],
         },
         {
@@ -145,7 +149,6 @@ export default withPwa(
           items: [
             { text: 'What Is Temporary Root?', link: '/guide#what-is-temporary-root' },
             { text: 'Tools and Managers', link: '/guide#tools-and-managers' },
-            { text: 'Modules and Apps', link: '/guide#modules' },
             { text: 'Firmware and Recovery', link: '/guide#firmware-and-recovery-resources' },
             { text: 'Research Resources', link: '/guide#research-resources' },
             { text: 'Quick Start', link: '/guide#quick-start' },

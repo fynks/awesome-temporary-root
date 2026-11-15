@@ -7,7 +7,17 @@ description: Temporary-root device reports and compatibility notes for Amazon Fi
 
 [R0rt1z2/GhostLock](https://github.com/R0rt1z2/GhostLock) maintains separate kernel branches. The Fire Max 11 and Fire TV Stick 4K 2nd-gen entries use the [5.10 branch](https://github.com/R0rt1z2/GhostLock/tree/5.10), not the repository's current default branch, and TCL uses the [5.15 branch](https://github.com/R0rt1z2/GhostLock/tree/5.15). The Shield TV and Quest 3 have dedicated ports.
 
-See [Supported Devices](./index.md#status-definitions) for status definitions and matching rules.
+## Status definitions
+
+| Status | Meaning |
+| --- | --- |
+| <kbd>Maintainer Verified</kbd> | Hardware result directly confirmed by a repository maintainer with a linked report. |
+| <kbd>User Reported</kbd> | Community hardware report with linked evidence, not independently verified by a maintainer. |
+| <kbd>Tested</kbd> | Hardware run documented by the upstream loader project on this exact target. |
+| <kbd>Experimental</kbd> | Partial, shell-only, or unstable result. |
+| <kbd>Upstream profile</kbd> | Device kernel profile shipped upstream with no documented hardware run yet. |
+| <kbd>Unverified candidate</kbd> | Matching kernel profile exists, but this model is unconfirmed on hardware. |
+| <kbd>Deprecated/unavailable</kbd> | Upstream loader or repository is archived or removed. |
 
 ## Supported builds
 

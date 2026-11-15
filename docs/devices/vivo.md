@@ -7,7 +7,17 @@ description: Temporary-root device reports, exact kernel releases, and compatibi
 
 [RootMyVivo](https://github.com/zenyxx-xd/RootMyVivo) matches the full kernel release from its [catalog](https://github.com/zenyxx-xd/RootMyVivo-Payloads/blob/main/catalog/devices.json). Upstream documents vulnerable GhostLock ranges below `6.6.140` and `6.1.145`. These are loader limits, not universal CVE patch floors. Match the exact catalog entry. The current 1.4.3 release can also use DirtyFrag when no GhostLock payload applies. The catalog still carries an Adreno route for older 5.10/5.15 devices, but the app does not run those binaries.
 
-See [Supported Devices](./index.md#status-definitions) for status definitions and matching rules.
+## Status definitions
+
+| Status | Meaning |
+| --- | --- |
+| <kbd>Maintainer Verified</kbd> | Hardware result directly confirmed by a repository maintainer with a linked report. |
+| <kbd>User Reported</kbd> | Community hardware report with linked evidence, not independently verified by a maintainer. |
+| <kbd>Tested</kbd> | Hardware run documented by the upstream loader project on this exact target. |
+| <kbd>Experimental</kbd> | Partial, shell-only, or unstable result. |
+| <kbd>Upstream profile</kbd> | Device kernel profile shipped upstream with no documented hardware run yet. |
+| <kbd>Unverified candidate</kbd> | Matching kernel profile exists, but this model is unconfirmed on hardware. |
+| <kbd>Deprecated/unavailable</kbd> | Upstream loader or repository is archived or removed. |
 
 ## Supported builds
 

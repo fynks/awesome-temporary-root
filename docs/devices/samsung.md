@@ -7,7 +7,17 @@ description: Temporary-root device reports, exact firmware builds, and compatibi
 
 [Root My Galaxy](https://github.com/BuSung-dev/Root-My-Galaxy) is the main loader and ships per-build payloads matched on model plus kernel. GhostLock-Galaxy, the A17 and A16 ports, UniRoot, GhostSam, and RootMyS24 cover builds outside its list.
 
-See [Supported Devices](./index.md#status-definitions) for status definitions and matching rules.
+## Status definitions
+
+| Status | Meaning |
+| --- | --- |
+| <kbd>Maintainer Verified</kbd> | Hardware result directly confirmed by a repository maintainer with a linked report. |
+| <kbd>User Reported</kbd> | Community hardware report with linked evidence, not independently verified by a maintainer. |
+| <kbd>Tested</kbd> | Hardware run documented by the upstream loader project on this exact target. |
+| <kbd>Experimental</kbd> | Partial, shell-only, or unstable result. |
+| <kbd>Upstream profile</kbd> | Device kernel profile shipped upstream with no documented hardware run yet. |
+| <kbd>Unverified candidate</kbd> | Matching kernel profile exists, but this model is unconfirmed on hardware. |
+| <kbd>Deprecated/unavailable</kbd> | Upstream loader or repository is archived or removed. |
 
 ## Supported builds
 
