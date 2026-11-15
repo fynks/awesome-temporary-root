@@ -19,7 +19,7 @@
     "@types/node": "^26.6.5",
     "@vite-pwa/vitepress": "^2.0.3",
     "magicast": "^0.5.5",
-    "typescript": "^5.9.3",
+    "typescript": "^7.0.2",
     "vitepress": "2.0.0-alpha.21",
     "vitepress-plugin-llms": "^1.15.0",
     "vue": "^3.5.43"
