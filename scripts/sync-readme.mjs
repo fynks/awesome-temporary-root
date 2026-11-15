@@ -1,32 +1,21 @@
-/**
- * Build-time source: README.md to src/content/docs/guide.md.
- *
- * Generate the guide page; do not hand-edit it. Every `dev` and `build`
- * run regenerates it, so a deploy cannot ship README content from a
- * previous commit. The script rewrites only a few display-only paths:
- * GitHub's repo-relative asset paths and the LICENSE/CONTRIBUTING links.
- * The same Markdown then renders correctly in both places. GitHub alert
- * blockquotes (`> [!TIP]`) stay in the source. src/lib/github-alerts.ts
- * turns them into callouts when the page renders.
- */
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
-// Resolve from this file, not the caller's cwd, so `astro build --root` and
-// editors that run scripts from elsewhere still read the repo's README.
+// Generate docs/guide.md from README.md on every dev and build run. Do not hand-edit docs/guide.md.
 const root = fileURLToPath(new URL("..", import.meta.url));
 const readmePath = join(root, "README.md");
-const guidePath = join(root, "src/content/docs/guide.md");
+const guidePath = join(root, "docs/guide.md");
 
 const readme = await readFile(readmePath, "utf8");
 
-// The page layout supplies the title and description. The README body stays
-// verbatim below the frontmatter. Strip a frontmatter block if the README
-// ever grows one so it does not appear in the rendered page.
+// Rewrite repo-relative GitHub paths so the same Markdown renders in VitePress under docs/.
 const body = readme
   .replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n/, "")
+  .replace(/<!--\s*web-app-link:start\s*-->[\s\S]*?<!--\s*web-app-link:end\s*-->\r?\n?/g, "")
   .replaceAll("docs/public/images/", "/images/")
+  .replaceAll("](docs/", "](")
+  .replaceAll("](./docs/", "](")
   .replaceAll("](LICENSE)", "](https://github.com/fynks/awesome-temporary-root/blob/main/LICENSE)")
   .replaceAll("](./LICENSE)", "](https://github.com/fynks/awesome-temporary-root/blob/main/LICENSE)")
   .replaceAll("](CONTRIBUTING.md)", "](https://github.com/fynks/awesome-temporary-root/blob/main/CONTRIBUTING.md)")
@@ -35,8 +24,8 @@ const body = readme
   .replace(/\s*$/, "\n");
 
 const page = `---
-title: Complete guide
-description: Device support, temporary-root basics, safety, setup, tools, modules, troubleshooting, and sources.
+title: Complete Guide
+description: Temporary-root basics, safety, supported devices, tools, modules, quick start, troubleshooting, and sources.
 ---
 
 <!-- Generated from README.md by scripts/sync-readme.mjs. Edit README.md, not this file. -->
@@ -45,9 +34,9 @@ ${body}`;
 
 await mkdir(dirname(guidePath), { recursive: true });
 
-// If nothing changed, do not touch the file or trigger a rebuild.
+// Skip writing when unchanged so VitePress dev does not loop on file watcher events.
 const current = await readFile(guidePath, "utf8").catch(() => null);
 if (current !== page) {
   await writeFile(guidePath, page);
-  console.log("[sync-readme] README.md -> src/content/docs/guide.md");
+  console.log("[sync-readme] README.md -> docs/guide.md");
 }

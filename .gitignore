@@ -1,9 +1,8 @@
 node_modules/
 dist/
 .cache/
-.astro/
-.wrangler/
-.nimbus/
+docs/.vitepress/cache/
+docs/.vitepress/dist/
 
 .env
 .env.local
