@@ -11,7 +11,7 @@
 Root access on a locked Android bootloader, for one boot at a time.
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
-[![Listed entries](https://img.shields.io/badge/listed_entries-71-brightgreen?style=flat-square)](#supported-devices)
+[![Listed entries](https://img.shields.io/badge/listed_entries-76-brightgreen?style=flat-square)](#supported-devices)
 [![Kernels](https://img.shields.io/badge/kernels-4.9--6.12-informational?style=flat-square)](#supported-devices)
 [![GitHub stars](https://img.shields.io/github/stars/fynks/awesome-temporary-root?style=flat-square)](https://github.com/fynks/awesome-temporary-root/stargazers)
 
@@ -27,7 +27,7 @@ Root access on a locked Android bootloader, for one boot at a time.
   - [Google Pixel](#google-pixel)
   - [OnePlus, OPPO, and Realme](#oneplus-oppo-and-realme)
   - [vivo and iQOO](#vivo-and-iqoo)
-  - [Xiaomi, ASUS, Nothing, and Honor](#xiaomi-asus-nothing-and-honor)
+  - [Xiaomi, ASUS, Nothing, Honor, and HMD](#xiaomi-asus-nothing-honor-and-hmd)
   - [Amazon, NVIDIA, Meta, and TCL](#amazon-nvidia-meta-and-tcl)
   - [Live upstream tables](#live-upstream-tables)
 - [Tools and managers](#tools-and-managers)
@@ -135,7 +135,7 @@ Match the full kernel release your phone reports. Two phones on the same Android
 [Root My Galaxy](https://github.com/BuSung-dev/Root-My-Galaxy) is the main loader and ships per-build payloads matched on model plus kernel. GhostLock-Galaxy, the A17 and A16 ports, GhostSam, and RootMyS24 cover builds outside its list.
 
 <details>
-<summary>Click to show <strong>26 Samsung entries</strong></summary>
+<summary>Click to show <strong>27 Samsung entries</strong></summary>
 
 <br>
 
@@ -156,6 +156,7 @@ Match the full kernel release your phone reports. Two phones on the same Android
 | Galaxy Tab S9 (Wi-Fi)<br><kbd>Tested</kbd> | SM-X710 | `X710XXS6EZF1`, `5.15.189`<br>Loader: Root My Galaxy |
 | Galaxy A17<br><kbd>Tested</kbd> | SM-A175F | `A175FXXS3BZA5` (`6.12.23`), `A175FXXS6CZG1` (`6.12.38`)<br>Loader: [ghostlock-a17](https://github.com/mobilehackinglab/ghostlock-a17) |
 | Galaxy A16 5G<br><kbd>Tested</kbd> | SM-A166W | `A166WVLS8DZG1`, `5.15.189-android13-3-33503169`<br>Loader: [SM-A166W port](https://github.com/jojobear691/SM-A166W-DZG1-Temporary-Root) |
+| Galaxy A15 4G<br><kbd>User Reported</kbd> | SM-A155F (CSC not supplied) | `BP2A.250605.031.A3`, `6.12.23-android16-5-abA155FXXU7DYK1-4k` (One UI 8 / Android 16, SPL `2025-10-01`)<br>Loader: [UniRoot](https://github.com/kuuky29/UniRoot) v5.0.0 (DirtyFrag); manager KernelSU Next |
 | Galaxy Z Fold4<br><kbd>Tested</kbd> | SM-F9360 | `F9360ZCSAIZF1`, `5.10.236`<br>Loader: [Root My Galaxy Payloads](https://github.com/BuSung-dev/Root-My-Galaxy-Payloads) (command line) |
 | Galaxy Z Flip6 (Korea)<br><kbd>Tested</kbd> | SM-F741N | `F741NKSS4DZE1`, `6.1.145`<br>Loader: [RootMyS24](https://github.com/NanoTurtle1145/root-my-s24) |
 | Galaxy S24 (China)<br><kbd>Tested</kbd> | SM-S9210 | `S9210ZCS6DZI1`, `6.1.145`<br>Loader: RootMyS24 |
@@ -168,7 +169,7 @@ Match the full kernel release your phone reports. Two phones on the same Android
 | Galaxy Z Fold6 (China)<br><kbd>Tested</kbd> | SM-F9580 | `6.1.145` (shares the S24 Ultra China DZF2 payload)<br>Loader: RootMyS24 |
 | Galaxy S26, S26+, S26 Ultra<br><kbd>Tested</kbd> | SM-S942x, SM-S947x, SM-S948x | `6.12` (Snapdragon `S9420ZCS4AZG1` and Exynos `S942BXXS4AZG5`, `S947BXXS4AZG5`, plus other tested builds)<br>Loader: [GhostSam](https://github.com/MocLG/GhostSam) / [ghostlock-s26](https://github.com/snothin/ghostlock-s26) |
 
-[Live table: Root My Galaxy payloads](https://github.com/BuSung-dev/Root-My-Galaxy-Payloads#supported-payloads), [targets-v3.json](https://github.com/BuSung-dev/Root-My-Galaxy-Payloads/blob/main/support/targets-v3.json), [ghostlock-a17 target](https://github.com/mobilehackinglab/ghostlock-a17#target), [SM-A166W build](https://github.com/jojobear691/SM-A166W-DZG1-Temporary-Root#exact-supported-build), [RootMyS24 tested firmware](https://github.com/NanoTurtle1145/root-my-s24#支持设备), [ghostlock-s26 firmware](https://github.com/snothin/ghostlock-s26#supported-firmware)
+[User report: Galaxy A15 4G](https://github.com/fynks/awesome-temporary-root/issues/16), [Live table: Root My Galaxy payloads](https://github.com/BuSung-dev/Root-My-Galaxy-Payloads#supported-payloads), [targets-v3.json](https://github.com/BuSung-dev/Root-My-Galaxy-Payloads/blob/main/support/targets-v3.json), [ghostlock-a17 target](https://github.com/mobilehackinglab/ghostlock-a17#target), [SM-A166W build](https://github.com/jojobear691/SM-A166W-DZG1-Temporary-Root#exact-supported-build), [RootMyS24 tested firmware](https://github.com/NanoTurtle1145/root-my-s24#支持设备), [ghostlock-s26 firmware](https://github.com/snothin/ghostlock-s26#supported-firmware)
 
 </details><br>
 
@@ -178,6 +179,7 @@ Match the full kernel release your phone reports. Two phones on the same Android
 <br>
 
 - Galaxy S23 Ultra (`SM-S918B`) is confirmed through the app's Shizuku mode only. Galaxy S23+ (`SM-S916B`) has an ADB-shell profile and no app payload, so treat it as experimental.
+- The Galaxy A15 4G (`SM-A155F`) report did not include a CSC. It used UniRoot 5.0.0's DirtyFrag path with KernelSU Next.
 - Some payloads cover more models than the test device: the S24 Ultra payload also matches `SM-S928W`, and the A56 payload matches `SM-A5660`, `SM-A566B`, `SM-A566S`, `SM-A566U1`, and `SM-A566W`.
 - The shared S25 payload covers the Snapdragon variants. S25+ and S25 Edge China builds use separate payloads.
 - The Z Fold4 (`SM-F9360`) chain is confirmed from the command line. Its app payload is not.
@@ -247,7 +249,7 @@ Root My Pixel reports the exploit is unreliable. Many users needed more than 20 
 | Realme GT 7T<br><kbd>Tested</kbd> | RMX5085 | `6.6.118-android15-8`<br>Loader: [ghostlock-rmx5085](https://github.com/Nixbones/ghostlock-rmx5085) |
 | Realme Note 50<br><kbd>User Reported</kbd> | RMX3834export / RE5C9F | Android 15; fingerprint `realme/RMX3834/RE5C9F:15/AP3A.240905.015.A2/T.R4T2.1784276895:user/release-keys`; security patch `2026-07-01`; `5.15.189-android13-8-g746e08b68bca-ab1`<br>KernelSU LKM `v3.3.1 (32680-5)`; SELinux Enforcing; Seccomp Filter<br>Loader: DirtyFrag (CVE-2026-43284); loader app version unknown |
 
-[User report: Realme Note 50](https://github.com/fynks/awesome-temporary-root/pull/10), [Live table: ghostlock-oneplus verified devices](https://github.com/JoinChang/ghostlock-oneplus#supported-devices), [not-feasible layouts](https://github.com/JoinChang/ghostlock-oneplus#not-feasible-stack-layout-incompatible), [Root My Device OnePlus Pad 3](https://github.com/tqmane/Root-My-Device/blob/main/devices/oneplus-pad-3/README.md#supported-target)
+[User report: Realme Note 50 (Reddit)](https://www.reddit.com/r/Magisk/comments/1xu5qqg/success_i_have_my_realme_note_50_rmx3834export/), [Live table: ghostlock-oneplus verified devices](https://github.com/JoinChang/ghostlock-oneplus#supported-devices), [not-feasible layouts](https://github.com/JoinChang/ghostlock-oneplus#not-feasible-stack-layout-incompatible), [Root My Device OnePlus Pad 3](https://github.com/tqmane/Root-My-Device/blob/main/devices/oneplus-pad-3/README.md#supported-target)
 
 </details><br>
 
@@ -271,7 +273,7 @@ Root My Pixel reports the exploit is unreliable. Many users needed more than 20 
 [RootMyVivo](https://github.com/zenyxx-xd/RootMyVivo) matches the full kernel release from its [payload catalog](https://github.com/zenyxx-xd/RootMyVivo-Payloads/blob/main/support/targets-vivo.json). Upstream documents vulnerable GhostLock ranges below 6.6.140 and 6.1.145. These are loader limits, not universal CVE patch floors. Match the exact catalog entry. The catalog also has a separate Adreno route (CVE-2025-21479) for older 5.10/5.15 devices.
 
 <details>
-<summary>Click to show <strong>6 vivo and iQOO entries</strong></summary>
+<summary>Click to show <strong>8 vivo and iQOO entries</strong></summary>
 
 <br>
 
@@ -282,9 +284,11 @@ Root My Pixel reports the exploit is unreliable. Many users needed more than 20 
 | iQOO Z9 5G / vivo T3 5G<br><kbd>Tested</kbd> | I2302 / V2334 | `5.15.178-android13-8-g0ebe6a5da65d`<br>Loader: [iQOO Z9 / vivo T3 port](https://github.com/ankitrawatgit/iQOO-Z9_5G-vivo-T3_5G-Root-GhostLock) |
 | vivo X200<br><kbd>Tested</kbd> | PD2415, V2415A | `6.6.89-android15-8-gb57af212129c` (Port 16.1.12.2.W10)<br>Loader: [GhostLock-X200](https://github.com/xiaohj233/ghostlock-x200-root) / RootMyVivo |
 | iQOO Neo8<br><kbd>Tested</kbd> | PD2301, V2301A | `5.10.198-gki-gfb2f5774872c`<br>Loader: [cve-2025-21479_iqooneo8](https://github.com/Qingizi7/cve-2025-21479_iqooneo8) / RootMyVivo |
+| iQOO Neo7<br><kbd>User Reported</kbd> <kbd>Experimental</kbd> | I2214 | `PD2238F_EX_A_16.3.15.0.W30`, `5.10.246-android12-9-00012-g730d06ec05ff-ab15159037`<br>Loader: [DirtyFrag](https://github.com/mitschud/DirtyFrag) v1.17; KernelSU-Next v3.4.2 via `adb_root`; app `su` unavailable |
+| vivo Pad (2022)<br><kbd>User Reported</kbd> <kbd>Experimental</kbd> | PA2170 / DPD2106 | Android 11 `DPD2106D_A_1.36.14` (SPL `2022-12-01`), `4.19.152-perf+` (non-GKI)<br>Loader: DFRoot v4.7 (API 30 repack); DirtyFrag page-cache write only; no root |
 | vivo T3 Ultra<br><kbd>Tested</kbd> <kbd>Deprecated/unavailable</kbd> | V2426 | `5.15.197-android13-8-00040-g1d68e338760e-ab15563954`<br>Loader: MT6989-ghostlock (historical result; repository unavailable) |
 
-[Live table: RootMyVivo payload catalog](https://github.com/zenyxx-xd/RootMyVivo-Payloads/blob/main/support/targets-vivo.json), [iQOO Z9 / vivo T3 port](https://github.com/ankitrawatgit/iQOO-Z9_5G-vivo-T3_5G-Root-GhostLock), [vivo X200 device notes](https://github.com/xiaohj233/ghostlock-x200-root#支持的设备)
+[User report: iQOO Neo7](https://github.com/fynks/awesome-temporary-root/issues/12), [User report: vivo Pad PA2170](https://github.com/fynks/awesome-temporary-root/issues/15), [Live table: RootMyVivo payload catalog](https://github.com/zenyxx-xd/RootMyVivo-Payloads/blob/main/support/targets-vivo.json), [iQOO Z9 / vivo T3 port](https://github.com/ankitrawatgit/iQOO-Z9_5G-vivo-T3_5G-Root-GhostLock), [vivo X200 device notes](https://github.com/xiaohj233/ghostlock-x200-root#支持的设备)
 
 </details><br>
 
@@ -296,18 +300,20 @@ Root My Pixel reports the exploit is unreliable. Many users needed more than 20 
 - The catalog also lists iQOO 13 India (`I2401`) and iQOO Neo10 Pro (`PD2426`) with device-exact offsets taken from third-party port builds, plus an X200 family entry. Other entries reuse another model's payload (iQOO 13 China, Neo10 Pro+, X200 Ultra, and Z10 Turbo and Neo10 Pro b57 units). Those are mappings, not confirmed runs. Upstream disables the Z10 Turbo+ 6.6.127 and iQOO Z10 6.1.145 entries and does not claim they work.
 - A `6.6.127` build on an iQOO Neo 11 has the fix, so the 6.6.89 payload does not cover it.
 - The MT6989-ghostlock repository is unavailable, and its V2426 target is absent from the current RootMyVivo catalog. Treat the hardware result as historical only.
+- The iQOO Neo7 (`I2214`) run used KernelSU-Next `adb_root`. Official KernelSU 3.3.1 loaded its module but never exposed `su`, so app-level `su` remains unavailable.
+- The vivo Pad `PA2170` is a partial result. DirtyFrag wrote to the page cache but 4.19 has no usable module path. GhostLock was blocked by the boot ID slide, and CVE-2024-31317 stopped at uid 1000 under vendor sepolicy.
 - The current catalog gives iQOO Neo 10 Global `I2405` on `6.6.89-android15-8-g97a9aaefab9a` its own payload entry. It still needs on-device confirmation. The same kernel string alone does not establish an identical image.
 
 </details>
 
 ---
 
-### Xiaomi, ASUS, Nothing, and Honor
+### Xiaomi, ASUS, Nothing, Honor, and HMD
 
 These devices use several independent loaders, including DirtyFrag, ghostlock-oneplus, Root My Device, zenfone9-ghostlock, and Honor ports based on GhostLock App.
 
 <details>
-<summary>Click to show <strong>9 Xiaomi, ASUS, Nothing, and Honor entries</strong></summary>
+<summary>Click to show <strong>11 Xiaomi, ASUS, Nothing, Honor, and HMD entries</strong></summary>
 
 <br>
 
@@ -318,12 +324,14 @@ These devices use several independent loaders, including DirtyFrag, ghostlock-on
 | Xiaomi 14T Japan<br><kbd>Tested</kbd> | XIG07 | `OS3.0.7.0.WNEJPKD`, `6.1.138-android14-11-g44bda9e8f6e9-ab13792638`<br>Loader: [Root My Device (Witaqua)](https://github.com/WitAqua-tools/Root-My-Device) |
 | Redmi Note 13 4G<br><kbd>Maintainer Verified</kbd> | sapphire | Android 15; HyperOS `2.0.213.0` Global; security patch `2026-08-01`<br>Kernel and loader version: unknown<br>Loader: [mitschud/DirtyFrag](https://github.com/mitschud/DirtyFrag) |
 | Redmi Note 14 4G<br><kbd>User Reported</kbd> | 24117RN76L | `BP2A.250605.031.A3`, `6.12.30-android16-5-g6e872b4863d6-ab13847919-4k`<br>Loader: [GhostLock App](https://github.com/YuKongA/ghostlock-app) v1.2; successful temporary root reported |
+| Redmi Note 14 4G (DFRoot)<br><kbd>User Reported</kbd> | tanzanite / 24117RN76L | `BP2A.250605.031.A3`, `6.12.30-android16-5-g6e872b4863d6-ab13847919-4k` (Android 16, HyperOS, SPL `2026-08-01`)<br>Loader: [DFRoot](https://github.com/diabl0w/DFRoot) v4.7; KernelSU `v3.3.1 (32680-5)` |
 | ASUS Zenfone 9<br><kbd>Tested</kbd> | ASUS_AI2202 | `5.10.205-android12-9-00029-g3f12df86bfdb-ab11799032`<br>Loader: [zenfone9-ghostlock](https://github.com/CKwasd/zenfone9-ghostlock) |
 | Nothing Phone (3a)<br><kbd>Tested</kbd> | A059 / Asteroids | `B4.1-260618-1048`, `6.1.157-android14-11-g82d681c9b06b-ab14634535`<br>Loader: [Root My Device (tqmane)](https://github.com/tqmane/Root-My-Device) |
+| HMD Nokia G22<br><kbd>User Reported</kbd> | TA-1528 / Sunfire | `00WW_3_610_SP09`, `5.15.189-android13-8-gda0f9c88f088` (Android 14, SPL `2026-05-05`)<br>Loader: [DFRoot](https://github.com/diabl0w/DFRoot) v4.7; KernelSU 3.3.1 |
 | HONOR 400 (global)<br><kbd>Experimental</kbd> <kbd>Deprecated/unavailable</kbd> | DNY-NX9 | `DNY-N39 10.0.0.213(C636E4R3P2)`, `5.15.180-android13-8-00018-g9b2308ac0ad6-ab14563692`<br>Loader: MnemosyneLab/ghostlock-honor (upstream repo removed) |
 | HONOR 80 Pro Flat<br><kbd>Tested</kbd> | ANB-AN00 / HNANB | MagicOS `9.0.0.230` (`ANB-AN00 9.0.0.230(CHNC00E230R2P5)`), `5.10.236-android12-9-gd671cf8c2b02`<br>Loader: [ANB Root](https://github.com/Chuniex-0631/honor-anb-an00-root) |
 
-[Maintainer report: Redmi Note 13 4G](https://github.com/fynks/awesome-temporary-root/issues/9#issuecomment-6871968996), [User report: Redmi Note 14 4G](https://github.com/fynks/awesome-temporary-root/issues/6), [Live list: Root My Device targets](https://github.com/WitAqua-tools/Root-My-Device-Payloads/releases/latest/download/targets-v2.json), [Nothing Phone (3a)](https://github.com/tqmane/Root-My-Device/blob/main/devices/nothing-phone-3a/README.md#supported-exact-targets), [zenfone9-ghostlock](https://github.com/CKwasd/zenfone9-ghostlock), [ANB Root compatibility](https://github.com/Chuniex-0631/honor-anb-an00-root/blob/main/docs/COMPATIBILITY.md), [GhostLock App profile list](https://github.com/YuKongA/ghostlock-app/blob/main/docs/kernel_profiles/SUPPORTED_DEVICES.md)
+[Maintainer report: Redmi Note 13 4G](https://github.com/fynks/awesome-temporary-root/issues/9#issuecomment-6871968996), [User report: Redmi Note 14 4G](https://github.com/fynks/awesome-temporary-root/issues/6), [User report: Redmi Note 14 4G DFRoot](https://github.com/fynks/awesome-temporary-root/issues/17), [User report: HMD Nokia G22](https://github.com/fynks/awesome-temporary-root/issues/14), [Live list: Root My Device targets](https://github.com/WitAqua-tools/Root-My-Device-Payloads/releases/latest/download/targets-v2.json), [Nothing Phone (3a)](https://github.com/tqmane/Root-My-Device/blob/main/devices/nothing-phone-3a/README.md#supported-exact-targets), [zenfone9-ghostlock](https://github.com/CKwasd/zenfone9-ghostlock), [ANB Root compatibility](https://github.com/Chuniex-0631/honor-anb-an00-root/blob/main/docs/COMPATIBILITY.md), [GhostLock App profile list](https://github.com/YuKongA/ghostlock-app/blob/main/docs/kernel_profiles/SUPPORTED_DEVICES.md)
 
 </details><br>
 
@@ -338,6 +346,8 @@ These devices use several independent loaders, including DirtyFrag, ghostlock-on
 - Upstream removed the HONOR 400 loader repo (MnemosyneLab/ghostlock-honor). This index can no longer re-verify the documented run, so the row keeps a lowered Experimental status. New Honor ports (Honor 90, Honor 70 Pro, Honor 50, and others) exist as community repositories but are not listed until they document a hardware run.
 - The POCO M6 Pro 4G and Meizu 21 ports have no upstream support table, so they are not listed as confirmed targets.
 - [ANB Root v2.4.0](https://github.com/Chuniex-0631/honor-anb-an00-root/releases/tag/v2.4.0) changes its signing key. Versions 2.3.5 and earlier cannot update in place. Export diagnostics. Fully reboot if root was restored or a recovery attempt was made this boot. Then follow upstream's uninstall/reinstall and reauthorization steps. Shizuku and KernelSU do not need uninstalling. The supported device/build is unchanged.
+- The Redmi Note 14 4G DFRoot row is separate from the GhostLock row. DFRoot v4.3 rebooted the device on every run; v4.7 succeeded with KernelSU 3.3.1.
+- The HMD Nokia G22 run used DFRoot v4.7 built from `master`, with the PR 185 hook fallback. AshReXcue, ReZygisk, and the Block OTA module caused bootloops on this build; KSU Tuner lagged with ZRAM enabled.
 - The Redmi Note 14 4G run used the GhostLock App profile for kernel `6.12.30-android16-5-g6e872b4863d6-ab13847919-4k`, which upstream lists for the REDMI Note 15 4G and POCO M6 Pro 4G. GhostLock App selects on `uname -r`, so the same kernel string covers all three models, but the offset layout can still differ between them. Confirm the exact model, and treat a Note 14 4G run as unverified on a Note 15 4G and the reverse.
 
 </details>
