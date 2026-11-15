@@ -49,7 +49,7 @@ Do not self-assign Maintainer Verified. Keep disputes and missing evidence visib
 
 1. Keep changes focused and cite primary sources: upstream README/support data, release notes, CVE records, or a linked hardware report. Include the date checked when updating live information.
 2. Edit `README.md`, the canonical guide source. Do not hand-edit `src/content/docs/guide.md`.
-3. Run `npm run sync:readme` and review both files. For site changes, use Node 26 and the package manager declared in `package.json`. Run the relevant build/check commands.
+3. Run `bun run sync:readme` and review both files. For site changes, use Node 26 and the package manager declared in `package.json`. Run the relevant build/check commands.
 4. Check links, table columns, status wording, and target counts. Keep the generated guide in sync.
 5. Explain what changed, link the evidence, and distinguish hardware verification from source-only checks.
 
