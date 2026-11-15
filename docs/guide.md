@@ -127,7 +127,7 @@ Device tables, status definitions, and per-brand compatibility notes live on ded
 | Brand / group | Loaders |
 | --- | --- |
 | [Samsung Galaxy](devices/samsung.md) | Root My Galaxy, RootMyS24, GhostSam, UniRoot, ghostlock-a17, SM-A166W port |
-| [Google Pixel](devices/pixel.md) | Root My Pixel |
+| [Google Pixel](devices/pixel.md) | Root My Pixel, TimerRoot |
 | [OnePlus](devices/oneplus.md) | ghostlock-oneplus, Anchor, Root My Device (tqmane) |
 | [OPPO](devices/oppo.md) | ghostlock-oneplus, Root My Device (Witaqua) |
 | [Realme](devices/realme.md) | ghostlock-rmx5085, DirtyFrag |
@@ -181,6 +181,7 @@ A temporary root setup needs a loader, a KernelSU-compatible manager, and whatev
 | [GhostLock App](https://github.com/YuKongA/ghostlock-app) / [Latest version](https://github.com/YuKongA/ghostlock-app/tags) | GhostLock | Multi-brand `uname -r` profiles, on-device/Shizuku<br>User-reported success on the Redmi Note 14 4G with v1.2 |
 | [Root My Galaxy](https://github.com/BuSung-dev/Root-My-Galaxy) / [Latest version](https://github.com/BuSung-dev/Root-My-Galaxy/releases) | GhostLock | Selected Galaxy builds, on-device/Shizuku |
 | [Root My Pixel](https://github.com/alex193a/Root-My-Pixel) / [Latest version](https://github.com/alex193a/Root-My-Pixel/releases) | GhostLock | Pixel 6 to 11, Shizuku; retries common |
+| [TimerRoot](https://github.com/MVN123123123123123/TimerRoot) / [Latest version](https://github.com/MVN123123123123123/TimerRoot/releases) | 98260 UAF | Pixel 6 to 11 and selected Xiaomi/Redmi kernels, Shizuku; exact `uname -r` and page size required |
 | [RootMyVivo](https://github.com/zenyxx-xd/RootMyVivo) / [Latest version](https://github.com/zenyxx-xd/RootMyVivo/releases) | GhostLock + DirtyFrag | vivo/iQOO GhostLock and DirtyFrag targets, Shizuku/ADB |
 | [Root My Device (Witaqua)](https://github.com/WitAqua-tools/Root-My-Device) / [Latest version](https://github.com/WitAqua-tools/Root-My-Device/releases) | GhostLock | Xiaomi 17T Pro, 14T Japan, Quest 3, on-device |
 | [Root My Device (tqmane)](https://github.com/tqmane/Root-My-Device) / [Latest version](https://github.com/tqmane/Root-My-Device/releases) | GhostLock | Nothing Phone (3a), OnePlus Pad 3, Shizuku |

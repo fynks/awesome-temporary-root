@@ -26,7 +26,7 @@ Match the full kernel release your phone reports (`uname -r`). Two phones on the
 | Brand / group | Primary loaders |
 | --- | --- |
 | [Samsung Galaxy](./samsung.md) | Root My Galaxy, RootMyS24, GhostSam, UniRoot, ghostlock-a17, SM-A166W port |
-| [Google Pixel](./pixel.md) | Root My Pixel |
+| [Google Pixel](./pixel.md) | Root My Pixel, TimerRoot |
 | [OnePlus](./oneplus.md) | ghostlock-oneplus, Anchor, Root My Device (tqmane) |
 | [OPPO](./oppo.md) | ghostlock-oneplus, Root My Device (Witaqua) |
 | [Realme](./realme.md) | ghostlock-rmx5085, DirtyFrag |
