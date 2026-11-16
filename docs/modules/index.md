@@ -152,7 +152,7 @@ Entries are User Reported unless marked Maintainer Verified.
 | [SettingsFirewall](https://github.com/canyie/SettingsFirewall) | Network | Working | |
 | [Biometric Bypass](https://github.com/hxreborn/biometric-bypass) | Biometrics | Working | |
 | [Fingerprint Catalog](https://github.com/custombeta/fingerprint-cataloge) | Biometrics | Working | |
-| AlternativeUnlockXposed | Utilities | Working | |
+| [AlternativeUnlockXposed](https://github.com/leohearts/AlternativeUnlockXposed) | Utilities | Working | |
 | Cleaner Royall | Utilities | Working | |
 | Clipboard Whitelist | Utilities | Working | |
 | DarQ Reborn | Utilities | Working | |
