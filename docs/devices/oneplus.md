@@ -5,7 +5,7 @@ description: Temporary-root device reports, exact firmware builds, and compatibi
 
 # OnePlus
 
-[ghostlock-oneplus](https://github.com/JoinChang/ghostlock-oneplus) is the main loader for OnePlus builds, paired with [Anchor](https://github.com/byemaxx/ghostlock-anchor) on supported OnePlus 13 kernels. The OnePlus Pad 3 uses a dedicated [Root My Device (tqmane)](https://github.com/tqmane/Root-My-Device) build.
+[ghostlock-oneplus](https://github.com/JoinChang/ghostlock-oneplus) is the main loader for OnePlus builds, paired with [Anchor](https://github.com/byemaxx/ghostlock-anchor) on supported OnePlus 13 kernels. The OnePlus Pad 3 uses a dedicated [Root My Device (tqmane)](https://github.com/tqmane/Root-My-Device) build, while [Shark](https://github.com/kpgc10kai/Shark) and per-device `CVE-2026-98260` ports cover selected ColorOS `6.6`, `6.12`, and `6.18` kernels.
 
 ## Status definitions
 
@@ -27,6 +27,7 @@ description: Temporary-root device reports, exact firmware builds, and compatibi
 | OnePlus Ace 6T<br><kbd>Tested</kbd> | PLR110 | `6.12.38-android16-5-g8c67d4274c0a-ab14275539-4k` (ColorOS 16.0.2.403), `6.12.38-android16-5-g844001fb8721-ab14552068-4k` (16.0.8.301)<br>Loader: ghostlock-oneplus |
 | OnePlus 15<br><kbd>Tested</kbd> | CPH2745, CPH2747, CPH2749 | `6.12.23-android16-5-gb2a876903b49-ab14541642-4k` (16.0.9.400)<br>Loader: ghostlock-oneplus |
 | OnePlus 15<br><kbd>Tested</kbd> | PLK110 | `6.12.58` (`android16-6`, Android 17 Beta 3)<br>Loader: ghostlock-oneplus |
+| OnePlus 16<br><kbd>Tested</kbd> | PYB110 | `6.18.21-android17-5-gf957accaf563-ab15926176-4k` (ColorOS 17 / Android 17)<br>Loader: [CVE-2026-98260-OnePlus16-PYB110-Jailbreak](https://github.com/AzirX1337/CVE-2026-98260-OnePlus16-PYB110-Jailbreak) (`CVE-2026-98260`, ADB; KernelSU or FinaSU) |
 | OnePlus 13<br><kbd>Tested</kbd> | IN2060 | `6.6.89-android15-8-gf4dc45704e54-abogki446052083-4k` (16.0.2.403)<br>Loader: ghostlock-oneplus |
 | OnePlus 13<br><kbd>Tested</kbd> | IN2060 | `6.6.89-android15-8-g97a9aaefab9a-ab14519050-4k`, `6.6.30-android15-8-g013ec21bba94-abogki383916444-4k`, `6.6.118-android15-8-g93e223c276e7-abogki500782043-4k`<br>Loader: [Anchor](https://github.com/byemaxx/ghostlock-anchor) |
 | OnePlus Pad 3<br><kbd>Tested</kbd> | OPD2415 | `OPD2415_16.0.9.400(EX01)`, `6.6.118-android15-8-g2e6b9c3812c5-ab15114928-4k`<br>Loader: [Root My Device (tqmane)](https://github.com/tqmane/Root-My-Device) |
@@ -39,5 +40,7 @@ Upstream references: [ghostlock-oneplus verified devices](https://github.com/Joi
 - OnePlus 13 `IN2060` uses a different root path (UMH).
 - GhostLock App lists kernel `6.12.38-android16-5-g844001fb8721-ab14552068-4k` for the OnePlus 15T, while the Ace 6T row above uses the same string. A shared `uname -r` does not prove the same offset layout, so do not treat an Ace 6T result as a OnePlus 15T result or the reverse.
 - ghostlock-oneplus has extracted offsets awaiting a device run for OnePlus 15T (`PLZ110`, `6.12.38`). Its not-feasible list includes OnePlus 12 and OnePlus 13R / Ace 5. Check both lists before trying a build.
+- [Shark](https://github.com/kpgc10kai/Shark) ([upstream binaries](https://github.com/Yunnijian/Shark-Releases); original `Yunnijian/Shark` source removed November 2026) targets `CVE-2026-98260` across 7 ColorOS / OPlus / vivo / Xiaomi kernel chains (`6.6.118`, `6.6.127`, `6.12.23`, `6.12.38`, `6.12.58`, `6.12.69`, `6.18.21`) via Shizuku or Stellar; check exact chain support before running.
+- On the OnePlus 16 (`PYB110`) `6.18.21` kit, upstream warns that `ksud soft-reboot` and `ctl.restart zygote` with Zygisk Next active can freeze the device until a forced full reboot; refresh manager UI via force-stop instead.
 
 Related ColorOS / OPlus pages: [OPPO](./oppo.md), [Realme](./realme.md). Return to [Supported Devices](./index.md) or the [complete guide](../guide.md#supported-devices).

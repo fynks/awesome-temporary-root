@@ -5,7 +5,7 @@ description: Temporary-root device reports, HyperOS builds, and compatibility no
 
 # Xiaomi and Redmi
 
-Xiaomi and Redmi devices use several independent loaders, including [ghostlock-oneplus](https://github.com/JoinChang/ghostlock-oneplus), [Root My Device (Witaqua)](https://github.com/WitAqua-tools/Root-My-Device), [DirtyFrag](https://github.com/mitschud/DirtyFrag), [DFRoot](https://github.com/diabl0w/DFRoot), and [GhostLock App](https://github.com/YuKongA/ghostlock-app).
+Xiaomi and Redmi devices use several independent loaders, including [ghostlock-oneplus](https://github.com/JoinChang/ghostlock-oneplus), [Root My Device (Witaqua)](https://github.com/WitAqua-tools/Root-My-Device), [DirtyFrag](https://github.com/mitschud/DirtyFrag), [DFRoot](https://github.com/diabl0w/DFRoot), [GhostLock App](https://github.com/YuKongA/ghostlock-app), [TimerRoot](https://github.com/MVN123123123123123/TimerRoot), [Shark](https://github.com/kpgc10kai/Shark), and per-device ports.
 
 ## Status definitions
 
@@ -25,6 +25,7 @@ Xiaomi and Redmi devices use several independent loaders, including [ghostlock-o
 | Device / status | Model or codename | Build or kernel / loader |
 | --- | --- | --- |
 | Xiaomi 17<br><kbd>Tested</kbd> | pudding | `OS3.0.315.0.WPCCNXM` (`6.12.23`), `6.12.69`<br>Loader: ghostlock-oneplus |
+| Xiaomi 17 / Pro / Ultra<br><kbd>Tested</kbd> | — | `6.12.23-android16-5-g75e9b1c7ae7c-abogki463945075-4k`<br>Loader: [CVE-2026-43499-popsicle](https://github.com/x-spy/CVE-2026-43499-popsicle) (`CVE-2026-43499`; caveat: new apps crash after exploit until reboot) |
 | Xiaomi 17T Pro<br><kbd>Tested</kbd> | warhol | `OS3.0.304.0.WPSJPXM`, `6.12.38-android16-5-g1d46253471dd-ab15048002-4k`<br>Loader: [Root My Device (Witaqua)](https://github.com/WitAqua-tools/Root-My-Device) |
 | Xiaomi 14T Japan<br><kbd>Tested</kbd> | XIG07 | `OS3.0.7.0.WNEJPKD`, `6.1.138-android14-11-g44bda9e8f6e9-ab13792638`<br>Loader: [Root My Device (Witaqua)](https://github.com/WitAqua-tools/Root-My-Device) |
 | Redmi Note 13 4G<br><kbd>Maintainer Verified</kbd> | sapphire | Android 15; HyperOS `2.0.213.0` Global; security patch `2026-08-01`<br>Kernel and loader version: unknown<br>Loader: [mitschud/DirtyFrag](https://github.com/mitschud/DirtyFrag) |
@@ -41,6 +42,9 @@ Upstream references: [Maintainer report: Redmi Note 13 4G](https://github.com/fy
 - GhostLock App has profiles for many Xiaomi, POCO, and Redmi devices. Those are candidates, not confirmed runs. Its [MediaTek guide](https://github.com/YuKongA/ghostlock-app/blob/main/docs/kernel_profiles/MEDIATEK.md) covers MT devices that miss the default target.
 - GhostLock App's list includes a `6.1.138-android14-11-g7b9e94e37cfa-mi` profile for the Xiaomi Pad 7 Pro and a `6.12.38-android16-5-g1d46253471dd-ab15048002-4k` profile for the Motorola Razr Fold. The latter is the same kernel string as the Xiaomi 17T Pro row above; upstream has not shown that the two share an offset layout, so match the exact model as well as `uname -r`.
 - The Redmi Note 15 Pro+ and Note 15 Pro kernels in TimerRoot (`6.1.138`) are separate profiles from Root My Device and DirtyFrag targets. A TimerRoot QEMU check is not a hardware run.
+- [Shark](https://github.com/kpgc10kai/Shark) ([upstream binaries](https://github.com/Yunnijian/Shark-Releases)) includes a `6.18.21` `CVE-2026-98260` chain listing Xiaomi 18 Pro alongside OPlus and vivo/iQOO targets.
+- [CVE-2026-98260-nezha-android](https://github.com/quyicheng03-boop/CVE-2026-98260-nezha-android) documents a target-specific `CVE-2026-98260` research port for Xiaomi `nezha` (`OS4.0.4.0`).
+- [CVE-2026-43499-aristotle](https://github.com/soralis0912/CVE-2026-43499-aristotle) is an incomplete WIP port for Xiaomi 13T (`aristotle` / au `XIG04`, `5.10.136`) whose `rb_erase` overlay fails to leak the KASLR slide; do not treat it as a working target.
 - The POCO M6 Pro 4G ([ghostlock-emerald](https://github.com/datfooldive/ghostlock-emerald)) port has no upstream support table, so it is not listed as a confirmed target.
 
 Return to [Supported Devices](./index.md) or the [complete guide](../guide.md#supported-devices).

@@ -5,7 +5,7 @@ description: Temporary-root device reports, exact firmware builds, and compatibi
 
 # Samsung Galaxy
 
-[Root My Galaxy](https://github.com/BuSung-dev/Root-My-Galaxy) is the main loader and ships per-build payloads matched on model plus kernel. [Root My Galaxy Next](https://github.com/rushiranpise/Root-My-Galaxy-Next) and [Root My Galaxy Ultra](https://github.com/xorpix/Root-My-Galaxy-Ultra) are independent forks with their own payload feeds and extra backends, not newer releases of the same app. GhostLock-Galaxy, the A17 and A16 ports, UniRoot, GhostSam, and RootMyS24 cover builds outside its list.
+[Root My Galaxy](https://github.com/BuSung-dev/Root-My-Galaxy) is the main loader and ships per-build payloads matched on model plus kernel. [Root My Galaxy Next](https://github.com/rushiranpise/Root-My-Galaxy-Next), [Root My Galaxy Ultra](https://github.com/xorpix/Root-My-Galaxy-Ultra), and [Root My Galaxy Extended](https://github.com/igorcv88/Root-My-Galaxy-Extended) are independent forks with their own payload feeds and extra backends, not newer releases of the same app. GhostLock-Galaxy, the A17 and A16 ports, UniRoot, GhostSam, SamTimer, GhostKey, and RootMyS24 cover builds outside its list.
 
 ## Status definitions
 
@@ -27,6 +27,8 @@ description: Temporary-root device reports, exact firmware builds, and compatibi
 | Galaxy S25, S25+, S25 Ultra, S25 Edge<br><kbd>Tested</kbd> | SM-S9310/B/N/Q/U/U1/W/Z, SM-S936B/N/U/U1/W, SM-S937B/N/U/U1/W, SM-S9380/B/N/Q/U/U1/W/Z, SC-51F, SCG31, SC-52F, SCG32 | `6.6.98`<br>Loader: Root My Galaxy |
 | Galaxy S25+ China<br><kbd>Tested</kbd> | SM-S9360 | `S9360ZCSCCZG1`, `6.6.98`<br>Loader: Root My Galaxy |
 | Galaxy S25 Edge China<br><kbd>Tested</kbd> | SM-S9370 | `S9370ZCS9CZG1`, `6.6.98`<br>Loader: Root My Galaxy |
+| Galaxy S25 Edge (Extended)<br><kbd>Tested</kbd> | SM-S937B | `S937BXXU8CZF1`, `6.6.98`<br>Loader: [Root My Galaxy Extended](https://github.com/igorcv88/Root-My-Galaxy-Extended) |
+| Galaxy S25 Ultra (Extended, One UI 9 beta)<br><kbd>Tested</kbd> | SM-S938B | `S938BXXUCZZI4`, `6.6.127`<br>Loader: [Root My Galaxy Extended](https://github.com/igorcv88/Root-My-Galaxy-Extended) (KernelSU Next / SUSFS supported; upstream notes `S938B` `CZG3` tested and `S936B` unvalidated) |
 | Galaxy S25 Ultra (US)<br><kbd>Upstream profile</kbd> | SM-S938U1 | `S938U1UEUDDZJB`, `6.6.127-android15-8-p87b1ce1-abogkiS938USQUDDZJB-4k`<br>Loader: [Root My Galaxy Next](https://github.com/rushiranpise/Root-My-Galaxy-Next) (CVE-2026-98260; feed ships KernelSU 3.3.0, KernelSU-Next 3.4.2, and BakaSU 4.2.0-rc3 flavours) |
 | Galaxy S24 Ultra (US)<br><kbd>Tested</kbd> | SM-S928U1 | `S928USQS6DZF2`, `6.1.145`<br>Loader: Root My Galaxy |
 | Galaxy S24 Ultra International<br><kbd>Tested</kbd> | SM-S928B | `S928BXXS6DZF2`, `6.1.145`<br>Loader: Root My Galaxy |
@@ -49,6 +51,7 @@ description: Temporary-root device reports, exact firmware builds, and compatibi
 | Galaxy S24 Ultra (Europe, One UI 9, EZJ1)<br><kbd>Tested</kbd> | SM-S928B | `S928BXXS6EZJ1`, `6.1.162`<br>Loader: RootMyS24 (POSIX CPU timers route) |
 | Galaxy S24 Ultra (S9280, One UI 9)<br><kbd>Tested</kbd> | SM-S9280 | `S9280ZHU6EZIF`, `6.1.162`<br>Loader: RootMyS24 (POSIX CPU timers route) |
 | Galaxy S24 (international, One UI 9)<br><kbd>Tested</kbd> | SM-S921E | `S921EXXU3DZIF`, `6.1.162`<br>Loader: RootMyS24 (POSIX CPU timers route) |
+| Galaxy S24 (Korea, One UI 9)<br><kbd>Tested</kbd> | SM-S921N (e1s, Exynos 2400) | `6.1.162-android14-11` (One UI 9)<br>Loader: [SamTimer](https://github.com/Leo141212/SamTimer) (`CVE-2026-98260`, Shizuku; KernelSU-Next 3.4.2 no-patch-text build) |
 | Galaxy S24 Ultra (China)<br><kbd>Tested</kbd> | SM-S9280 | `S9280ZCS6DZF2` (baseline), `S9280ZCS6DZH3`, `S9280ZHS6DZE2` / `S9280ZHS6DZH3` (HK/TW), `S9280ZCS6DZG1`, `6.1.145`<br>Loader: RootMyS24 |
 | Galaxy S24 Ultra (China, DZJ3)<br><kbd>Experimental</kbd> | SM-S9280 | `S9280ZCS6DZJ3`, `6.1.145`<br>Loader: RootMyS24 (98260 route; manual staging verified, app path not yet tested) |
 | Galaxy Z Fold6 (China)<br><kbd>Tested</kbd> | SM-F9580 | `6.1.145` (shares the S24 Ultra China DZF2 payload)<br>Loader: RootMyS24 |
@@ -78,5 +81,7 @@ Upstream references: [Root My Galaxy payloads](https://github.com/BuSung-dev/Roo
 - A late-loaded driver is fixed for the boot. If a manager reports a UAPI mismatch or asks for a newer kernel while the manager app itself is current, the manager is newer than the driver the loader staged: install a manager build whose UAPI matches that driver instead of re-rooting. A manager install does not replace the loaded driver, and changing the manager family needs a full reboot. Prefer the loader's pinned manager link when it has one; GitHub CI artifacts expire, and a `manager-spoofed` artifact uses a different package ID.
 - On Samsung, DFRoot and DirtyFrag expect diabl0w's KernelSU build. DFRoot is manager-agnostic elsewhere and names upstream KernelSU, KernelSU-Next, or KowSU for non-Samsung devices. A fork that bundles its own daemon expects the manager shipped with it.
 - GhostSam also ships GhostLock chains and build tables for the Galaxy S22 series (66 known builds), Galaxy S26 series (153 known builds, plus 7 One UI 9 builds), and Galaxy Z Fold8 (73 known builds). Those series have per-build runtime tables but no hardware runs documented in this list.
+- [GhostKey](https://github.com/countryside99/GhostKey) is an ongoing Shizuku `CVE-2026-98260` port targeting the Galaxy S25 Ultra (`SM-S938B`, `6.6.127` One UI 9). Treat it as in-progress until upstream documents a completed release.
+- [DFReroot](https://github.com/polygraphene/DFReroot) is a second-stage persistence helper (tested on Galaxy S26 One UI 8.5 `S942QOPU1AZDE`) that uses an initial temporary root session to register a `packages.xml` system-UID app for subsequent DirtyFrag runs without repeating GhostLock races; its author now recommends [DFRoot](https://github.com/diabl0w/DFRoot) for simpler single-stage use.
 
 Return to [Supported Devices](./index.md) or the [complete guide](../guide.md#supported-devices).

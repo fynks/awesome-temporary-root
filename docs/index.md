@@ -29,22 +29,22 @@ description: Community-maintained reference of temporary-root hardware reports, 
 
 ## Supported devices by brand
 
-Tables on every brand page are expanded by default for direct scanning and `Ctrl+F` lookup across `4.9` to `6.12` kernels.
+Tables on every brand page are expanded by default for direct scanning and `Ctrl+F` lookup across `4.4` to `6.18` kernels.
 
 | Brand / group | Loaders covered |
 | --- | --- |
-| [Samsung Galaxy](./devices/samsung.md) | Root My Galaxy, RootMyS24, GhostSam, UniRoot, ghostlock-a17, SM-A166W port |
-| [Google Pixel](./devices/pixel.md) | Root My Pixel |
-| [OnePlus](./devices/oneplus.md) | ghostlock-oneplus, Anchor, Root My Device (tqmane) |
-| [OPPO](./devices/oppo.md) | ghostlock-oneplus, Root My Device (Witaqua) |
-| [Realme](./devices/realme.md) | ghostlock-rmx5085, DirtyFrag |
-| [vivo and iQOO](./devices/vivo.md) | RootMyVivo, GhostLock-X200, DirtyFrag, DFRoot, iQOO Z9 / vivo T3 port, Adreno port |
-| [Xiaomi and Redmi](./devices/xiaomi.md) | ghostlock-oneplus, Root My Device (Witaqua), DirtyFrag, GhostLock App, DFRoot |
+| [Samsung Galaxy](./devices/samsung.md) | Root My Galaxy, Root My Galaxy Next, Root My Galaxy Ultra, Root My Galaxy Extended, RootMyS24, GhostSam, SamTimer, GhostKey, GhostLock-Galaxy, UniRoot, ghostlock-a17, SM-A166W port |
+| [Google Pixel](./devices/pixel.md) | Root My Pixel, TimerRoot, LSPromise |
+| [OnePlus](./devices/oneplus.md) | ghostlock-oneplus, Anchor, Root My Device (tqmane), Shark, OnePlus 16 PYB110 kit |
+| [OPPO](./devices/oppo.md) | ghostlock-oneplus, Root My Device (Witaqua), Shark, CVE-2025-21479-FX5P |
+| [Realme](./devices/realme.md) | ghostlock-rmx5085, DirtyFrag, Shark |
+| [vivo and iQOO](./devices/vivo.md) | RootMyVivo, DirtyFalg-vr, Shark, yuehong-privilege-assistant, GhostLock-X200, DirtyFrag, DFRoot, iQOO Z9 / vivo T3 port, Adreno port |
+| [Xiaomi and Redmi](./devices/xiaomi.md) | ghostlock-oneplus, Root My Device (Witaqua), DirtyFrag, GhostLock App, DFRoot, TimerRoot, Shark, CVE-2026-43499-popsicle |
 | [ASUS](./devices/asus.md) | zenfone9-ghostlock |
 | [Nothing](./devices/nothing.md) | Root My Device (tqmane) |
-| [Honor](./devices/honor.md) | ANB Root, MnemosyneLab/ghostlock-honor |
+| [Honor](./devices/honor.md) | ANB Root, CVE-2026-98260-BRM-AN00, MnemosyneLab/ghostlock-honor |
 | [HMD and Nokia](./devices/nokia.md) | DFRoot |
-| [Amazon, NVIDIA, Meta, and TCL](./devices/other.md) | R0rt1z2/GhostLock, GhostLock NVIDIA Shield, Root My Device (Witaqua) |
+| [Amazon, NVIDIA, Meta, Meizu, and TCL](./devices/other.md) | R0rt1z2/GhostLock, GhostLock NVIDIA Shield, Root My Device (Witaqua), Meizu 20 Pro / 21 |
 
 See [Supported Devices](./devices/index.md) for status badge definitions and live upstream support catalogs.
 
