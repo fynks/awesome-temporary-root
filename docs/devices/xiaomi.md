@@ -18,6 +18,7 @@ Xiaomi and Redmi devices use several independent loaders, including [ghostlock-o
 | <kbd>Upstream profile</kbd> | Device kernel profile shipped upstream with no documented hardware run yet. |
 | <kbd>Unverified candidate</kbd> | Matching kernel profile exists, but this model is unconfirmed on hardware. |
 | <kbd>Deprecated/unavailable</kbd> | Upstream loader or repository is archived or removed. |
+| <kbd>Not supported</kbd> | Hardware run on this exact build reported no root; the loader refused the target or reported the kernel patched. |
 
 ## Supported builds
 
@@ -38,6 +39,8 @@ Upstream references: [Maintainer report: Redmi Note 13 4G](https://github.com/fy
 - The Redmi Note 14 4G DFRoot row is separate from the GhostLock row. DFRoot v4.3 rebooted the device on every run; v4.7 succeeded with KernelSU 3.3.1.
 - The Redmi Note 14 4G run used the GhostLock App profile for kernel `6.12.30-android16-5-g6e872b4863d6-ab13847919-4k`, which upstream lists for the REDMI Note 15 4G and POCO M6 Pro 4G. GhostLock App selects on `uname -r`, so the same kernel string covers all three models, but the offset layout can still differ between them. Confirm the exact model, and treat a Note 14 4G run as unverified on a Note 15 4G and the reverse.
 - GhostLock App has profiles for many Xiaomi, POCO, and Redmi devices. Those are candidates, not confirmed runs. Its [MediaTek guide](https://github.com/YuKongA/ghostlock-app/blob/main/docs/kernel_profiles/MEDIATEK.md) covers MT devices that miss the default target.
+- GhostLock App's list includes a `6.1.138-android14-11-g7b9e94e37cfa-mi` profile for the Xiaomi Pad 7 Pro and a `6.12.38-android16-5-g1d46253471dd-ab15048002-4k` profile for the Motorola Razr Fold. The latter is the same kernel string as the Xiaomi 17T Pro row above; upstream has not shown that the two share an offset layout, so match the exact model as well as `uname -r`.
+- The Redmi Note 15 Pro+ and Note 15 Pro kernels in TimerRoot (`6.1.138`) are separate profiles from Root My Device and DirtyFrag targets. A TimerRoot QEMU check is not a hardware run.
 - The POCO M6 Pro 4G ([ghostlock-emerald](https://github.com/datfooldive/ghostlock-emerald)) port has no upstream support table, so it is not listed as a confirmed target.
 
 Return to [Supported Devices](./index.md) or the [complete guide](../guide.md#supported-devices).

@@ -18,6 +18,7 @@ description: Temporary-root device reports, exact firmware builds, and compatibi
 | <kbd>Upstream profile</kbd> | Device kernel profile shipped upstream with no documented hardware run yet. |
 | <kbd>Unverified candidate</kbd> | Matching kernel profile exists, but this model is unconfirmed on hardware. |
 | <kbd>Deprecated/unavailable</kbd> | Upstream loader or repository is archived or removed. |
+| <kbd>Not supported</kbd> | Hardware run on this exact build reported no root; the loader refused the target or reported the kernel patched. |
 
 ## Supported builds
 

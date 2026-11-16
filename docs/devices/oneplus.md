@@ -18,6 +18,7 @@ description: Temporary-root device reports, exact firmware builds, and compatibi
 | <kbd>Upstream profile</kbd> | Device kernel profile shipped upstream with no documented hardware run yet. |
 | <kbd>Unverified candidate</kbd> | Matching kernel profile exists, but this model is unconfirmed on hardware. |
 | <kbd>Deprecated/unavailable</kbd> | Upstream loader or repository is archived or removed. |
+| <kbd>Not supported</kbd> | Hardware run on this exact build reported no root; the loader refused the target or reported the kernel patched. |
 
 ## Supported builds
 
@@ -36,6 +37,7 @@ Upstream references: [ghostlock-oneplus verified devices](https://github.com/Joi
 
 - The PLK110 OnePlus 15 entry is the Android 17 Beta 3 kernel. A stable build with a different kernel is not covered.
 - OnePlus 13 `IN2060` uses a different root path (UMH).
+- GhostLock App lists kernel `6.12.38-android16-5-g844001fb8721-ab14552068-4k` for the OnePlus 15T, while the Ace 6T row above uses the same string. A shared `uname -r` does not prove the same offset layout, so do not treat an Ace 6T result as a OnePlus 15T result or the reverse.
 - ghostlock-oneplus has extracted offsets awaiting a device run for OnePlus 15T (`PLZ110`, `6.12.38`). Its not-feasible list includes OnePlus 12 and OnePlus 13R / Ace 5. Check both lists before trying a build.
 
 Related ColorOS / OPlus pages: [OPPO](./oppo.md), [Realme](./realme.md). Return to [Supported Devices](./index.md) or the [complete guide](../guide.md#supported-devices).

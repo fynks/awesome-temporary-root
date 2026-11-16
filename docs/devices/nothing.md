@@ -18,6 +18,7 @@ Nothing Phone (3a) uses [Root My Device (tqmane)](https://github.com/tqmane/Root
 | <kbd>Upstream profile</kbd> | Device kernel profile shipped upstream with no documented hardware run yet. |
 | <kbd>Unverified candidate</kbd> | Matching kernel profile exists, but this model is unconfirmed on hardware. |
 | <kbd>Deprecated/unavailable</kbd> | Upstream loader or repository is archived or removed. |
+| <kbd>Not supported</kbd> | Hardware run on this exact build reported no root; the loader refused the target or reported the kernel patched. |
 
 ## Supported builds
 
@@ -25,7 +26,7 @@ Nothing Phone (3a) uses [Root My Device (tqmane)](https://github.com/tqmane/Root
 | --- | --- | --- |
 | Nothing Phone (3a)<br><kbd>Tested</kbd> | A059 / Asteroids | `B4.1-260618-1048`, `6.1.157-android14-11-g82d681c9b06b-ab14634535`<br>Loader: [Root My Device (tqmane)](https://github.com/tqmane/Root-My-Device) |
 
-Upstream reference: [Nothing Phone (3a) supported exact targets](https://github.com/tqmane/Root-My-Device/blob/main/devices/nothing-phone-3a/README.md#supported-exact-targets).
+Upstream reference: [Nothing Phone (3a) supported target](https://github.com/tqmane/Root-My-Device/blob/main/devices/nothing-phone-3a/README.md#supported-target).
 
 ## Compatibility notes
 

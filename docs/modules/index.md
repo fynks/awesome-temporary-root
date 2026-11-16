@@ -62,7 +62,7 @@ Entries are User Reported unless marked Maintainer Verified.
 | [StevenBlock](https://github.com/mikropsoft/StevenBlock) | Ad blocking | Working | |
 | Systemless Adblocker (Sürüm) | Ad blocking | Working | |
 | [ZN-hostsredirect](https://github.com/aviraxp/ZN-hostsredirect) | Ad blocking | Working | |
-| [LightningDSP (JamesDSP fork) v6.7](https://github.com/zahahah/LightningDSP) | Audio | Working | |
+| [LightningDSP (JamesDSP fork) v6.7.1](https://github.com/zahahah/LightningDSP) | Audio | Working | |
 | [PIXAML v0.9.6](https://github.com/zahahah/PIXAML) | Audio | Working | |
 | [ViPER4Android (likelikeslike)](https://github.com/likelikeslike/ViPER4Android) | Audio | Occasional issues | Follow the install order. It expects KernelSU. |
 | [Global Icon Pack](https://github.com/RichardLuo0/global-icon-pack-android) | Visual | Needs testing | |

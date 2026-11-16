@@ -18,12 +18,13 @@ ASUS Zenfone 9 builds use the dedicated [zenfone9-ghostlock](https://github.com/
 | <kbd>Upstream profile</kbd> | Device kernel profile shipped upstream with no documented hardware run yet. |
 | <kbd>Unverified candidate</kbd> | Matching kernel profile exists, but this model is unconfirmed on hardware. |
 | <kbd>Deprecated/unavailable</kbd> | Upstream loader or repository is archived or removed. |
+| <kbd>Not supported</kbd> | Hardware run on this exact build reported no root; the loader refused the target or reported the kernel patched. |
 
 ## Supported builds
 
 | Device / status | Model or codename | Build or kernel / loader |
 | --- | --- | --- |
-| ASUS Zenfone 9<br><kbd>Tested</kbd> | ASUS_AI2202 | `5.10.205-android12-9-00029-g3f12df86bfdb-ab11799032`<br>Loader: [zenfone9-ghostlock](https://github.com/CKwasd/zenfone9-ghostlock) |
+| ASUS Zenfone 9<br><kbd>Tested</kbd> | ASUS_AI2202 | `VA39`, `5.10.205-android12-9-00029-g3f12df86bfdb-ab11799032`<br>Loader: [zenfone9-ghostlock](https://github.com/CKwasd/zenfone9-ghostlock) |
 
 Upstream reference: [zenfone9-ghostlock](https://github.com/CKwasd/zenfone9-ghostlock).
 
