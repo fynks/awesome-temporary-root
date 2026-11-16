@@ -34,16 +34,14 @@ Entries are User Reported unless marked Maintainer Verified.
 | [OverlayFS Enhanced](https://github.com/RipperHybrid/meta-overlayfsx) | Metamodules | Device-dependent | |
 | [NeoZygisk](https://github.com/JingMatrix/NeoZygisk) | Zygisk | Working | Maintainer Verified. |
 | [OnyxZygisk](https://github.com/OnyxZygisk/OnyxZygisk) | Zygisk | Device-dependent | |
-| OxyxZygisk | Zygisk | Device-dependent | |
 | [ReZygisk](https://github.com/PerformanC/ReZygisk) | Zygisk | Device-dependent | |
 | [ZNNext](https://github.com/VeryBaaad/ZNNext) | Zygisk | Working | |
 | [Zygisk Assistant](https://github.com/snake-4/Zygisk-Assistant) | Zygisk | Working | |
 | [Zygisk Next](https://github.com/Dr-TSNG/ZygiskNext) | Zygisk | Occasional issues | |
 | [Zygisk Sui](https://github.com/XiaoTong6666/Sui) | Zygisk | Working | Do not run alongside KernelSU without reading both projects. |
 | [LSPosed](https://github.com/LSPosed/LSPosed) | Xposed | Device-dependent | Requires a compatible Zygisk provider. May cause occasional GPS issues. |
-| LSPosedIT | Xposed | Working | Available through the LSPosed Telegram channel. |
 | [NexAlloy](https://github.com/NexAlloy/NexAlloy) | Xposed | Working | |
-| Spicy EX | Xposed | Working | |
+| [Spicy EX](https://github.com/amarinne/spicy-ex) | Xposed | Working | |
 | [Vector v2.2](https://github.com/JingMatrix/Vector) | Xposed | Occasional issues | May bootloop on some setups. |
 | [Vector-SR](https://github.com/byemaxx/Vector-SR) | Xposed | Device-dependent | Enabling via soft reboot may fully reboot some devices. |
 | [Device Spoof Labs](https://github.com/yubunus/DeviceSpoofLab-Magisk) | Hiding | Device-dependent | One UI 9: disable spoofing first if soft reboots occur. |
@@ -73,9 +71,8 @@ Entries are User Reported unless marked Maintainer Verified.
 | CatSmoker | Performance | Working | |
 | [DalvikHyperthreading](https://github.com/LeanxModulostk/DalvikHyperthreading) | Performance | Working | |
 | [Encore Tweaks](https://github.com/Rem01Gaming/encore-ksu) | Performance | Working | |
-| HyperOptimize | Performance | Occasional issues | Avoid combining with modules that modify the same parameters. |
+| [HyperOptimize](https://github.com/TatshSiow/HyperOptimize) | Performance | Occasional issues | Avoid combining with modules that modify the same parameters. |
 | [KernelSU Tuner](https://github.com/ylh440104/KernelSU-Tuner) | Performance | Needs testing | Avoid voltage or clock changes on locked devices. |
-| Universal GMS Doze | Performance | Working | |
 | [AshResXcue (AshLooper)](https://github.com/RipperHybrid/AshLooper) | Bootloop protection | Occasional issues | Uninstall other bootloop protectors first. |
 | [Always Trust User Certificates](https://github.com/NVISOsecurity/AlwaysTrustUserCerts) | Patches and tools | Working | |
 | [Block OTA Update](https://github.com/manhgdev/Block-OTA-Update) | Patches and tools | Device-dependent | May need a device-specific fork. |
@@ -125,24 +122,23 @@ Entries are User Reported unless marked Maintainer Verified.
 | [FreeStyle-Control-Center](https://github.com/Mods-Center/FreeStyle-Control-Center) | HyperOS / MIUI | Device-dependent | |
 | [HyperBackground](https://github.com/Solomonstery/HyperBackground) | HyperOS / MIUI | Working | |
 | [HyperCeiler](https://github.com/ReChronoRain/HyperCeiler) | HyperOS / MIUI | Working | Disable "Icon in Settings" if icons duplicate. |
-| HyperControl | HyperOS / MIUI | Working | |
-| HyperCopy | HyperOS / MIUI | Working | |
-| HyperDesktop | HyperOS / MIUI | Working | |
-| HyperDuo | HyperOS / MIUI | Working | |
-| HyperGlow | HyperOS / MIUI | Working | Requires Spicy EX. |
-| HyperHelper | HyperOS / MIUI | Working | |
+| [HyperControl](https://github.com/Orynnx/HyperControl) | HyperOS / MIUI | Working | |
+| [HyperCopy](https://github.com/1812z/HyperCopy) | HyperOS / MIUI | Working | |
+| [HyperDuo](https://github.com/yixing233/HyperDuo) | HyperOS / MIUI | Working | |
+| [HyperGlow](https://github.com/amarinne/hyperglow) | HyperOS / MIUI | Working | Requires Spicy EX. |
+| [HyperHelper](https://github.com/Xposed-Modules-Repo/dev.lackluster.mihelper) | HyperOS / MIUI | Working | |
 | [HyperIsland](https://github.com/1812z/HyperIsland) | HyperOS / MIUI | Working | |
 | [HyperLight](https://github.com/KiminonawaResa/HyperLight) | HyperOS / MIUI | Working | Disable "Icon in Settings" if icons duplicate. |
 | [HyperLock](https://github.com/LXRylex/HyperLock) | HyperOS / MIUI | Working | Requires HyperDuo. |
-| HyperLyric | HyperOS / MIUI | Working | |
+| [HyperLyric](https://github.com/limczhh/HyperLyric) | HyperOS / MIUI | Working | |
 | [HyperOS-AOD](https://github.com/Mods-Center/HyperOS-AOD) | HyperOS / MIUI | Device-dependent | |
 | [HyperOS-App-Vault](https://github.com/Mods-Center/HyperOS-App-Vault) | HyperOS / MIUI | Device-dependent | |
 | [HyperStack](https://github.com/cramqin/HyperStack) | HyperOS / MIUI | Working | |
 | [HyperUnlocked](https://github.com/ukriu/HyperUnlocked) | HyperOS / MIUI | Working | |
 | iOS-Control-Center-HyperOS | HyperOS / MIUI | Device-dependent | |
-| MeowPower | HyperOS / MIUI | Working | |
+| [MeowPower](https://github.com/Xposed-Modules-Repo/io.github.yuhj319.meowpower) | HyperOS / MIUI | Working | |
 | [Modded HyperOS Launcher](https://github.com/Mods-Center/HyperOS-Launcher) | HyperOS / MIUI | Device-dependent | Keep a backup launcher. Fossify Launcher is suggested. |
-| PigLauncher | HyperOS / MIUI | Working | POCO exclusive. |
+| [PigLauncher](https://github.com/dinopig1219/PigLauncher) | HyperOS / MIUI | Working | POCO exclusive. |
 | [XApps](https://github.com/Leekin2/XApps) | HyperOS / MIUI | Working | |
 | [Core Patch N for One UI 9](https://github.com/igorcv88/CorePatch-OneUI9) | Samsung / One UI | Working | |
 | [Dressroom Advanced](https://github.com/BlueOutside/Dressroom-Advanced) | Samsung / One UI | Working | |
