@@ -84,7 +84,6 @@ Entries are User Reported unless marked Maintainer Verified.
 | [KernelSU Grant Toast](https://github.com/NativeStar/KernelSUGrantToast) | Patches and tools | Device-dependent | |
 | [KernelSU Toolkit](https://github.com/rifsxd/ksu_toolkit) | Patches and tools | Working | |
 | [QuickSwitch](https://github.com/skittles9823/QuickSwitch) | Patches and tools | Needs testing | |
-| Simple Flag Secure | Patches and tools | Working | Upstream repository (`ShivamXD6/Simple-Flag-Secure`) is no longer available. |
 | [ih8SecureLock](https://github.com/j-hc/ih8SecureLock) | Patches and tools | Needs testing | Zygisk `FLAG_SECURE` bypass replacing archived `FlagSecurePatcher`; Android 10 to 17. |
 | [TrustAnyCert](https://github.com/gorkemgun/TrustAnyCert) | Patches and tools | Needs testing | Installing CA certificates changes trust. |
 | [Zygisk Detach](https://github.com/j-hc/zygisk-detach) | Patches and tools | Working | Requires a working Zygisk provider. |
@@ -166,7 +165,6 @@ Entries are User Reported unless marked Maintainer Verified.
 | Iconify | Utilities | Working | |
 | IslandRecorder | Utilities | Working | |
 | RamStatusBar | Utilities | Working | |
-| AClipBoardManager (ClipVault) | Other | Working | Upstream repository (`paras-moharle/ClipVault`) is no longer available. |
 | [CleanShare](https://github.com/hxreborn/cleanshare) | Other | Working | |
 | [Discover Ads Filter / Feed Filter](https://github.com/hxreborn/discover-ads-filter) | Other | Working | |
 | [FreeUnlock](https://github.com/TheWhiteDog9487/FreeUnlock) | Other | Working | |
