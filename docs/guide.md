@@ -17,11 +17,11 @@ description: Temporary-root basics, safety, supported devices, tools, modules, q
 
 **Temporary root on a locked Android bootloader, one boot at a time.**
 
-Curated compatibility index for DirtyFrag, GhostLock, Adreno GPU loaders, KernelSU late-load managers, and runtime modules.
+Curated compatibility index for DirtyFrag, GhostLock, POSIX CPU timer, Adreno GPU loaders, KernelSU late-load managers, and runtime modules.
 
 
 [![Awesome](https://awesome.re/badge-flat2.svg)](https://awesome.re)
-[![Kernels](https://img.shields.io/badge/kernels-4.4--6.12-informational?style=flat-square)](#supported-devices)
+[![Kernels](https://img.shields.io/badge/kernels-3.18--6.18-informational?style=flat-square)](#supported-devices)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](https://github.com/fynks/awesome-temporary-root/blob/main/LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/fynks/awesome-temporary-root?style=flat-square)](https://github.com/fynks/awesome-temporary-root/stargazers)
 
@@ -66,13 +66,19 @@ The loader that works depends on the device, its firmware build, and its kernel.
 
 The loaders use one of these kernel bugs:
 
-- DirtyFrag (CVE-2026-43284) is a page-cache write bug in ESP-in-UDP decryption. A run either works or stops with an error. The loader needs a kernel module built for the device's KMI.
+- DirtyFrag (CVE-2026-43284) is a page-cache write bug in ESP-in-UDP decryption. A run either works or stops with an error. The loader needs a kernel module built for the device's KMI. Forks and chained loaders extend it: [DirtyFalg-vr](https://github.com/DONGDERS/DirtyFalg-vr) disarms vivo and iQOO `vr.ko` tracepoint hooks (`__tracepoint_sys_exit`) before loading KernelSU, [DFReroot](https://github.com/polygraphene/DFReroot) persists a system-UID app in `packages.xml` after an initial temporary root so subsequent boots use DirtyFrag directly, and [LSPromise](https://github.com/LSPosed/LSPromise) chains `CVE-2026-49881` (Android 17 Telecom `InCallController` -> `system_server`, fixed in SPL `2026-09-01`) into DirtyFrag without Shizuku.
 - GhostLock (CVE-2026-43499) is a futex priority-inheritance use-after-free that gives a controlled kernel write. It is a race, so retries and kernel panics are normal. A working payload depends on the exact kernel layout.
-- The Adreno GPU route (CVE-2025-21479) is a GPU command-packet defect that lets the GPU overwrite its own page tables for physical read/write. RootMyVivo ships it for older 5.10/5.15 Snapdragon 8-class vivo and iQOO devices whose GPU firmware predates Qualcomm's June 2025 fix.
+- The Adreno GPU route (CVE-2025-21479) is a GPU command-packet defect that lets the GPU overwrite its own page tables for physical read/write. RootMyVivo, [CVE-2025-21479-FX5P](https://github.com/diyiqiuye/CVE-2025-21479-FX5P), and Quest `cheese` ports ship it for vulnerable Snapdragon devices whose GPU firmware predates Qualcomm's June 2025 fix.
 
 A few ports use other device-specific routes, such as a vendor service on MIUI or Honor, or a fastboot-issued permissive command line. Their table row says so.
 
-RootMyS24 also uses CVE-2026-98260 (a POSIX CPU timers use-after-free) for selected Galaxy S24 series devices on One UI 9.0 / kernel 6.1.162. Its [CVE record](https://www.cve.org/CVERecord?id=CVE-2026-98260) now lists fixed stable releases `6.1.191`, `6.6.158`, `6.12.112`, `6.18.54`, and `7.2.8`, with `7.3` also marked unaffected. The same vendor-backport caveat applies.
+POSIX CPU timers (`CVE-2026-98260`, a use-after-free on non-leader `exec()` fixed upstream in Linux commit `acb03d388181`) underpin `RootMyS24`, `TimerRoot`, `SamTimer`, `GhostKey`, `Shark`, and single-target `6.18.21` ports for OnePlus 16 (`PYB110`) and HONOR Win2 (`BRM-AN00`). Its [CVE record](https://www.cve.org/CVERecord?id=CVE-2026-98260) lists fixed stable releases `6.1.191`, `6.6.158`, `6.12.112`, `6.18.54`, and `7.2.8`, with `7.3` also marked unaffected. The same vendor-backport caveat applies.
+
+Older, patched, and non-kernel routes exist separately:
+
+- **Historical kernel exploits (patched on modern Android):** DirtyPipe (`CVE-2022-0847`, Linux `5.8` to `5.16.11` / `5.10.102` / `5.15.25`), MediaTek `mtk-su` (`CVE-2020-0069`, up to SPL `2020-03-01`), `CVE-2020-0041` (Xperia/LG), `CVE-2019-2215` (pre-October 2019 SPL), and DirtyCOW (`CVE-2016-5195`).
+- **Limited / non-kernel privilege escalation (not KernelSU root):** `CVE-2024-31317` (Zygote injection on pre-`2024-06-01` SPL reaching UID `1000` / app UIDs), `CVE-2026-49881` (`TLPE`, Android 17 Telecom -> `system_server`, fixed in SPL `2026-09-01`), and `DirtyInit` (`u:r:init:s0` ADB shell via `CVE-2026-43284` without `su` or KernelSU).
+- **Bootloader unlock bypasses and boot-chain tools:** Separate from temporary root; they modify partitions, AVB state, or unlock fastboot and carry factory-reset or brick risks.
 
 CVE records give these patch floors. DirtyFrag and GhostLock affect older branches than the ones listed.
 
@@ -126,18 +132,18 @@ Device tables, status definitions, and per-brand compatibility notes live on ded
 
 | Brand / group | Loaders |
 | --- | --- |
-| [Samsung Galaxy](devices/samsung.md) | Root My Galaxy, Root My Galaxy Next, Root My Galaxy Ultra, RootMyS24, GhostSam, GhostLock-Galaxy, UniRoot, ghostlock-a17, SM-A166W port |
-| [Google Pixel](devices/pixel.md) | Root My Pixel, TimerRoot |
-| [OnePlus](devices/oneplus.md) | ghostlock-oneplus, Anchor, Root My Device (tqmane) |
-| [OPPO](devices/oppo.md) | ghostlock-oneplus, Root My Device (Witaqua) |
-| [Realme](devices/realme.md) | ghostlock-rmx5085, DirtyFrag |
-| [vivo and iQOO](devices/vivo.md) | RootMyVivo, GhostLock-X200, DirtyFrag, DFRoot, iQOO Z9 / vivo T3 port, Adreno port |
-| [Xiaomi and Redmi](devices/xiaomi.md) | ghostlock-oneplus, Root My Device (Witaqua), DirtyFrag, GhostLock App, DFRoot |
+| [Samsung Galaxy](devices/samsung.md) | Root My Galaxy, Root My Galaxy Next, Root My Galaxy Ultra, Root My Galaxy Extended, RootMyS24, GhostSam, SamTimer, GhostKey, GhostLock-Galaxy, UniRoot, ghostlock-a17, SM-A166W port |
+| [Google Pixel](devices/pixel.md) | Root My Pixel, TimerRoot, LSPromise |
+| [OnePlus](devices/oneplus.md) | ghostlock-oneplus, Anchor, Root My Device (tqmane), Shark, OnePlus 16 PYB110 kit |
+| [OPPO](devices/oppo.md) | ghostlock-oneplus, Root My Device (Witaqua), Shark, CVE-2025-21479-FX5P |
+| [Realme](devices/realme.md) | ghostlock-rmx5085, DirtyFrag, Shark |
+| [vivo and iQOO](devices/vivo.md) | RootMyVivo, DirtyFalg-vr, Shark, yuehong-privilege-assistant, GhostLock-X200, DirtyFrag, DFRoot, iQOO Z9 / vivo T3 port, Adreno port |
+| [Xiaomi and Redmi](devices/xiaomi.md) | ghostlock-oneplus, Root My Device (Witaqua), DirtyFrag, GhostLock App, DFRoot, TimerRoot, Shark, CVE-2026-43499-popsicle |
 | [ASUS](devices/asus.md) | zenfone9-ghostlock |
 | [Nothing](devices/nothing.md) | Root My Device (tqmane) |
-| [Honor](devices/honor.md) | ANB Root, MnemosyneLab/ghostlock-honor |
+| [Honor](devices/honor.md) | ANB Root, CVE-2026-98260-BRM-AN00, MnemosyneLab/ghostlock-honor |
 | [HMD and Nokia](devices/nokia.md) | DFRoot |
-| [Amazon, NVIDIA, Meta, and TCL](devices/other.md) | R0rt1z2/GhostLock, GhostLock NVIDIA Shield, Root My Device (Witaqua) |
+| [Amazon, NVIDIA, Meta, Meizu, TCL, and Legacy](devices/other.md) | R0rt1z2/GhostLock, GhostLock NVIDIA Shield, Root My Device (Witaqua), Meizu 20 Pro / 21, historical Xperia / LG |
 
 See the [Supported Devices overview](devices/index.md) for all brand pages in one index.
 
@@ -152,7 +158,9 @@ These tables are maintained upstream and change more often than this README. Che
 | [Root My Galaxy](https://github.com/BuSung-dev/Root-My-Galaxy-Payloads) | Samsung Galaxy | [Payload list](https://github.com/BuSung-dev/Root-My-Galaxy-Payloads#supported-payloads), [JSON](https://github.com/BuSung-dev/Root-My-Galaxy-Payloads/blob/main/support/targets-v3.json) |
 | [Root My Galaxy Next](https://github.com/rushiranpise/Root-My-Galaxy-Next) | Samsung Galaxy | [Fork payload feed](https://github.com/rushiranpise/Root-My-Galaxy-Payloads/blob/main/support/targets-v3.json) |
 | [Root My Galaxy Ultra](https://github.com/xorpix/Root-My-Galaxy-Ultra) | Galaxy S26 Ultra | [S26 Ultra support rules](https://github.com/xorpix/Root-My-Galaxy-Ultra/blob/main/docs/S26-ULTRA-SUPPORT.md) |
+| [Root My Galaxy Extended](https://github.com/igorcv88/Root-My-Galaxy-Extended) | Galaxy S25 series | [README support notes](https://github.com/igorcv88/Root-My-Galaxy-Extended#supported-devices) |
 | [GhostSam](https://github.com/MocLG/GhostSam) | Galaxy S22, S26, Z Fold8 | [Device list](https://github.com/MocLG/GhostSam#supported-devices) |
+| [SamTimer](https://github.com/Leo141212/SamTimer) | Samsung Galaxy (`CVE-2026-98260`) | [README target notes](https://github.com/Leo141212/SamTimer#overview) |
 | [GhostLock-Galaxy](https://github.com/wxxsfxyzm/GhostLock-Galaxy) | Galaxy Z Fold6 | [Kernel list](https://github.com/wxxsfxyzm/GhostLock-Galaxy#registered-kernel-profiles) |
 | [ghostlock-a17](https://github.com/mobilehackinglab/ghostlock-a17) | Galaxy A17 | [Target list](https://github.com/mobilehackinglab/ghostlock-a17#target) |
 | [Root My Pixel](https://github.com/alex193a/Root-My-Pixel) | Pixel 6 to 11 | [Build list](https://github.com/alex193a/Root-My-Pixel#supported-devices--build-profiles) |
@@ -161,6 +169,9 @@ These tables are maintained upstream and change more often than this README. Che
 | [Root My Device (tqmane)](https://github.com/tqmane/Root-My-Device) | Nothing Phone (3a), OnePlus Pad 3 | [Nothing list](https://github.com/tqmane/Root-My-Device/blob/main/devices/nothing-phone-3a/README.md#supported-target), [Pad 3 list](https://github.com/tqmane/Root-My-Device/blob/main/devices/oneplus-pad-3/README.md#supported-target) |
 | [Root My Device (Witaqua)](https://github.com/WitAqua-tools/Root-My-Device) | Xiaomi, OPPO, and Meta Quest | [Target list](https://github.com/WitAqua-tools/Root-My-Device-Payloads/releases/latest/download/targets-v2.json), [Notes](https://github.com/WitAqua-tools/Root-My-Device-Payloads#supported-targets) |
 | [RootMyVivo](https://github.com/zenyxx-xd/RootMyVivo) | vivo and iQOO | [Catalog](https://github.com/zenyxx-xd/RootMyVivo-Payloads/blob/main/catalog/devices.json) |
+| [DirtyFalg-vr](https://github.com/DONGDERS/DirtyFalg-vr) | vivo/iQOO (`vr.ko`) and GKI `5.10` to `6.18` | [LKM matrix and `libvrext.so` notes](https://github.com/DONGDERS/DirtyFalg-vr#readme) |
+| [Shark (kpgc10kai fork)](https://github.com/kpgc10kai/Shark) / [Upstream releases](https://github.com/Yunnijian/Shark-Releases) | OnePlus, OPPO, Realme, vivo/iQOO, Xiaomi 18 Pro | [Supported kernel chains](https://github.com/kpgc10kai/Shark#readme) |
+| [yuehong-privilege-assistant](https://github.com/qq2070006042-create/yuehong-privilege-assistant) | Multi-method / vivo and iQOO | [Supported methods](https://github.com/qq2070006042-create/yuehong-privilege-assistant#readme) |
 | [RootMyS24](https://github.com/NanoTurtle1145/root-my-s24) | Galaxy S24/S24 Ultra, Z Flip6, China Z Fold6 | [Verified and pending firmware lists](https://github.com/NanoTurtle1145/root-my-s24#支持设备) |
 | [R0rt1z2/GhostLock](https://github.com/R0rt1z2/GhostLock) | Amazon Fire devices, TCL T653T02 | [4.14 default branch](https://github.com/R0rt1z2/GhostLock/tree/4.14), [5.4](https://github.com/R0rt1z2/GhostLock/tree/5.4), [4.4](https://github.com/R0rt1z2/GhostLock/tree/4.4), [5.10](https://github.com/R0rt1z2/GhostLock/tree/5.10), [5.15 TCL profiles](https://github.com/R0rt1z2/GhostLock/tree/5.15) |
 | [GhostLock App](https://github.com/YuKongA/ghostlock-app) | Multi-brand `uname -r` profiles | [Profile list](https://github.com/YuKongA/ghostlock-app/blob/main/docs/kernel_profiles/SUPPORTED_DEVICES.md) |
@@ -178,13 +189,21 @@ A temporary root setup needs a loader, a KernelSU-compatible manager, and whatev
 | Tool / latest version | Method | Coverage / note |
 | --- | --- | --- |
 | [DirtyFrag](https://github.com/mitschud/DirtyFrag) / [Latest version](https://github.com/mitschud/DirtyFrag/releases) | DirtyFrag | Samsung-focused; other vulnerable devices/KMIs may work, on-device; no Shizuku required |
+| [DirtyFalg-vr](https://github.com/DONGDERS/DirtyFalg-vr) / [Latest version](https://github.com/DONGDERS/DirtyFalg-vr/releases) | DirtyFrag | Hardened DirtyFrag fork for vivo/iQOO (`vr.ko` tracepoint disarm via BTF or Rust `libvrext.so` boot/OTA extraction, `W1c` verification, `fsync` kmsg log, 8 LKMs `5.10` to `6.18`), on-device; no Shizuku required |
 | [DFRoot](https://github.com/diabl0w/DFRoot) / [Latest version](https://github.com/diabl0w/DFRoot/releases) | DirtyFrag | Broad, manager-agnostic, on-device |
+| [DFReroot](https://github.com/polygraphene/DFReroot) / [Latest version](https://github.com/polygraphene/DFReroot/releases) | DirtyFrag (second-stage) | Persists a system-UID app in `packages.xml` after an initial temporary root so subsequent boots run DirtyFrag directly; tested Galaxy S26 One UI 8.5; author recommends DFRoot for simpler use |
+| [LSPromise](https://github.com/LSPosed/LSPromise) | `CVE-2026-49881` + DirtyFrag | Android 17 `untrusted_app` -> KernelSU chain without Shizuku; Pixel 10 initial Android 17 release tested (pre-`2026-09-01` SPL); fails on Pixel 6a / `6.1.xxx-android14` |
+| [yuehong-privilege-assistant](https://github.com/qq2070006042-create/yuehong-privilege-assistant) / [Latest version](https://github.com/qq2070006042-create/yuehong-privilege-assistant/releases) | Multi-method | Multi-method launcher (`roro.stellar.yuehong`, Android 10+, arm64) integrating Stellar wireless debugging, `DirtyFalg-vr`, GhostLock, GhostKey, and vivo/iQOO wired OTG mode |
+| [Shark (kpgc10kai fork)](https://github.com/kpgc10kai/Shark) / [Upstream releases](https://github.com/Yunnijian/Shark-Releases) | 98260 UAF | One-tap temp root + hot manager switching (`KSU-Universal`: KernelSU, KernelSU-Next, BakaSU, SukiSU Nova/Ultra, FinaSU) across 7 chains (`6.6.118` to `6.18.21`) for OnePlus, OPPO, Realme, vivo/iQOO, Xiaomi 18 Pro; Shizuku/Stellar; `Yunnijian/Shark` source repo removed Nov 2026 |
 | [UniRoot](https://github.com/kuuky29/UniRoot) / [Latest version](https://github.com/kuuky29/UniRoot/releases) | DirtyFrag + GhostLock | Samsung Galaxy, on-device; V5 is DirtyFrag-first with an in-app `ksud` patcher and no Shizuku, while the classic GhostLock path is retained; Galaxy A15 4G confirmed |
 | [GhostSam](https://github.com/MocLG/GhostSam) / [Latest version](https://github.com/MocLG/GhostSam/tags) | Both | Galaxy S22, S26, Z Fold8, ADB |
 | [GhostLock App](https://github.com/YuKongA/ghostlock-app) / [Latest version](https://github.com/YuKongA/ghostlock-app/tags) | GhostLock | Multi-brand `uname -r` profiles, on-device/Shizuku<br>User-reported success on the Redmi Note 14 4G with v1.2 |
 | [Root My Galaxy](https://github.com/BuSung-dev/Root-My-Galaxy) / [Latest version](https://github.com/BuSung-dev/Root-My-Galaxy/releases) | GhostLock | Selected Galaxy builds, on-device/Shizuku |
 | [Root My Galaxy Next](https://github.com/rushiranpise/Root-My-Galaxy-Next) / [Latest version](https://github.com/rushiranpise/Root-My-Galaxy-Next/releases) | GhostLock + DirtyFrag | Independent fork of Root My Galaxy; KernelSU, KernelSU-Next, and BakaSU (ReSukiSU) payload flavours, on-device/wireless ADB/Shizuku |
 | [Root My Galaxy Ultra](https://github.com/xorpix/Root-My-Galaxy-Ultra) / [Latest version](https://github.com/xorpix/Root-My-Galaxy-Ultra/releases) | GhostLock + DirtyFrag | Fork of Root My Galaxy Next for Galaxy S26 Ultra (`m3q`), on-device/Shizuku; KernelSU, KernelSU-Next, BakaSU, and KowSU managers |
+| [Root My Galaxy Extended](https://github.com/igorcv88/Root-My-Galaxy-Extended) / [Latest version](https://github.com/igorcv88/Root-My-Galaxy-Extended/releases) | GhostLock + 98260 UAF | Fork of Root My Galaxy for Galaxy S25 series (`SM-S931B`, `SM-S936B` unvalidated, `SM-S937B` `CZF1`, `SM-S938B` `CZG3`/`CZZI4` One UI 9 beta), on-device/Shizuku |
+| [SamTimer](https://github.com/Leo141212/SamTimer) | 98260 UAF | Samsung Galaxy `CVE-2026-98260` Shizuku app -> KernelSU-Next 3.4.2 (`ksud-next-generic-kdp`), auto-root + safe-boot module disabler; tested `SM-S921N` (`6.1.162`, One UI 9) |
+| [GhostKey](https://github.com/countryside99/GhostKey) / [Latest version](https://github.com/countryside99/GhostKey/releases) | 98260 UAF | Ongoing `CVE-2026-98260` Shizuku port targeting Galaxy S25 Ultra (`SM-S938B`, `6.6.127` One UI 9) |
 | [Root My Pixel](https://github.com/alex193a/Root-My-Pixel) / [Latest version](https://github.com/alex193a/Root-My-Pixel/releases) | GhostLock | Pixel 6 to 11, Shizuku; retries common |
 | [TimerRoot](https://github.com/MVN123123123123123/TimerRoot) / [Latest version](https://github.com/MVN123123123123123/TimerRoot/releases) | 98260 UAF | Pixel 6 to 11 and selected Xiaomi/Redmi kernels, Shizuku; Pixel 7a and 9a hardware-tested, other Pixel 6 to 11 profiles QEMU-only; exact `uname -r` and page size required |
 | [RootMyVivo](https://github.com/zenyxx-xd/RootMyVivo) / [Latest version](https://github.com/zenyxx-xd/RootMyVivo/releases) | GhostLock + DirtyFrag | vivo/iQOO GhostLock and DirtyFrag targets, Shizuku/ADB |
@@ -204,7 +223,7 @@ A temporary root setup needs a loader, a KernelSU-compatible manager, and whatev
 | [Redmi K70 Pro temp root](https://github.com/Berge520/redmik70pro) / [Latest version](https://github.com/Berge520/redmik70pro/releases) | MIUI service | Redmi K70 Pro (manet), HyperOS 3/Android 16, PC + ADB/fastboot |
 | [ghostlock-s26](https://github.com/snothin/ghostlock-s26) / [Latest version](https://github.com/snothin/ghostlock-s26/releases) | GhostLock | Galaxy S26 series, ADB; merged into GhostSam |
 | [IonStackQuest3](https://github.com/F-19-F/IonStackQuest3) / [Latest version](https://github.com/F-19-F/IonStackQuest3/releases) | GhostLock | Quest 3 listed incrementals, ADB; newer builds patched |
-| [DirtyInit](https://github.com/combeng6th/DirtyInit) / [Latest version](https://github.com/combeng6th/DirtyInit/releases) | DirtyFrag | Samsung devices with the page-cache write bug, ADB; not KernelSU |
+| [DirtyInit](https://github.com/combeng6th/DirtyInit) / [Latest version](https://github.com/combeng6th/DirtyInit/releases) | DirtyFrag | Samsung devices with the page-cache write bug, ADB; hooks `init` (`u:r:init:s0`) for a `dirtyinit` socket shell, not KernelSU/`su` |
 
 DirtyFrag's latest checked release is [v1.17](https://github.com/mitschud/DirtyFrag/releases/tag/v1.17). It stages `ksud` from the selected manager's `libksud.so`. Samsung requires diabl0w's KernelSU build. Other devices can use the managers upstream names. Since v1.17, LKM selection uses the kernel's GKI level and vendor Android release rather than the marketing Android version. Read the run log and stop if the kernel has no supported module.
 
@@ -235,10 +254,15 @@ Other device-specific ports:
 - [ghostlock-emerald](https://github.com/datfooldive/ghostlock-emerald) for POCO M6 Pro 4G.
 - [zenfone9-ghostlock](https://github.com/CKwasd/zenfone9-ghostlock) for ASUS Zenfone 9.
 - [ghostlock-rmx5085](https://github.com/Nixbones/ghostlock-rmx5085) for Realme GT 7T.
-- [Meizu 21 GhostLock](https://github.com/ymh001/meizu21-ghostlock-root) for Meizu 21.
+- [Meizu 21 GhostLock](https://github.com/ymh001/meizu21-ghostlock-root) for Meizu 21, and [meizu20pro-temp-root](https://github.com/h5hg6vy8nt-hue/meizu20pro-temp-root) for Meizu 20 Pro (`meizu_20Pro_CN`, Flyme `12.6`/`12.7`, `5.15.119`).
 - [iQOO Z9 / vivo T3 port](https://github.com/ankitrawatgit/iQOO-Z9_5G-vivo-T3_5G-Root-GhostLock) for iQOO Z9 5G and vivo T3 5G.
 - [ghostlock-xringo1](https://github.com/ayyy7128/ghostlock-xringo1) for XRING O1 on `6.6.77` and `6.6.118`.
 - [SM-A166W port](https://github.com/jojobear691/SM-A166W-DZG1-Temporary-Root) for Galaxy A16 5G.
+- [OnePlus 16 PYB110 kit](https://github.com/AzirX1337/CVE-2026-98260-OnePlus16-PYB110-Jailbreak) for OnePlus 16 (`PYB110`, `6.18.21` ColorOS 17 / Android 17, `CVE-2026-98260` -> KernelSU or FinaSU).
+- [HONOR Win2 BRM-AN00 port](https://github.com/sganggs/CVE-2026-98260-BRM-AN00) for HONOR Win2 (`BRM-AN00`, `6.18.21` MagicOS 11 / Android 17, `CVE-2026-98260` -> BakaSU).
+- [CVE-2026-43499-popsicle](https://github.com/x-spy/CVE-2026-43499-popsicle) for Xiaomi 17 / Pro / Ultra (`6.12.23`, `CVE-2026-43499`; caveat: new apps crash after exploit until reboot).
+- [CVE-2025-21479-FX5P](https://github.com/diyiqiuye/CVE-2025-21479-FX5P) for OPPO Find X5 Pro (`PFEM00`, `5.10.168`/`5.10.198`, Adreno KGSL `CVE-2025-21479` -> KernelSU 3.3.0).
+- [cheese](https://github.com/zhuowei/cheese), [eureka_panther-adreno-gpu-exploit-1](https://github.com/FreeXR/eureka_panther-adreno-gpu-exploit-1), and [cheese-cake](https://github.com/sarabpal-dev/cheese-cake) for Adreno A7xx (`CVE-2025-21479`) on pre-August 10, 2025 Meta Quest 3 / 3S and Snapdragon 8-class builds.
 
 A multi-device repack can bundle legitimate payloads and still add code. Do not treat one as a trusted upstream, and do not grant root to a loader you cannot identify.
 
@@ -249,7 +273,7 @@ A multi-device repack can bundle legitimate payloads and still add code. Do not 
 | [KernelSU](https://github.com/tiann/KernelSU) | Upstream kernel-based root manager | GKI devices; late-load support |
 | [KernelSU-Next](https://github.com/KernelSU-Next/KernelSU-Next) | KernelSU fork | Devices a loader names it for |
 | [KowSU](https://github.com/KOWX712/KernelSU) | KernelSU fork | Alternative manager for loaders that support it |
-| [SukiSU Ultra](https://github.com/SukiSU-Ultra/SukiSU-Ultra) | KernelSU fork | Pixel TimerRoot profiles and other targets that name it |
+| [SukiSU Nova](https://github.com/SukiSU-Nova/SukiSU-Nova) | KernelSU fork, formerly SukiSU Ultra | Pixel TimerRoot profiles and other targets that name it or SukiSU Ultra |
 | [BakaSU](https://github.com/Baka-SU/BakaSU) | KernelSU fork, formerly ReSukiSU | Pixel profiles and other targets that name it; payload feeds still label the flavour `resukisu` |
 | [diabl0w KernelSU](https://github.com/diabl0w/KernelSU) | Samsung-patched KernelSU | Samsung DirtyFrag and several Galaxy ports |
 
@@ -283,6 +307,49 @@ Do not use a manager's install, flash, or patch-boot-image actions on a locked p
 - Download from the project's own release page. Avoid reuploads, Telegram mirrors, paid builds, and remote-root services.
 - Check the release tag and date, and compare published hashes or signing certificates when the project provides them.
 - Build from source when you can. A clean VirusTotal result is not proof that an exploit APK is safe.
+
+### Limited privilege escalation and historical exploits
+
+<details>
+<summary>Click to show <strong>patched temporary-root tools and non-kernel privilege escalation</strong></summary>
+
+<br>
+
+These tools are either patched on current Android builds or reach a limited privilege level (such as `system_server` UID `1000` or app-UID Zygote injection) rather than kernel root:
+
+| Tool | Mechanism / CVE | Scope and limitations |
+| --- | --- | --- |
+| [TLPE](https://github.com/Supersonic/TLPE) | `CVE-2026-49881` (Telecom `InCallController`) | Android 17 `untrusted_app` -> `system_server` (UID `1000`), not kernel root; fixed in Android SPL `2026-09-01` (used as stage 1 in `LSPromise`) |
+| [zygote-CVE-2024-31317](https://github.com/rabits/zygote-CVE-2024-31317) | `CVE-2024-31317` (Zygote command injection) | Android 14 and earlier up to SPL `2024-05-01` (fixed in `2024-06-01`); grants UID `1000` or app UID under SELinux, not kernel root |
+| [Magica](https://github.com/vvb2060/Magica) | Zygote seccomp disable (archived) | Android 10 to 16 diagnostic/utility flow; requires SELinux permissive or existing privilege, not an exploit by itself |
+| [DirtyPipe-Android](https://github.com/polygraphene/DirtyPipe-Android) / [DirtyPipeRoot](https://github.com/tiann/DirtyPipeRoot) | `CVE-2022-0847` (archived) | Historical kernel pipe-overwrite root for Linux `5.8` to `5.16.11` / `5.10.102` / `5.15.25` (Pixel 6 and early Android 12 builds) |
+| `mtk-su` (diplomatic) | `CVE-2020-0069` | Historical XDA-only binary for MediaTek ARMv7/ARMv8 devices up to Android SPL `2020-03-01` |
+| `temproot` (`j4nn`) | `CVE-2020-0041` | Historical XDA tool for Sony Xperia 1/5, XZ2/XZ3, and LG V50/G8 pre-patch builds |
+| [qu1ckr00t](https://github.com/grant-h/qu1ckr00t) / [cve-2019-2215](https://github.com/kangtastic/cve-2019-2215) / [renoshell](https://github.com/j4nn/renoshell) | `CVE-2019-2215` (binder UAF) | Historical temp-root and shell tools for pre-October 2019 SPL devices (Pixel 2, Xperia XZ1/XZp) |
+| [SO-02J-Temp-Root](https://github.com/FradSer/SO-02J-Temp-Root) | `CVE-2016-5195` (DirtyCOW) | Historical temp-root for Sony Xperia X Compact `SO-02J` |
+
+</details><br>
+
+### Bootloader unlock bypasses and boot-chain tools
+
+<details>
+<summary>Click to show <strong>bootloader unlock and AVB/preloader tools (separate scope and higher risk)</strong></summary>
+
+<br>
+
+> [!WARNING]
+> Unlike RAM-only temporary root, these tools modify bootloader state, AVB metadata, or protected partitions, often trigger a factory reset, or require BROM/EDL/hardware access. Misuse can permanently brick a device.
+
+| Tool | Target / SoC | What it does |
+| --- | --- | --- |
+| [QuestStack](https://github.com/starseed12345/QuestStack) | Meta Quest 1 (`49845030443200410`), Quest 2 (`50670960048600150` web) | Chains GhostLock with `CVE-2021-1931` ABL downgrade to unlock the bootloader (factory-resets device) |
+| [gbl_root_canoe](https://github.com/SuperTurtleDev/gbl_root_canoe) | GBL / UEFI Android boot chain | Boot-chain / GBL-level unlock and root research |
+| [qualcomm_avb_exploit_poc](https://github.com/atlas4381/qualcomm_avb_exploit_poc) / [qualcomm_noavb_exploit_common](https://github.com/kasnria001/qualcomm_noavb_exploit_common) | Qualcomm (`NO_AVB`, archived) | Qualcomm AVB bypass PoC and helper framework for qualifying unverified boot chains |
+| [oppo-mtk-fastboot-unlock](https://github.com/Shocked-Cat/oppo-mtk-fastboot-unlock) | MediaTek OPPO / OPlus | Unlocks fastboot on susceptible MediaTek OPPO models |
+| [kaeru](https://github.com/R0rt1z2/kaeru) / [fenrir](https://github.com/R0rt1z2/fenrir) | MediaTek (`lk` / preloader) | `kaeru` spoofs unlock state / bypasses boot checks on supported MTK chains; `fenrir` was archived and deprecated in September 2026 |
+| [mtkclient](https://github.com/bkerler/mtkclient) | MediaTek BROM / preloader | Low-level BROM/EDL dump, flash, and bootloader unlock utility |
+
+</details><br>
 
 ### Upstream porting resources
 
@@ -339,7 +406,12 @@ Primary sources for temporary-root research. These document the exploits, offset
 | [Root My Galaxy payload notes](https://github.com/BuSung-dev/Root-My-Galaxy-Payloads) | Samsung per-build offsets and payload structure |
 | [ghostlock-oneplus offset extraction](https://github.com/JoinChang/ghostlock-oneplus) | `extract_target.py`, `extract_btf.py`, stack-layout feasibility |
 | [DirtyFrag / DFRoot](https://github.com/diabl0w/DFRoot) | DirtyFrag (CVE-2026-43284) technique and page-cache write capability |
-| [CVE records](https://www.cve.org/) | CVE-2026-43284, CVE-2026-43499, CVE-2025-21479, CVE-2026-98260 |
+| [DirtyFalg-vr](https://github.com/DONGDERS/DirtyFalg-vr) | vivo `vr.ko` tracepoint disarming and `libvrext.so` boot/OTA offset extraction for DirtyFrag |
+| [V4bel InfinityCore](https://github.com/V4bel/InfinityCore) | Disclosure of `CVE-2026-98260` (POSIX CPU timers UAF) and related Linux kernel LPEs |
+| [vivo/iQOO 6.6.127 CVE-2026-98260 notes](https://github.com/janewas/cve-2026-98260-vivo-gki-research) | Porting analysis for iQOO Z10 Turbo Pro (`PD2453`, `6.6.127`) without exploit binaries |
+| [Xiaomi nezha CVE-2026-98260 port](https://github.com/quyicheng03-boop/CVE-2026-98260-nezha-android) | Target-specific `CVE-2026-98260` porting notes for Xiaomi `nezha` (`OS4.0.4.0`) |
+| [rootWithoutUnlockBootloaderList](https://github.com/lokey0905/rootWithoutUnlockBootloaderList/blob/main/README.en.md) | Community taxonomy of locked-bootloader root, GBL/ABL, and unlock bypass tools |
+| [CVE records](https://www.cve.org/) | CVE-2026-43284, CVE-2026-43499, CVE-2026-98260, CVE-2026-49881, CVE-2025-21479, CVE-2024-31317, CVE-2022-0847 |
 
 [Back to contents](#contents)
 
@@ -577,7 +649,8 @@ This is a community-maintained index. It does not develop, audit, or guarantee t
 
 - CVE records: [CVE-2026-98260](https://www.cve.org/CVERecord?id=CVE-2026-98260), [CVE-2026-43284](https://www.cve.org/CVERecord?id=CVE-2026-43284) ([NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-43284)), [CVE-2026-43499](https://www.cve.org/CVERecord?id=CVE-2026-43499) ([NVD](https://nvd.nist.gov/vuln/detail/CVE-2026-43499)). KernelSU: [module guide](https://kernelsu.org/guide/module.html), [bootloop rescue](https://kernelsu.org/guide/rescue-from-bootloop.html).
 - Device and profile sources: [Root My Galaxy payloads](https://github.com/BuSung-dev/Root-My-Galaxy-Payloads), [GhostLock App supported devices](https://github.com/YuKongA/ghostlock-app/blob/main/docs/kernel_profiles/SUPPORTED_DEVICES.md), [RootMyVivo catalog](https://github.com/zenyxx-xd/RootMyVivo-Payloads/blob/main/catalog/devices.json), [Root My Device payloads](https://github.com/WitAqua-tools/Root-My-Device-Payloads), [Root My Device project](https://github.com/tqmane/Root-My-Device).
-- Loader documentation: [ghostlock-oneplus](https://github.com/JoinChang/ghostlock-oneplus), [GhostSam](https://github.com/MocLG/GhostSam), [GhostLock-Galaxy](https://github.com/wxxsfxyzm/GhostLock-Galaxy), [R0rt1z2/GhostLock branches](https://github.com/R0rt1z2/GhostLock/branches), [GhostLock NVIDIA Shield](https://github.com/cyberbalsa/GhostLock-NVIDIA-Shield-9.2.4), [ghostlock-a17](https://github.com/mobilehackinglab/ghostlock-a17), [ghostlock-s26](https://github.com/snothin/ghostlock-s26), [GhostLock-X200](https://github.com/xiaohj233/ghostlock-x200-root), [ANB Root](https://github.com/Chuniex-0631/honor-anb-an00-root), [cve-2025-21479_iqooneo8](https://github.com/Qingizi7/cve-2025-21479_iqooneo8), [redmik70pro](https://github.com/Berge520/redmik70pro), [Root My Galaxy Next](https://github.com/rushiranpise/Root-My-Galaxy-Next), [Root My Galaxy Ultra](https://github.com/xorpix/Root-My-Galaxy-Ultra).
+- Loader documentation: [ghostlock-oneplus](https://github.com/JoinChang/ghostlock-oneplus), [GhostSam](https://github.com/MocLG/GhostSam), [GhostLock-Galaxy](https://github.com/wxxsfxyzm/GhostLock-Galaxy), [R0rt1z2/GhostLock branches](https://github.com/R0rt1z2/GhostLock/branches), [GhostLock NVIDIA Shield](https://github.com/cyberbalsa/GhostLock-NVIDIA-Shield-9.2.4), [ghostlock-a17](https://github.com/mobilehackinglab/ghostlock-a17), [ghostlock-s26](https://github.com/snothin/ghostlock-s26), [GhostLock-X200](https://github.com/xiaohj233/ghostlock-x200-root), [ANB Root](https://github.com/Chuniex-0631/honor-anb-an00-root), [cve-2025-21479_iqooneo8](https://github.com/Qingizi7/cve-2025-21479_iqooneo8), [redmik70pro](https://github.com/Berge520/redmik70pro), [Root My Galaxy Next](https://github.com/rushiranpise/Root-My-Galaxy-Next), [Root My Galaxy Ultra](https://github.com/xorpix/Root-My-Galaxy-Ultra), [Root My Galaxy Extended](https://github.com/igorcv88/Root-My-Galaxy-Extended), [DirtyFalg-vr](https://github.com/DONGDERS/DirtyFalg-vr), [Shark (kpgc10kai fork)](https://github.com/kpgc10kai/Shark), [Shark Releases](https://github.com/Yunnijian/Shark-Releases), [yuehong-privilege-assistant](https://github.com/qq2070006042-create/yuehong-privilege-assistant), [DFReroot](https://github.com/polygraphene/DFReroot), [LSPromise](https://github.com/LSPosed/LSPromise), [SamTimer](https://github.com/Leo141212/SamTimer), [GhostKey](https://github.com/countryside99/GhostKey), [OnePlus 16 PYB110 kit](https://github.com/AzirX1337/CVE-2026-98260-OnePlus16-PYB110-Jailbreak), [HONOR Win2 BRM-AN00 port](https://github.com/sganggs/CVE-2026-98260-BRM-AN00), [CVE-2026-43499-popsicle](https://github.com/x-spy/CVE-2026-43499-popsicle), [CVE-2025-21479-FX5P](https://github.com/diyiqiuye/CVE-2025-21479-FX5P), [meizu20pro-temp-root](https://github.com/h5hg6vy8nt-hue/meizu20pro-temp-root).
+- Research, managers, and boot-chain references: [SukiSU Nova](https://github.com/SukiSU-Nova/SukiSU-Nova), [V4bel InfinityCore](https://github.com/V4bel/InfinityCore), [TLPE](https://github.com/Supersonic/TLPE), [cheese](https://github.com/zhuowei/cheese), [QuestStack](https://github.com/starseed12345/QuestStack), [gbl_root_canoe](https://github.com/SuperTurtleDev/gbl_root_canoe).
 - Manager version matching: [KernelSU-Next UAPI check](https://github.com/KernelSU-Next/KernelSU-Next/commit/e1f4fec), [Build Manager CI](https://github.com/KernelSU-Next/KernelSU-Next/actions/workflows/build-manager-ci.yml), [Root My Galaxy Ultra manager table](https://github.com/xorpix/Root-My-Galaxy-Ultra#backends-and-manager-apps).
 - Module/app compatibility: community lists from r/androidroot and r/HyperOS, and the [XDA testing thread](https://xdaforums.com/t/list-of-modules-working-on-temporal-root.4796105/).
 - Maintainer reports: [Redmi Note 13 4G (sapphire), DirtyFrag](https://github.com/fynks/awesome-temporary-root/issues/9#issuecomment-6871968996), [NeoZygisk confirmation](https://github.com/fynks/awesome-temporary-root/pull/10).

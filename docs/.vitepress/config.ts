@@ -23,7 +23,7 @@ const devicePages = [
   { text: 'Nothing', link: '/devices/nothing' },
   { text: 'Honor', link: '/devices/honor' },
   { text: 'HMD and Nokia', link: '/devices/nokia' },
-  { text: 'Amazon, NVIDIA, Meta, and TCL', link: '/devices/other' },
+  { text: 'Amazon, NVIDIA, Meta, Meizu, TCL, and Legacy', link: '/devices/other' },
 ] satisfies DefaultTheme.NavItem[]
 
 const deviceNavItems = [

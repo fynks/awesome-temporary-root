@@ -5,7 +5,7 @@ description: Temporary-root device reports, MagicOS builds, and compatibility no
 
 # Honor
 
-Honor devices use single-build loaders such as [ANB Root](https://github.com/Chuniex-0631/honor-anb-an00-root) and community ports based on GhostLock App.
+Honor devices use single-build loaders such as [ANB Root](https://github.com/Chuniex-0631/honor-anb-an00-root), [CVE-2026-98260-BRM-AN00](https://github.com/sganggs/CVE-2026-98260-BRM-AN00), and community ports based on GhostLock App.
 
 ## Status definitions
 
@@ -26,6 +26,7 @@ Honor devices use single-build loaders such as [ANB Root](https://github.com/Chu
 | --- | --- | --- |
 | HONOR 400 (global)<br><kbd>Experimental</kbd> <kbd>Deprecated/unavailable</kbd> | DNY-NX9 | `DNY-N39 10.0.0.213(C636E4R3P2)`, `5.15.180-android13-8-00018-g9b2308ac0ad6-ab14563692`<br>Loader: MnemosyneLab/ghostlock-honor (upstream repo removed) |
 | HONOR 80 Pro Flat<br><kbd>Tested</kbd> | ANB-AN00 / HNANB | MagicOS `9.0.0.230` (`ANB-AN00 9.0.0.230(CHNC00E230R2P5)`), `5.10.236-android12-9-gd671cf8c2b02`<br>Loader: [ANB Root](https://github.com/Chuniex-0631/honor-anb-an00-root) |
+| HONOR Win2<br><kbd>Tested</kbd> | BRM-AN00 | MagicOS `11.0.0.115` (`BRM-AN00 11.0.0.115(SP7C00E115R101P3)`, Android 17), `6.18.21-android17-5-ge186062ea75f-abogki564062290-4k`<br>Loader: [CVE-2026-98260-BRM-AN00](https://github.com/sganggs/CVE-2026-98260-BRM-AN00) (`CVE-2026-98260`, `BRM ReSuki` Shizuku app or ADB -> BakaSU) |
 
 Upstream reference: [ANB Root compatibility](https://github.com/Chuniex-0631/honor-anb-an00-root/blob/main/docs/COMPATIBILITY.md).
 
