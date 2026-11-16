@@ -1,11 +1,11 @@
 ---
-title: Amazon, NVIDIA, Meta, Meizu, TCL, and Legacy
-description: Temporary-root device reports and compatibility notes for Amazon Fire, NVIDIA Shield, Meta Quest, Meizu, TCL, and historical Sony Xperia / LG Android devices.
+title: Amazon, NVIDIA, Meta, Meizu, and TCL
+description: Temporary-root device reports and compatibility notes for Amazon Fire, NVIDIA Shield, Meta Quest, Meizu, and TCL Android devices.
 ---
 
-# Amazon, NVIDIA, Meta, Meizu, TCL, and Legacy
+# Amazon, NVIDIA, Meta, Meizu, and TCL
 
-[R0rt1z2/GhostLock](https://github.com/R0rt1z2/GhostLock) maintains separate kernel branches. The [4.14 branch](https://github.com/R0rt1z2/GhostLock/tree/4.14) is the repository default and targets the Fire TV Stick 4K Max 1st Gen. Fire HD 8 12th Gen uses [5.4](https://github.com/R0rt1z2/GhostLock/tree/5.4); Fire TV Stick Lite, Fire TV Stick 3rd Gen, and Fire TV Stick 4K 1st Gen use [4.4](https://github.com/R0rt1z2/GhostLock/tree/4.4); Fire Max 11 and Fire TV Stick 4K 2nd Gen use [5.10](https://github.com/R0rt1z2/GhostLock/tree/5.10); TCL uses [5.15](https://github.com/R0rt1z2/GhostLock/tree/5.15). The Shield TV, Quest, and Meizu devices have dedicated ports or guides, while legacy Sony Xperia and LG models rely on historical patched CVEs.
+[R0rt1z2/GhostLock](https://github.com/R0rt1z2/GhostLock) maintains separate kernel branches. The [4.14 branch](https://github.com/R0rt1z2/GhostLock/tree/4.14) is the repository default and targets the Fire TV Stick 4K Max 1st Gen. Fire HD 8 12th Gen uses [5.4](https://github.com/R0rt1z2/GhostLock/tree/5.4); Fire TV Stick Lite, Fire TV Stick 3rd Gen, and Fire TV Stick 4K 1st Gen use [4.4](https://github.com/R0rt1z2/GhostLock/tree/4.4); Fire Max 11 and Fire TV Stick 4K 2nd Gen use [5.10](https://github.com/R0rt1z2/GhostLock/tree/5.10); TCL uses [5.15](https://github.com/R0rt1z2/GhostLock/tree/5.15). The Shield TV, Quest, and Meizu devices have dedicated ports or guides.
 
 ## Status definitions
 
@@ -47,6 +47,5 @@ Upstream references: [Fire Max 11 tested builds](https://xdaforums.com/t/temp-ro
 - The Shield port gives root to the live ADB daemon instead of installing a manager. Root survives ADB disconnects but not an ADB restart, and the included app re-runs the exploit at boot.
 - Meta fixed GhostLock in Quest 3 incremental `52345320040100520` and Quest 3S incremental `3697600032300610`. Later builds are not vulnerable. IonStackQuest3's own target is incremental `52168470043600520`.
 - Meta fixed Adreno GPU `CVE-2025-21479` on Quest 3 / 3S on August 10, 2025 (`>= 5115411.13420.520` / `117688.10380.610`). For bootloader unlocking (not RAM-only temporary root) on Quest 1 (`49845030443200410`) and Quest 2 (`50670960048600150` web), [QuestStack](https://github.com/starseed12345/QuestStack) pairs GhostLock with `CVE-2021-1931` ABL downgrade and factory-resets the headset.
-- **Legacy / historical patched devices (Sony Xperia and LG):** Older locked-bootloader temporary-root tools target specific pre-patch builds only: [qu1ckr00t](https://github.com/grant-h/qu1ckr00t) / [renoshell](https://github.com/j4nn/renoshell) (`CVE-2019-2215`, pre-October 2019 SPL on Xperia XZ1 / XZp and Pixel 2), `j4nn`'s `CVE-2020-0041` `temproot` on XDA (Xperia 1 / 5, XZ2 / XZ3, LG V50 / G8), and [SO-02J-Temp-Root](https://github.com/FradSer/SO-02J-Temp-Root) (DirtyCOW `CVE-2016-5195`, Xperia X Compact `SO-02J`). None apply to modern Android builds.
 
 Return to [Supported Devices](./index.md) or the [complete guide](../guide.md#supported-devices).

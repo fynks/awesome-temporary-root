@@ -21,7 +21,7 @@ Curated compatibility index for DirtyFrag, GhostLock, POSIX CPU timer, Adreno GP
 <!-- web-app-link:start -->
 [![Web App](https://img.shields.io/badge/web_app-awesome--temporary--root.pages.dev-0f766e?style=flat-square)](https://awesome-temporary-root.pages.dev)
 <!-- web-app-link:end -->
-[![Kernels](https://img.shields.io/badge/kernels-3.18--6.18-informational?style=flat-square)](#supported-devices)
+[![Kernels](https://img.shields.io/badge/kernels-4.4--6.18-informational?style=flat-square)](#supported-devices)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](LICENSE)
 [![GitHub stars](https://img.shields.io/github/stars/fynks/awesome-temporary-root?style=flat-square)](https://github.com/fynks/awesome-temporary-root/stargazers)
 
@@ -74,9 +74,8 @@ A few ports use other device-specific routes, such as a vendor service on MIUI o
 
 POSIX CPU timers (`CVE-2026-98260`, a use-after-free on non-leader `exec()` fixed upstream in Linux commit `acb03d388181`) underpin `RootMyS24`, `TimerRoot`, `SamTimer`, `GhostKey`, `Shark`, and single-target `6.18.21` ports for OnePlus 16 (`PYB110`) and HONOR Win2 (`BRM-AN00`). Its [CVE record](https://www.cve.org/CVERecord?id=CVE-2026-98260) lists fixed stable releases `6.1.191`, `6.6.158`, `6.12.112`, `6.18.54`, and `7.2.8`, with `7.3` also marked unaffected. The same vendor-backport caveat applies.
 
-Older, patched, and non-kernel routes exist separately:
+Non-kernel privilege escalation and bootloader-unlock tools sit outside RAM-only temporary root:
 
-- **Historical kernel exploits (patched on modern Android):** DirtyPipe (`CVE-2022-0847`, Linux `5.8` to `5.16.11` / `5.10.102` / `5.15.25`), MediaTek `mtk-su` (`CVE-2020-0069`, up to SPL `2020-03-01`), `CVE-2020-0041` (Xperia/LG), `CVE-2019-2215` (pre-October 2019 SPL), and DirtyCOW (`CVE-2016-5195`).
 - **Limited / non-kernel privilege escalation (not KernelSU root):** `CVE-2024-31317` (Zygote injection on pre-`2024-06-01` SPL reaching UID `1000` / app UIDs), `CVE-2026-49881` (`TLPE`, Android 17 Telecom -> `system_server`, fixed in SPL `2026-09-01`), and `DirtyInit` (`u:r:init:s0` ADB shell via `CVE-2026-43284` without `su` or KernelSU).
 - **Bootloader unlock bypasses and boot-chain tools:** Separate from temporary root; they modify partitions, AVB state, or unlock fastboot and carry factory-reset or brick risks.
 
@@ -143,7 +142,7 @@ Device tables, status definitions, and per-brand compatibility notes live on ded
 | [Nothing](docs/devices/nothing.md) | Root My Device (tqmane) |
 | [Honor](docs/devices/honor.md) | ANB Root, CVE-2026-98260-BRM-AN00, MnemosyneLab/ghostlock-honor |
 | [HMD and Nokia](docs/devices/nokia.md) | DFRoot |
-| [Amazon, NVIDIA, Meta, Meizu, TCL, and Legacy](docs/devices/other.md) | R0rt1z2/GhostLock, GhostLock NVIDIA Shield, Root My Device (Witaqua), Meizu 20 Pro / 21, historical Xperia / LG |
+| [Amazon, NVIDIA, Meta, Meizu, and TCL](docs/devices/other.md) | R0rt1z2/GhostLock, GhostLock NVIDIA Shield, Root My Device (Witaqua), Meizu 20 Pro / 21 |
 
 See the [Supported Devices overview](docs/devices/index.md) for all brand pages in one index.
 
@@ -308,25 +307,20 @@ Do not use a manager's install, flash, or patch-boot-image actions on a locked p
 - Check the release tag and date, and compare published hashes or signing certificates when the project provides them.
 - Build from source when you can. A clean VirusTotal result is not proof that an exploit APK is safe.
 
-### Limited privilege escalation and historical exploits
+### Limited and non-kernel privilege escalation
 
 <details>
-<summary>Click to show <strong>patched temporary-root tools and non-kernel privilege escalation</strong></summary>
+<summary>Click to show <strong>limited / non-kernel privilege escalation tools</strong></summary>
 
 <br>
 
-These tools are either patched on current Android builds or reach a limited privilege level (such as `system_server` UID `1000` or app-UID Zygote injection) rather than kernel root:
+These tools reach a limited privilege level (such as `system_server` UID `1000` or app-UID Zygote injection) rather than kernel root, or require an already permissive SELinux state:
 
 | Tool | Mechanism / CVE | Scope and limitations |
 | --- | --- | --- |
 | [TLPE](https://github.com/Supersonic/TLPE) | `CVE-2026-49881` (Telecom `InCallController`) | Android 17 `untrusted_app` -> `system_server` (UID `1000`), not kernel root; fixed in Android SPL `2026-09-01` (used as stage 1 in `LSPromise`) |
 | [zygote-CVE-2024-31317](https://github.com/rabits/zygote-CVE-2024-31317) | `CVE-2024-31317` (Zygote command injection) | Android 14 and earlier up to SPL `2024-05-01` (fixed in `2024-06-01`); grants UID `1000` or app UID under SELinux, not kernel root |
 | [Magica](https://github.com/vvb2060/Magica) | Zygote seccomp disable (archived) | Android 10 to 16 diagnostic/utility flow; requires SELinux permissive or existing privilege, not an exploit by itself |
-| [DirtyPipe-Android](https://github.com/polygraphene/DirtyPipe-Android) / [DirtyPipeRoot](https://github.com/tiann/DirtyPipeRoot) | `CVE-2022-0847` (archived) | Historical kernel pipe-overwrite root for Linux `5.8` to `5.16.11` / `5.10.102` / `5.15.25` (Pixel 6 and early Android 12 builds) |
-| `mtk-su` (diplomatic) | `CVE-2020-0069` | Historical XDA-only binary for MediaTek ARMv7/ARMv8 devices up to Android SPL `2020-03-01` |
-| `temproot` (`j4nn`) | `CVE-2020-0041` | Historical XDA tool for Sony Xperia 1/5, XZ2/XZ3, and LG V50/G8 pre-patch builds |
-| [qu1ckr00t](https://github.com/grant-h/qu1ckr00t) / [cve-2019-2215](https://github.com/kangtastic/cve-2019-2215) / [renoshell](https://github.com/j4nn/renoshell) | `CVE-2019-2215` (binder UAF) | Historical temp-root and shell tools for pre-October 2019 SPL devices (Pixel 2, Xperia XZ1/XZp) |
-| [SO-02J-Temp-Root](https://github.com/FradSer/SO-02J-Temp-Root) | `CVE-2016-5195` (DirtyCOW) | Historical temp-root for Sony Xperia X Compact `SO-02J` |
 
 </details><br>
 
@@ -411,7 +405,7 @@ Primary sources for temporary-root research. These document the exploits, offset
 | [vivo/iQOO 6.6.127 CVE-2026-98260 notes](https://github.com/janewas/cve-2026-98260-vivo-gki-research) | Porting analysis for iQOO Z10 Turbo Pro (`PD2453`, `6.6.127`) without exploit binaries |
 | [Xiaomi nezha CVE-2026-98260 port](https://github.com/quyicheng03-boop/CVE-2026-98260-nezha-android) | Target-specific `CVE-2026-98260` porting notes for Xiaomi `nezha` (`OS4.0.4.0`) |
 | [rootWithoutUnlockBootloaderList](https://github.com/lokey0905/rootWithoutUnlockBootloaderList/blob/main/README.en.md) | Community taxonomy of locked-bootloader root, GBL/ABL, and unlock bypass tools |
-| [CVE records](https://www.cve.org/) | CVE-2026-43284, CVE-2026-43499, CVE-2026-98260, CVE-2026-49881, CVE-2025-21479, CVE-2024-31317, CVE-2022-0847 |
+| [CVE records](https://www.cve.org/) | CVE-2026-43284, CVE-2026-43499, CVE-2026-98260, CVE-2026-49881, CVE-2025-21479, CVE-2024-31317 |
 
 [Back to contents](#contents)
 

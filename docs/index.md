@@ -44,7 +44,7 @@ Tables on every brand page are expanded by default for direct scanning and `Ctrl
 | [Nothing](./devices/nothing.md) | Root My Device (tqmane) |
 | [Honor](./devices/honor.md) | ANB Root, CVE-2026-98260-BRM-AN00, MnemosyneLab/ghostlock-honor |
 | [HMD and Nokia](./devices/nokia.md) | DFRoot |
-| [Amazon, NVIDIA, Meta, Meizu, TCL, and Legacy](./devices/other.md) | R0rt1z2/GhostLock, GhostLock NVIDIA Shield, Root My Device (Witaqua), Meizu 20 Pro / 21, historical Xperia / LG |
+| [Amazon, NVIDIA, Meta, Meizu, and TCL](./devices/other.md) | R0rt1z2/GhostLock, GhostLock NVIDIA Shield, Root My Device (Witaqua), Meizu 20 Pro / 21 |
 
 See [Supported Devices](./devices/index.md) for status badge definitions and live upstream support catalogs.
 
