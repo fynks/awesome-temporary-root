@@ -37,7 +37,7 @@ Match the full kernel release your phone reports (`uname -r`). Two phones on the
 | [Nothing](./nothing.md) | Root My Device (tqmane) |
 | [Honor](./honor.md) | ANB Root, CVE-2026-98260-BRM-AN00, MnemosyneLab/ghostlock-honor |
 | [HMD and Nokia](./nokia.md) | DFRoot |
-| [Amazon, NVIDIA, Meta, Meizu, and TCL](./other.md) | R0rt1z2/GhostLock, GhostLock NVIDIA Shield, Root My Device (Witaqua), Meizu 20 Pro / 21 |
+| [Amazon, NVIDIA, Meta, Meizu, Rokid, and TCL](./other.md) | R0rt1z2/GhostLock, GhostLock NVIDIA Shield, Root My Device (Witaqua), Meizu 20 Pro / 21, Rokid RV101 GhostLock |
 
 ## Live upstream tables
 

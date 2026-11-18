@@ -1,11 +1,14 @@
 ---
-title: Amazon, NVIDIA, Meta, Meizu, and TCL
-description: Temporary-root device reports and compatibility notes for Amazon Fire, NVIDIA Shield, Meta Quest, Meizu, and TCL Android devices.
+title: Amazon, NVIDIA, Meta, Meizu, Rokid, and TCL
+description: Temporary-root device reports and compatibility notes for Amazon Fire, NVIDIA Shield, Meta Quest, Meizu, Rokid Glasses, and TCL Android devices.
 ---
 
-# Amazon, NVIDIA, Meta, Meizu, and TCL
+# Amazon, NVIDIA, Meta, Meizu, Rokid, and TCL
 
-[R0rt1z2/GhostLock](https://github.com/R0rt1z2/GhostLock) maintains separate kernel branches. The [4.14 branch](https://github.com/R0rt1z2/GhostLock/tree/4.14) is the repository default and targets the Fire TV Stick 4K Max 1st Gen. Fire HD 8 12th Gen uses [5.4](https://github.com/R0rt1z2/GhostLock/tree/5.4); Fire TV Stick Lite, Fire TV Stick 3rd Gen, and Fire TV Stick 4K 1st Gen use [4.4](https://github.com/R0rt1z2/GhostLock/tree/4.4); Fire Max 11 and Fire TV Stick 4K 2nd Gen use [5.10](https://github.com/R0rt1z2/GhostLock/tree/5.10); TCL uses [5.15](https://github.com/R0rt1z2/GhostLock/tree/5.15). The Shield TV, Quest, and Meizu devices have dedicated ports or guides.
+[R0rt1z2/GhostLock](https://github.com/R0rt1z2/GhostLock) maintains separate kernel branches. The [4.14 branch](https://github.com/R0rt1z2/GhostLock/tree/4.14) is the repository default and targets the Fire TV Stick 4K Max 1st Gen. Fire HD 8 12th Gen uses [5.4](https://github.com/R0rt1z2/GhostLock/tree/5.4); Fire TV Stick Lite, Fire TV Stick 3rd Gen, and Fire TV Stick 4K 1st Gen use [4.4](https://github.com/R0rt1z2/GhostLock/tree/4.4); Fire Max 11 and Fire TV Stick 4K 2nd Gen use [5.10](https://github.com/R0rt1z2/GhostLock/tree/5.10); TCL uses [5.15](https://github.com/R0rt1z2/GhostLock/tree/5.15). The Shield TV, Quest, Meizu, and Rokid devices have dedicated ports or guides.
+
+> [!WARNING]
+> The Rokid Glasses result was obtained on a unit with an unlocked bootloader (`verifiedbootstate=orange`). It does not establish temporary root on a locked bootloader. Build `1.25.012` and later contain the rt-mutex fix and are not expected to work.
 
 ## Status definitions
 
@@ -36,8 +39,9 @@ description: Temporary-root device reports and compatibility notes for Amazon Fi
 | Meta Quest 3 / 3S (Adreno)<br><kbd>Tested</kbd> | eureka / panther | Pre-Aug 10, 2025 builds (`< 5115411.13420.520` / `< 117688.10380.610`)<br>Loader: [cheese](https://github.com/zhuowei/cheese) / [eureka_panther-adreno-gpu-exploit-1](https://github.com/FreeXR/eureka_panther-adreno-gpu-exploit-1) / [cheese-cake](https://github.com/sarabpal-dev/cheese-cake) (`CVE-2025-21479`) |
 | Meizu 20 Pro<br><kbd>Tested</kbd> | meizu_20Pro_CN (SM8550) | Flyme `12.6` / `12.7` (Android 16, SPL `2026-10-01`), `5.15.119-android13-8-gdae8b7f03305-ab1764145455`<br>Guide: [meizu20pro-temp-root](https://github.com/h5hg6vy8nt-hue/meizu20pro-temp-root) (`DirtyFrag` v1.17 deterministic and `GhostLock` probabilistic -> KernelSU 3.3.0) |
 | Meizu 21<br><kbd>Tested</kbd> | — | `GhostLock`<br>Loader: [Meizu 21 GhostLock](https://github.com/ymh001/meizu21-ghostlock-root) |
+| Rokid Glasses<br><kbd>User Reported</kbd><br>[Source](https://github.com/fynks/awesome-temporary-root/issues/28) | RG-glasses / glasses (RV101) | `1.22.009-20260710-150201`, Android 12, `5.10.209-perf-gd908d71a0404-ab1.22.009-20260710-150201` (4 KB pages)<br>Loader: [ghostlock_rv101](https://github.com/zero2005x/rokid-rv101-research) (`CVE-2026-43499`), ADB shell to UID 0 via a custom root daemon |
 
-Upstream references: [Fire Max 11 tested builds](https://xdaforums.com/t/temp-root-fire-max-11-2023-sunstone.4798590/), [Fire TV Stick 4K 2nd-gen tested builds](https://xdaforums.com/t/temp-root-fire-tv-stick-4k-2nd-gen-series-karat-mantra.4798627/), [GhostLock 4.14 kara builds](https://xdaforums.com/t/temp-root-fire-tv-stick-4k-max-1st-gen-kara.4801361/), [GhostLock 4.4 sheldon builds](https://xdaforums.com/t/temp-root-downgrade-fire-tv-stick-lite-3rd-gen-sheldon-sheldonp.4800976/), [GhostLock 4.4 mantis builds](https://xdaforums.com/t/temp-root-downgrade-fire-tv-stick-4k-1st-gen-mantis.4808520/), [GhostLock 5.15 TCL profiles](https://github.com/R0rt1z2/GhostLock/tree/5.15), [NVIDIA Shield validated target](https://github.com/cyberbalsa/GhostLock-NVIDIA-Shield-9.2.4#validated-target), [Root My Device targets](https://github.com/WitAqua-tools/Root-My-Device-Payloads/releases/latest/download/targets-v2.json).
+Upstream references: [Fire Max 11 tested builds](https://xdaforums.com/t/temp-root-fire-max-11-2023-sunstone.4798590/), [Fire TV Stick 4K 2nd-gen tested builds](https://xdaforums.com/t/temp-root-fire-tv-stick-4k-2nd-gen-series-karat-mantra.4798627/), [GhostLock 4.14 kara builds](https://xdaforums.com/t/temp-root-fire-tv-stick-4k-max-1st-gen-kara.4801361/), [GhostLock 4.4 sheldon builds](https://xdaforums.com/t/temp-root-downgrade-fire-tv-stick-lite-3rd-gen-sheldon-sheldonp.4800976/), [GhostLock 4.4 mantis builds](https://xdaforums.com/t/temp-root-downgrade-fire-tv-stick-4k-1st-gen-mantis.4808520/), [GhostLock 5.15 TCL profiles](https://github.com/R0rt1z2/GhostLock/tree/5.15), [NVIDIA Shield validated target](https://github.com/cyberbalsa/GhostLock-NVIDIA-Shield-9.2.4#validated-target), [Root My Device targets](https://github.com/WitAqua-tools/Root-My-Device-Payloads/releases/latest/download/targets-v2.json), [Rokid RV101 research and firmware diff](https://github.com/zero2005x/rokid-rv101-research).
 
 ## Compatibility notes
 
@@ -47,5 +51,8 @@ Upstream references: [Fire Max 11 tested builds](https://xdaforums.com/t/temp-ro
 - The Shield port gives root to the live ADB daemon instead of installing a manager. Root survives ADB disconnects but not an ADB restart, and the included app re-runs the exploit at boot.
 - Meta fixed GhostLock in Quest 3 incremental `52345320040100520` and Quest 3S incremental `3697600032300610`. Later builds are not vulnerable. IonStackQuest3's own target is incremental `52168470043600520`.
 - Meta fixed Adreno GPU `CVE-2025-21479` on Quest 3 / 3S on August 10, 2025 (`>= 5115411.13420.520` / `117688.10380.610`). For bootloader unlocking (not RAM-only temporary root) on Quest 1 (`49845030443200410`) and Quest 2 (`50670960048600150` web), [QuestStack](https://github.com/starseed12345/QuestStack) pairs GhostLock with `CVE-2021-1931` ABL downgrade and factory-resets the headset.
+- The Rokid RV101 run uses a device-specific GhostLock fork and a custom root daemon; manager and module compatibility are not established. It needs re-arming after each boot, takes roughly 84 to 112 seconds, and retries can panic. The bootloader was unlocked, so this is not a locked-bootloader result.
+- Rokid build `1.25.012-20260901-150201` (`5.10.209-perf-g9a43350cc9ee-ab1.25.012-20260901-150201`) was checked by binary diff and vendor confirmation, not by an on-device failed-root test. Treat the patched conclusion as firmware analysis.
+- The Doogee U10 (RK3562, Android 13, `5.10.168`, July 2024 patch) [failed report](https://github.com/fynks/awesome-temporary-root/issues/30) could not load a module because kprobes is disabled. DirtyInit reaches `init` but no published chain pairs it with DirtyFrag, and UniRoot bootlooped. There is no working method recorded for this device.
 
 Return to [Supported Devices](./index.md) or the [complete guide](../guide.md#supported-devices).

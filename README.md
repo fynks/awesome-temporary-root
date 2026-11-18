@@ -145,7 +145,7 @@ Device tables, status definitions, and per-brand compatibility notes live on ded
 | [Nothing](docs/devices/nothing.md) | Root My Device (tqmane) |
 | [Honor](docs/devices/honor.md) | ANB Root, CVE-2026-98260-BRM-AN00, MnemosyneLab/ghostlock-honor |
 | [HMD and Nokia](docs/devices/nokia.md) | DFRoot |
-| [Amazon, NVIDIA, Meta, Meizu, and TCL](docs/devices/other.md) | R0rt1z2/GhostLock, GhostLock NVIDIA Shield, Root My Device (Witaqua), Meizu 20 Pro / 21 |
+| [Amazon, NVIDIA, Meta, Meizu, Rokid, and TCL](docs/devices/other.md) | R0rt1z2/GhostLock, GhostLock NVIDIA Shield, Root My Device (Witaqua), Meizu 20 Pro / 21, Rokid RV101 GhostLock |
 
 See the [Supported Devices overview](docs/devices/index.md) for all brand pages in one index.
 
