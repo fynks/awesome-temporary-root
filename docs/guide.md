@@ -125,6 +125,9 @@ Status shows who reported the result and what happened. Each device page include
 
 Match the full kernel release your phone reports. Two phones on the same Android release can differ in kernel build, page size, and vendor hardening, so a partial match is not enough. If a kernel or tool version is missing, treat it as unknown.
 
+> [!WARNING]
+> Pixel 7a TimerRoot runs started after first unlock (AFU) fail far more often: background apps and services can win the race. This repeats on `CP4A.261105.040.A1` after the earlier report. See [Google Pixel](devices/pixel.md) for details.
+
 ### Browse by brand
 
 Device tables, status definitions, and per-brand compatibility notes live on dedicated pages:
