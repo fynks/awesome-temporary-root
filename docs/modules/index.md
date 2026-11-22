@@ -33,6 +33,7 @@ Entries are User Reported unless marked Maintainer Verified.
 | [Morphe Mount-Install Modules](https://github.com/MorpheApp/morphe-manager) | Metamodules | Working | Install path is chosen by the Morphe manager; keep a copy of the previous module set before switching mount modes. |
 | [OverlayFS Enhanced](https://github.com/RipperHybrid/meta-overlayfsx) | Metamodules | Device-dependent | |
 | [NeoZygisk](https://github.com/JingMatrix/NeoZygisk) | Zygisk | Working | Maintainer Verified. |
+| [NyaZygisk v2.6](https://github.com/HSSkyBoy/NyaZygisk) | Zygisk | Working | [User report](https://github.com/fynks/awesome-temporary-root/issues/36) on Redmi Note 14 4G (tanzanite); Zygisk injection verified, including after 16 full reboots with root reacquired each time. |
 | [OnyxZygisk](https://github.com/OnyxZygisk/OnyxZygisk) | Zygisk | Device-dependent | |
 | [ReZygisk](https://github.com/PerformanC/ReZygisk) | Zygisk | Device-dependent | |
 | [ZNNext](https://github.com/VeryBaaad/ZNNext) | Zygisk | Working | |
