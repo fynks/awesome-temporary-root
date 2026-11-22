@@ -28,9 +28,9 @@ Entries are User Reported unless marked Maintainer Verified.
 
 | Name | Category | Status | Notes |
 | --- | --- | --- | --- |
-| [Magic Mount (7a72)](https://github.com/KernelSU-Modules-Repo/meta-mm) | Metamodules | Working | |
+| [Magic Mount (7a72)](https://github.com/KernelSU-Modules-Repo/meta-mm) | Metamodules | Working | Repository archived but still installable; it is the reference metamodule (see the [Morphe manager](https://github.com/MorpheApp/morphe-manager) for the actively maintained Mount path). |
 | [Magic Mount-rs](https://github.com/Tools-cx-app/meta-magic_mount-rs) | Metamodules | Working | |
-| Morphe Mount-Install Modules | Metamodules | Working | |
+| [Morphe Mount-Install Modules](https://github.com/MorpheApp/morphe-manager) | Metamodules | Working | Install path is chosen by the Morphe manager; keep a copy of the previous module set before switching mount modes. |
 | [OverlayFS Enhanced](https://github.com/RipperHybrid/meta-overlayfsx) | Metamodules | Device-dependent | |
 | [NeoZygisk](https://github.com/JingMatrix/NeoZygisk) | Zygisk | Working | Maintainer Verified. |
 | [OnyxZygisk](https://github.com/OnyxZygisk/OnyxZygisk) | Zygisk | Device-dependent | |
@@ -58,7 +58,7 @@ Entries are User Reported unless marked Maintainer Verified.
 | [VBMeta Disguiser](https://github.com/Astoritin/VBMetaDisguiser) | Hiding | Working | |
 | [Re-Malwack](https://github.com/ZG089/Re-Malwack) | Ad blocking | Working | |
 | [StevenBlock](https://github.com/mikropsoft/StevenBlock) | Ad blocking | Working | |
-| Systemless Adblocker (Sürüm) | Ad blocking | Working | |
+| [Systemless Adblocker (Sürüm)](https://github.com/Magisk-Modules-Alt-Repo/systemless-adblocker) | Ad blocking | Working | |
 | [ZN-hostsredirect](https://github.com/aviraxp/ZN-hostsredirect) | Ad blocking | Working | |
 | [LightningDSP (JamesDSP fork) v6.7.1](https://github.com/zahahah/LightningDSP) | Audio | Working | |
 | [PIXAML v0.9.6](https://github.com/zahahah/PIXAML) | Audio | Working | |
@@ -67,8 +67,8 @@ Entries are User Reported unless marked Maintainer Verified.
 | [iOS Emoji for Android](https://github.com/Keinta15/Magisk-iOS-Emoji) | Visual | Needs testing | |
 | [Azenith](https://github.com/Liliya2727/AZenith) | Gaming | Device-dependent | |
 | [PerfGame](https://github.com/adivenxnataly/PerfGame) | Gaming | Working | |
-| UPerf Game Turbo | Gaming | Working | |
-| CatSmoker | Performance | Working | |
+| [Uperf Game Turbo](https://github.com/yc9559/uperf) | Gaming | Working | Userspace performance controller by yc9559; its source has not changed since 2022 and module builds of it circulate in community repos. Avoid voltage or clock changes on locked devices. |
+| [CatSmoker](https://github.com/catsmoker/catsmoker-app) | Performance | Working | |
 | [DalvikHyperthreading](https://github.com/LeanxModulostk/DalvikHyperthreading) | Performance | Working | |
 | [Encore Tweaks](https://github.com/Rem01Gaming/encore-ksu) | Performance | Working | |
 | [HyperOptimize](https://github.com/TatshSiow/HyperOptimize) | Performance | Occasional issues | Avoid combining with modules that modify the same parameters. |
@@ -85,7 +85,7 @@ Entries are User Reported unless marked Maintainer Verified.
 | [TrustAnyCert](https://github.com/gorkemgun/TrustAnyCert) | Patches and tools | Needs testing | Installing CA certificates changes trust. |
 | [Zygisk Detach](https://github.com/j-hc/zygisk-detach) | Patches and tools | Working | Requires a working Zygisk provider. |
 | [Enable MIUI ADB](https://github.com/Ylarod/enable-miui-adb) | HyperOS / MIUI | Working | |
-| ASKS Disabler (Quantum) | Samsung / One UI | Working | |
+| ASKS Disabler (Quantum) | Samsung / One UI | Working | No public repository was found for this module during the latest link check, so confirm its provenance before installing. |
 | [No Volume Warning](https://github.com/zahahah/No-Volume-Warnings) | Pixel | Working | |
 | [Tailscale module](https://github.com/anasfanani/magisk-tailscaled) | Network | Working | |
 | [Crond4Android](https://github.com/powerAn2020/crond4android) | Utilities | Needs testing | |
@@ -135,7 +135,7 @@ Entries are User Reported unless marked Maintainer Verified.
 | [HyperOS-App-Vault](https://github.com/Mods-Center/HyperOS-App-Vault) | HyperOS / MIUI | Device-dependent | |
 | [HyperStack](https://github.com/cramqin/HyperStack) | HyperOS / MIUI | Working | |
 | [HyperUnlocked](https://github.com/ukriu/HyperUnlocked) | HyperOS / MIUI | Working | |
-| iOS-Control-Center-HyperOS | HyperOS / MIUI | Device-dependent | |
+| [iOS-Control-Center-HyperOS](https://github.com/Mods-Center/iOS-Control-Center-HyperOS) | HyperOS / MIUI | Device-dependent | Install Core Patch N first. Blur and jelly animations are the usual source of soft-reboot problems. |
 | [MeowPower](https://github.com/Xposed-Modules-Repo/io.github.yuhj319.meowpower) | HyperOS / MIUI | Working | |
 | [Modded HyperOS Launcher](https://github.com/Mods-Center/HyperOS-Launcher) | HyperOS / MIUI | Device-dependent | Keep a backup launcher. Fossify Launcher is suggested. |
 | [PigLauncher](https://github.com/dinopig1219/PigLauncher) | HyperOS / MIUI | Working | POCO exclusive. |
@@ -153,14 +153,14 @@ Entries are User Reported unless marked Maintainer Verified.
 | [Biometric Bypass](https://github.com/hxreborn/biometric-bypass) | Biometrics | Working | |
 | [Fingerprint Catalog](https://github.com/custombeta/fingerprint-cataloge) | Biometrics | Working | |
 | [AlternativeUnlockXposed](https://github.com/leohearts/AlternativeUnlockXposed) | Utilities | Working | |
-| Cleaner Royall | Utilities | Working | |
-| Clipboard Whitelist | Utilities | Working | |
-| DarQ Reborn | Utilities | Working | |
-| Disable Target API Block | Utilities | Working | |
-| FuckDevicePolicy | Utilities | Working | |
-| Iconify | Utilities | Working | |
-| IslandRecorder | Utilities | Working | |
-| RamStatusBar | Utilities | Working | |
+| [Cleaner Royall](https://github.com/AraafRoyall/Cleaner-Royall) | Utilities | Working | |
+| [Clipboard Whitelist](https://github.com/fei-ke/ClipboardWhitelist) | Utilities | Working | |
+| [DarQ Reborn](https://github.com/Arora-Sir/DarQ-Reborn) | Utilities | Working | Works through Shizuku or root; the LSPosed part is only needed for apps that block force-dark. |
+| [Disable Target API Block](https://github.com/buttercookie42/DisableTargetAPIBlock) | Utilities | Working | |
+| [FuckDevicePolicy](https://github.com/liyafe1997/FuckDevicePolicy) | Utilities | Working | |
+| [Iconify](https://github.com/Mahmud0808/Iconify) | Utilities | Working | |
+| [IslandRecorder](https://github.com/wxxsfxyzm/IslandRecorder) | Utilities | Working | Miuix-style HyperOS Super Island recorder. |
+| [RamStatusBar](https://github.com/GJR787878/RamStatusBar) | Utilities | Working | |
 | [CleanShare](https://github.com/hxreborn/cleanshare) | Other | Working | |
 | [Discover Ads Filter / Feed Filter](https://github.com/hxreborn/discover-ads-filter) | Other | Working | |
 | [FreeUnlock](https://github.com/TheWhiteDog9487/FreeUnlock) | Other | Working | |
@@ -170,14 +170,14 @@ Entries are User Reported unless marked Maintainer Verified.
 | [Re:X](https://github.com/Xposed-Modules-Repo/one.dot.rex) | Other | Working | |
 | [Remember My Sort](https://github.com/hxreborn/remember-my-sort) | Other | Working | |
 | [ReVancedXposed_Spotify](https://github.com/TheWinner02/ReVancedXposed_Spotify) | Other | Working | |
-| SpotifyNext | Other | Working | |
+| [SpotifyNext](https://github.com/Xposed-Modules-Repo/cc.meteormc.spotifynext) | Other | Working | |
 | [TiktokPatchXposed](https://github.com/hik0w/TiktokPatchXposed) | Other | Working | |
 | [WA Enhancer](https://github.com/Dev4Mod/WaEnhancer) | Other | Working | |
 | [WaDeepDark](https://github.com/Dhangofa/WaDeepDark) | Other | Working | |
 | [WaEnhancer X](https://github.com/WaEnhancerX/WaEnhancerX) | Other | Working | |
 | [WAPlusXposed](https://github.com/RevealedSoulEven/WAPlusXposed) | Other | Working | |
 | [YouTube ReVanced](https://github.com/Zy0x/YouTube-Revanced/) | Other | Working | Check reports before updating. |
-| YouTubeAdAway | Other | Working | |
+| [YouTubeAdAway](https://github.com/wanam/YouTubeAdAway) | Other | Working | Source repository is archived; the [Xposed-Modules-Repo listing](https://github.com/Xposed-Modules-Repo/ma.wanam.youtubeadaway) still serves releases. |
 
 ## Not recommended
 

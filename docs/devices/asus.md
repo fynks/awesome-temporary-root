@@ -25,7 +25,14 @@ ASUS Zenfone 9 builds use the dedicated [zenfone9-ghostlock](https://github.com/
 | Device / status | Model or codename | Build or kernel / loader |
 | --- | --- | --- |
 | ASUS Zenfone 9<br><kbd>Tested</kbd> | ASUS_AI2202 | `VA39`, `5.10.205-android12-9-00029-g3f12df86bfdb-ab11799032`<br>Loader: [zenfone9-ghostlock](https://github.com/CKwasd/zenfone9-ghostlock) |
+| ASUS Zenfone 9 (Adreno path)<br><kbd>Tested</kbd> | ASUS_AI2202 | `34.0304.2004.145` (SPL `2024-07-05`), `5.10.205-android12-9-00029-g3f12df86bfdb-ab11799032`<br>Loader: [zenfone9-root](https://github.com/RamenFast/zenfone9-root) (`CVE-2025-21479` Adreno KGSL plus a perf-based physical-address leak; resolves symbols offline and patches `__do_sys_capset`, then restores kernel text) |
+| ASUS Zenfone 10<br><kbd>Upstream profile</kbd> | — | `5.15.206-android13-8-00056-g3f87b8704e9e-ab15683575`<br>Loader: [GhostLock App](https://github.com/YuKongA/ghostlock-app/blob/main/docs/kernel_profiles/SUPPORTED_DEVICES.md) kernel profile; no hardware run recorded |
 
-Upstream reference: [zenfone9-ghostlock](https://github.com/CKwasd/zenfone9-ghostlock).
+Upstream references: [zenfone9-ghostlock](https://github.com/CKwasd/zenfone9-ghostlock), [zenfone9-root verified target](https://github.com/RamenFast/zenfone9-root#readme), [GhostLock App profiles](https://github.com/YuKongA/ghostlock-app/blob/main/docs/kernel_profiles/SUPPORTED_DEVICES.md).
+
+## Compatibility notes
+
+- Both Zenfone 9 rows name the same kernel release but use different bugs: `5.10.205` is vulnerable to GhostLock and to Adreno `CVE-2025-21479`. The Adreno path writes kernel text and restores it, so a crash mid-run is a harder failure than a GhostLock race loss.
+- The Zenfone 10 row is an upstream kernel profile only.
 
 Return to [Supported Devices](./index.md) or the [complete guide](../guide.md#supported-devices).

@@ -24,6 +24,7 @@ description: Temporary-root device reports, exact firmware builds, and compatibi
 
 | Device / status | Model | Build or kernel / loader |
 | --- | --- | --- |
+| OnePlus 16, 15, 15T, Ace 6T / Ace 6 / Ace 5 Pro, Ace 7 / Ace 7 Pro, Ace 6 Ultra, Pad 2 Pro / 3 Pro<br><kbd>Tested</kbd> | PYB110, PLK110, PLZ110, PLR110, PLQ110, PKR110, PYF110, PMS110, PMB110, OPD2413, OPD2513 | ColorOS 16 / 17 builds on `6.6.118`, `6.12.38`, `6.12.58`, `6.12.69`, and `6.18.21` chains<br>Loader: [Shark-Moto](https://github.com/CYB3R0ID694/Shark-Moto) (`CVE-2026-98260` one-tap app; manager switching across KernelSU, KernelSU-Next, BakaSU, SukiSU Ultra, and FinaSU) |
 | OnePlus Ace 6T<br><kbd>Tested</kbd> | PLR110 | `6.12.38-android16-5-g8c67d4274c0a-ab14275539-4k` (ColorOS 16.0.2.403), `6.12.38-android16-5-g844001fb8721-ab14552068-4k` (16.0.8.301)<br>Loader: ghostlock-oneplus |
 | OnePlus 15<br><kbd>Tested</kbd> | CPH2745, CPH2747, CPH2749 | `6.12.23-android16-5-gb2a876903b49-ab14541642-4k` (16.0.9.400)<br>Loader: ghostlock-oneplus |
 | OnePlus 15<br><kbd>Tested</kbd> | PLK110 | `6.12.58` (`android16-6`, Android 17 Beta 3)<br>Loader: ghostlock-oneplus |
@@ -31,6 +32,11 @@ description: Temporary-root device reports, exact firmware builds, and compatibi
 | OnePlus 13<br><kbd>Tested</kbd> | IN2060 | `6.6.89-android15-8-gf4dc45704e54-abogki446052083-4k` (16.0.2.403)<br>Loader: ghostlock-oneplus |
 | OnePlus 13<br><kbd>Tested</kbd> | IN2060 | `6.6.89-android15-8-g97a9aaefab9a-ab14519050-4k`, `6.6.30-android15-8-g013ec21bba94-abogki383916444-4k`, `6.6.118-android15-8-g93e223c276e7-abogki500782043-4k`<br>Loader: [Anchor](https://github.com/byemaxx/ghostlock-anchor) |
 | OnePlus Pad 3<br><kbd>Tested</kbd> | OPD2415 | `OPD2415_16.0.9.400(EX01)`, `6.6.118-android15-8-g2e6b9c3812c5-ab15114928-4k`<br>Loader: [Root My Device (tqmane)](https://github.com/tqmane/Root-My-Device) |
+
+Additional ColorOS tooling:
+
+- [Shark-Moto](https://github.com/CYB3R0ID694/Shark-Moto) is a multi-brand `CVE-2026-98260` launcher that extends the Shark kernel-chain table to Motorola and publishes its own OnePlus, OPPO, and Realme rows. It names exact kernel strings, so check your own `uname -r` against its table instead of the model name.
+- [ghostlock-anchor](https://github.com/byemaxx/ghostlock-anchor) remains the one-tap setup for the ghostlock-oneplus chain on OnePlus 13 and similar builds.
 
 Upstream references: [ghostlock-oneplus verified devices](https://github.com/JoinChang/ghostlock-oneplus#supported-devices), [not-feasible layouts](https://github.com/JoinChang/ghostlock-oneplus#not-feasible-stack-layout-incompatible), [Root My Device OnePlus Pad 3](https://github.com/tqmane/Root-My-Device/blob/main/devices/oneplus-pad-3/README.md#supported-target).
 

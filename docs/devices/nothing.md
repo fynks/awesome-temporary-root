@@ -24,12 +24,14 @@ Nothing Phone (3a) uses [Root My Device (tqmane)](https://github.com/tqmane/Root
 
 | Device / status | Model or codename | Build or kernel / loader |
 | --- | --- | --- |
+| Nothing Phone (3a) / (3a) Pro<br><kbd>Tested</kbd> | Asteroids | `6.1.172`<br>Loader: [CVE-2026-98260-Asteroids](https://github.com/arkylin/CVE-2026-98260-Asteroids) (`CVE-2026-98260`; patches unexported symbols in the KernelSU `.ko`, then `finit_module`; KernelSU 3.3.1 late-load) |
 | Nothing Phone (3a)<br><kbd>Tested</kbd> | A059 / Asteroids | `B4.1-260618-1048`, `6.1.157-android14-11-g82d681c9b06b-ab14634535`<br>Loader: [Root My Device (tqmane)](https://github.com/tqmane/Root-My-Device) |
 
 Upstream reference: [Nothing Phone (3a) supported target](https://github.com/tqmane/Root-My-Device/blob/main/devices/nothing-phone-3a/README.md#supported-target).
 
 ## Compatibility notes
 
+- [GhostLock App](https://github.com/YuKongA/ghostlock-app/blob/main/docs/kernel_profiles/SUPPORTED_DEVICES.md) also lists Nothing Phone (3a) Pro (`A059P`, `6.1.157-android14-11-g82d681c9b06b-ab14634535`) and Nothing Phone 3 (`6.6.102-android15-8-gab8eb70a71b8-ab14350911-4k`) profiles. They are candidates until a hardware run is recorded here.
 - Build `B4.1-260810-1153` is supported upstream, but the verified run was on `B4.1-260618-1048`.
 - Build `C5.0-260915-2123` is allowlisted upstream, but its root flow is not verified.
 
