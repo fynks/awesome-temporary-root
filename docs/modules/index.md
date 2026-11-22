@@ -85,6 +85,7 @@ Entries are User Reported unless marked Maintainer Verified.
 | [TrustAnyCert](https://github.com/gorkemgun/TrustAnyCert) | Patches and tools | Needs testing | Installing CA certificates changes trust. |
 | [Zygisk Detach](https://github.com/j-hc/zygisk-detach) | Patches and tools | Working | Requires a working Zygisk provider. |
 | [Enable MIUI ADB](https://github.com/Ylarod/enable-miui-adb) | HyperOS / MIUI | Working | |
+| [HyperSpring v3.1.2](https://github.com/olilio3/HyperSpring) | HyperOS / MIUI | Working | Requires NeoZygisk and Vector. [User report](https://github.com/fynks/awesome-temporary-root/issues/35) on Redmi Note 14 4G (tanzanite). |
 | ASKS Disabler (Quantum) | Samsung / One UI | Working | No public repository was found for this module during the latest link check, so confirm its provenance before installing. |
 | [No Volume Warning](https://github.com/zahahah/No-Volume-Warnings) | Pixel | Working | |
 | [Tailscale module](https://github.com/anasfanani/magisk-tailscaled) | Network | Working | |
@@ -153,6 +154,7 @@ Entries are User Reported unless marked Maintainer Verified.
 | [Biometric Bypass](https://github.com/hxreborn/biometric-bypass) | Biometrics | Working | |
 | [Fingerprint Catalog](https://github.com/custombeta/fingerprint-cataloge) | Biometrics | Working | |
 | [AlternativeUnlockXposed](https://github.com/leohearts/AlternativeUnlockXposed) | Utilities | Working | |
+| [BatteryTool v1.2.0](https://github.com/Domi04151309/BatteryTool) | Utilities | Working | [User report](https://github.com/fynks/awesome-temporary-root/issues/34) on Redmi Note 14 4G (tanzanite). |
 | [Cleaner Royall](https://github.com/AraafRoyall/Cleaner-Royall) | Utilities | Working | |
 | [Clipboard Whitelist](https://github.com/fei-ke/ClipboardWhitelist) | Utilities | Working | |
 | [DarQ Reborn](https://github.com/Arora-Sir/DarQ-Reborn) | Utilities | Working | Works through Shizuku or root; the LSPosed part is only needed for apps that block force-dark. |
