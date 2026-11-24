@@ -31,7 +31,7 @@ Match the full kernel release your phone reports (`uname -r`). Two phones on the
 | [OnePlus](./oneplus.md) | ghostlock-oneplus, Anchor, Root My Device (tqmane), Shark, OnePlus 16 PYB110 kit |
 | [OPPO](./oppo.md) | ghostlock-oneplus, Root My Device (Witaqua), Shark, CVE-2025-21479-FX5P |
 | [Realme](./realme.md) | ghostlock-rmx5085, DirtyFrag, Shark |
-| [vivo and iQOO](./vivo.md) | RootMyVivo, DirtyFalg-vr, Shark, yuehong-privilege-assistant, GhostLock-X200, DirtyFrag, DFRoot, iQOO Z9 / vivo T3 port, Adreno port |
+| [vivo and iQOO](./vivo.md) | RootMyVivo, DirtyFalg-vr, yuehong-privilege-assistant, GhostLock-X200, DirtyFrag, DFRoot, iQOO Z9 / vivo T3 port, Adreno port |
 | [Xiaomi and Redmi](./xiaomi.md) | ghostlock-oneplus, Root My Device (Witaqua), DirtyFrag, GhostLock App, DFRoot, TimerRoot, Shark, CVE-2026-43499-popsicle |
 | [ASUS](./asus.md) | zenfone9-ghostlock |
 | [Nothing](./nothing.md) | Root My Device (tqmane) |
@@ -55,13 +55,13 @@ These tables are maintained upstream and change more often than this index. Chec
 | [GhostLock-Galaxy](https://github.com/wxxsfxyzm/GhostLock-Galaxy) | Galaxy Z Fold6 | [Kernel list](https://github.com/wxxsfxyzm/GhostLock-Galaxy#registered-kernel-profiles) |
 | [ghostlock-a17](https://github.com/mobilehackinglab/ghostlock-a17) | Galaxy A17 | [Target list](https://github.com/mobilehackinglab/ghostlock-a17#target) |
 | [Root My Pixel](https://github.com/alex193a/Root-My-Pixel) | Pixel 6 to 11 | [Build list](https://github.com/alex193a/Root-My-Pixel#supported-devices--build-profiles) |
-| [TimerRoot](https://github.com/MVN123123123123123/TimerRoot) | Pixel 6 to 11, selected Xiaomi/Redmi | [Supported devices](https://github.com/MVN123123123123123/TimerRoot#supported-devices) |
+| [TimerRoot](https://github.com/MVN123123123123123/TimerRoot) | Pixel 6 to 11, Samsung mode, selected Xiaomi/Redmi and imported vendor profiles | [Supported devices](https://github.com/MVN123123123123123/TimerRoot/blob/main/docs/supported-devices.md) |
 | [ghostlock-oneplus](https://github.com/JoinChang/ghostlock-oneplus) | OnePlus, OPPO, Xiaomi | [Verified list](https://github.com/JoinChang/ghostlock-oneplus#supported-devices), [Infeasible layouts](https://github.com/JoinChang/ghostlock-oneplus#not-feasible-stack-layout-incompatible) |
 | [Root My Device (tqmane)](https://github.com/tqmane/Root-My-Device) | Nothing Phone (3a), OnePlus Pad 3 | [Nothing list](https://github.com/tqmane/Root-My-Device/blob/main/devices/nothing-phone-3a/README.md#supported-target), [Pad 3 list](https://github.com/tqmane/Root-My-Device/blob/main/devices/oneplus-pad-3/README.md#supported-target) |
 | [Root My Device (Witaqua)](https://github.com/WitAqua-tools/Root-My-Device) | Xiaomi, OPPO, and Meta Quest | [Target list](https://github.com/WitAqua-tools/Root-My-Device-Payloads/releases/latest/download/targets-v2.json), [Notes](https://github.com/WitAqua-tools/Root-My-Device-Payloads#supported-targets) |
 | [RootMyVivo](https://github.com/zenyxx-xd/RootMyVivo) | vivo and iQOO | [Catalog](https://github.com/zenyxx-xd/RootMyVivo-Payloads/blob/main/catalog/devices.json) |
 | [DirtyFalg-vr](https://github.com/DONGDERS/DirtyFalg-vr) | vivo/iQOO (`vr.ko`) and GKI `5.10` to `6.18` | [LKM matrix and `libvrext.so` notes](https://github.com/DONGDERS/DirtyFalg-vr#readme) |
-| [Shark (kpgc10kai fork)](https://github.com/kpgc10kai/Shark) / [Upstream releases](https://github.com/Yunnijian/Shark-Releases) | OnePlus, OPPO, Realme, vivo/iQOO, Xiaomi 18 Pro, and Xiaomi 18 Fold (experimental) | [Supported kernel chains](https://github.com/kpgc10kai/Shark#readme) |
+| [Shark (kpgc10kai fork)](https://github.com/kpgc10kai/Shark) / [Upstream releases](https://github.com/Yunnijian/Shark-Releases) | OnePlus, OPPO, Realme, Xiaomi 18 Pro, Xiaomi 18 Fold, Pad 7S Pro, and Pad 9 Pro Max (experimental); upstream v2.6.26 adds Xiaomi 17 and `6.1.157` profiles | [Supported kernel chains](https://github.com/kpgc10kai/Shark#readme) |
 | [yuehong-privilege-assistant](https://github.com/qq2070006042-create/yuehong-privilege-assistant) | Multi-method / vivo and iQOO | [Supported methods](https://github.com/qq2070006042-create/yuehong-privilege-assistant#readme) |
 | [RootMyS24](https://github.com/NanoTurtle1145/root-my-s24) | Galaxy S24/S24 Ultra, Z Flip6, China Z Fold6 | [Verified and pending firmware lists](https://github.com/NanoTurtle1145/root-my-s24#支持设备) |
 | [R0rt1z2/GhostLock](https://github.com/R0rt1z2/GhostLock) | Amazon Fire devices, TCL T653T02 | [4.14 default branch](https://github.com/R0rt1z2/GhostLock/tree/4.14), [5.4](https://github.com/R0rt1z2/GhostLock/tree/5.4), [4.4](https://github.com/R0rt1z2/GhostLock/tree/4.4), [5.10](https://github.com/R0rt1z2/GhostLock/tree/5.10), [5.15 TCL profiles](https://github.com/R0rt1z2/GhostLock/tree/5.15) |

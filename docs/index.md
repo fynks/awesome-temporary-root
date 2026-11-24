@@ -38,7 +38,7 @@ Tables on every brand page are expanded by default for direct scanning and `Ctrl
 | [OnePlus](./devices/oneplus.md) | ghostlock-oneplus, Anchor, Root My Device (tqmane), Shark, OnePlus 16 PYB110 kit |
 | [OPPO](./devices/oppo.md) | ghostlock-oneplus, Root My Device (Witaqua), Shark, CVE-2025-21479-FX5P |
 | [Realme](./devices/realme.md) | ghostlock-rmx5085, DirtyFrag, Shark |
-| [vivo and iQOO](./devices/vivo.md) | RootMyVivo, DirtyFalg-vr, Shark, yuehong-privilege-assistant, GhostLock-X200, DirtyFrag, DFRoot, iQOO Z9 / vivo T3 port, Adreno port |
+| [vivo and iQOO](./devices/vivo.md) | RootMyVivo, DirtyFalg-vr, yuehong-privilege-assistant, GhostLock-X200, DirtyFrag, DFRoot, iQOO Z9 / vivo T3 port, Adreno port |
 | [Xiaomi and Redmi](./devices/xiaomi.md) | ghostlock-oneplus, Root My Device (Witaqua), DirtyFrag, GhostLock App, DFRoot, TimerRoot, Shark, CVE-2026-43499-popsicle |
 | [ASUS](./devices/asus.md) | zenfone9-ghostlock |
 | [Nothing](./devices/nothing.md) | Root My Device (tqmane) |

@@ -45,6 +45,6 @@ Upstream references: [ghostlock-oneplus verified devices](https://github.com/Joi
 
 - OPPO Pad 4 Pro uses a different root path (UMH) in ghostlock-oneplus.
 - ghostlock-oneplus has extracted offsets awaiting a device run for OPPO Reno10 Pro+ (`CPH2521`, `5.10.236`) and OPPO Find X9 Pro (`PLG110`, `6.12.23`). Its not-feasible list includes OPPO Find X9 Ultra. Check both before trying a build.
-- [Shark](https://github.com/kpgc10kai/Shark) ([upstream binaries](https://github.com/Yunnijian/Shark-Releases)) lists `CVE-2026-98260` chains (`6.6.118`, `6.6.127`, `6.12.23`, `6.12.38`, `6.12.58`, `6.12.69`, `6.18.21`) covering selected OPPO builds alongside OnePlus and Realme.
+- [Shark](https://github.com/kpgc10kai/Shark) ([upstream binaries](https://github.com/Yunnijian/Shark-Releases)) lists `CVE-2026-98260` chains (`6.6.118`, `6.12.38`, `6.12.58`, `6.12.69`, `6.18.21`) covering selected OPPO builds alongside OnePlus and Realme. The older `6.6.127` and `6.12.23` chains are no longer in the fork. Its device table added OPPO K15 Pro+ (`PMG110`) on `6.6.118-android15-8-g9bc34d5b0c79-abogki537459655-4k` in November 2026; that entry is an upstream profile with a linked working report, not a hardware run verified here.
 
 Related ColorOS / OPlus pages: [OnePlus](./oneplus.md), [Realme](./realme.md). Return to [Supported Devices](./index.md) or the [complete guide](../guide.md#supported-devices).

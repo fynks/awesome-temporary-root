@@ -41,6 +41,7 @@ Honor and Huawei share some kernel lines but not firmware or signing, so Honor p
 | Sony Xperia 5 IV (SO-54C / PDX-224) | `5.10.236-android12-9-00014-gb97c62c4e7d1` |
 | Sony Xperia 1 V | `5.15.189-android13-8-00016-g51bba4309aac-ab14546557`, `5.15.189-android13-8-00004-g1c3825f8ac0a-ab14110541` |
 | Sharp AQUOS R8 (SH-R80) | `5.15.178-android13-8-00025-g7feb0b0b7cd8-ab14134651` |
+| Sharp AQUOS sense10 (SH-M33) | `6.1.157-android14-11-g27b608536f86-ab14702606` (upstream note: Shizuku recommended) |
 | RedMagic 8 Pro | `5.15.167-android13-8-00017-gb1f32b310a30-ab12826353` |
 | RedMagic 9 / 9S Pro | `6.1.145-android14-11-g11c274d0441f-ab14259673` (`REDMAGICOS11.0.5MR1_GB`) |
 | RedMagic 10 Pro, 11 Air, Tablet 3 Pro | `6.6.92-android15-8-g3637f4904cf5-ab13944661-4k` |
