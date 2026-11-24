@@ -16,12 +16,12 @@
     "check": "node scripts/sync-readme.mjs && tsc --noEmit"
   },
   "devDependencies": {
-    "@types/node": "^26.6.5",
-    "@vite-pwa/vitepress": "^2.0.3",
+    "@types/node": "^26.6.6",
+    "@vite-pwa/vitepress": "^2.0.5",
     "magicast": "^0.5.5",
     "typescript": "^7.0.2",
     "vitepress": "2.0.0-alpha.21",
     "vitepress-plugin-llms": "^1.15.0",
-    "vue": "^3.5.43"
+    "vue": "^3.5.46"
   }
 }
