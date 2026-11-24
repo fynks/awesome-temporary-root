@@ -142,7 +142,7 @@ Device tables, status definitions, and per-brand compatibility notes live on ded
 | [vivo and iQOO](devices/vivo.md) | RootMyVivo, DirtyFalg-vr, Shark, yuehong-privilege-assistant, GhostLock-X200, DirtyFrag, DFRoot, iQOO Z9 / vivo T3 port, Adreno port |
 | [Xiaomi and Redmi](devices/xiaomi.md) | ghostlock-oneplus, Root My Device (Witaqua), DirtyFrag, GhostLock App, DFRoot, TimerRoot, Shark, CVE-2026-43499-popsicle |
 | [ASUS](devices/asus.md) | zenfone9-ghostlock |
-| [Nothing](devices/nothing.md) | Root My Device (tqmane) |
+| [Nothing](devices/nothing.md) | Root My Device (tqmane), GhostLock App |
 | [Honor](devices/honor.md) | ANB Root, CVE-2026-98260-BRM-AN00, MnemosyneLab/ghostlock-honor |
 | [HMD and Nokia](devices/nokia.md) | DFRoot |
 | [Other brands](devices/other-brands.md) | Huawei, Motorola, Lenovo, Sony, TECNO, Infinix, RedMagic, Sharp, and Boox ports plus GhostLock App kernel profiles |
