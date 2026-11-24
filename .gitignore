@@ -4,6 +4,9 @@ dist/
 docs/.vitepress/cache/
 docs/.vitepress/dist/
 
+# generated from README.md by scripts/sync-readme.mjs
+docs/guide.md
+
 .env
 .env.local
 .env.*.local
