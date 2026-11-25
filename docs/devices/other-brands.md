@@ -17,7 +17,6 @@ Honor and Huawei share some kernel lines but not firmware or signing, so Honor p
 | <kbd>Experimental</kbd> | Partial, shell-only, or unstable result. |
 | <kbd>Upstream profile</kbd> | Device kernel profile shipped upstream with no documented hardware run yet. |
 | <kbd>Not supported</kbd> | Hardware run on this exact build reported no root. |
-| <kbd>Deprecated/unavailable</kbd> | Upstream loader or repository is archived or removed. |
 
 ## Supported builds
 

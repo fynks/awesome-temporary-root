@@ -18,7 +18,7 @@ The aesthetic must feel like an authoritative hardware-security reference manual
   - Sans: VitePress bundled Inter variable font for dense hardware documentation legibility across operating systems without external font network requests.
   - Monospace: system monospace stack (`ui-monospace`, `SFMono-Regular`, `Menlo`, `Consolas`) so kernel build strings (`6.12.30-android16-5-g6e872b4863d6-ab13847919-4k`) and `adb` commands read crisp and unambiguous.
 - **Identity motif:**
-  - The repository's ghost-with-hash (`#`) emblem paired with crisp `<kbd>` hardware status tags (`Maintainer Verified`, `User Reported`, `Tested`, `Experimental`, `Upstream profile`, `Deprecated/unavailable`) styled like technical keycaps with clear borders and readable contrast in both themes.
+  - The repository's ghost-with-hash (`#`) emblem paired with crisp `<kbd>` hardware status tags (`Maintainer Verified`, `User Reported`, `Tested`, `Experimental`, `Upstream profile`) styled like technical keycaps with clear borders and readable contrast in both themes.
 - **Layout and rhythm (RHYTHM 2):**
   - Home page combines a compact, content-first intro header (with the ghost emblem and direct actions into Supported Devices, Modules and Apps, and the Complete Guide), safety callouts, and a structured brand directory table so readers can jump straight to their manufacturer without marketing filler.
   - Documentation and device pages prioritize wide, uncollapsed, horizontally-scrollable hardware tables on narrow screens (`overflow-x: auto`) so firmware strings never clip or cause page-level horizontal overflow.

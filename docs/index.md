@@ -42,7 +42,7 @@ Tables on every brand page are expanded by default for direct scanning and `Ctrl
 | [Xiaomi and Redmi](./devices/xiaomi.md) | ghostlock-oneplus, Root My Device (Witaqua), DirtyFrag, GhostLock App, DFRoot, TimerRoot, Shark, CVE-2026-43499-popsicle |
 | [ASUS](./devices/asus.md) | zenfone9-ghostlock |
 | [Nothing](./devices/nothing.md) | Root My Device (tqmane) |
-| [Honor](./devices/honor.md) | ANB Root, CVE-2026-98260-BRM-AN00, MnemosyneLab/ghostlock-honor |
+| [Honor](./devices/honor.md) | ANB Root, CVE-2026-98260-BRM-AN00 |
 | [HMD and Nokia](./devices/nokia.md) | DFRoot |
 | [Amazon, NVIDIA, Meta, Meizu, Rokid, and TCL](./devices/other.md) | R0rt1z2/GhostLock, GhostLock NVIDIA Shield, Root My Device (Witaqua), Meizu 20 Pro / 21, Rokid RV101 GhostLock |
 

@@ -17,7 +17,6 @@ Realme devices in this index use dedicated GhostLock ports or DirtyFrag loaders 
 | <kbd>Experimental</kbd> | Partial, shell-only, or unstable result. |
 | <kbd>Upstream profile</kbd> | Device kernel profile shipped upstream with no documented hardware run yet. |
 | <kbd>Unverified candidate</kbd> | Matching kernel profile exists, but this model is unconfirmed on hardware. |
-| <kbd>Deprecated/unavailable</kbd> | Upstream loader or repository is archived or removed. |
 | <kbd>Not supported</kbd> | Hardware run on this exact build reported no root; the loader refused the target or reported the kernel patched. |
 
 ## Supported builds
@@ -40,6 +39,6 @@ Upstream reference: [ghostlock-rmx5085](https://github.com/Nixbones/ghostlock-rm
 
 - The Realme Note 50 entry is a user report. The DirtyFrag app version is unknown.
 - A post-OTA follow-up reports Android 16 (36), manager `v3.4.2-spoofed (33355-5)`, Tracepoint hook mode, Hybrid Mount `6.2.6-rc.4`, SuSFS `v2.3.0 (GKI)`, and Zygisk Next `1.5.2 (864-a4a72ce-release)`. The exact post-OTA build is not confirmed. Treat it as separate from the Android 15 row.
-- [Shark](https://github.com/kpgc10kai/Shark) ([upstream binaries](https://github.com/Yunnijian/Shark-Releases)) lists `CVE-2026-98260` chains (`6.6.118`, `6.12.38`, `6.12.58`, `6.12.69`, `6.18.21`) for selected Realme kernels alongside OnePlus and OPPO. The older `6.6.127` and `6.12.23` chains are no longer in the fork; upstream v2.6.26 (2026-11-24) adds `6.1.157` kernels not yet ported here.
+- [Shark](https://github.com/kpgc10kai/Shark) ([upstream binaries](https://github.com/Yunnijian/Shark-Releases)) lists `CVE-2026-98260` chains (`6.6.118`, `6.12.38`, `6.12.58`, `6.12.69`, `6.18.21`) for selected Realme kernels alongside OnePlus and OPPO.
 
 Related ColorOS / OPlus pages: [OnePlus](./oneplus.md), [OPPO](./oppo.md). Return to [Supported Devices](./index.md) or the [complete guide](../guide.md#supported-devices).

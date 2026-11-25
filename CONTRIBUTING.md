@@ -41,7 +41,7 @@ Use "not supplied" or "unknown" for missing information. Never guess a kernel, b
 - User Reported marks a community result that this repository's maintainer has not independently verified. Merging a report does not promote it to Maintainer Verified.
 - Tested, Experimental, and module outcome labels describe the result, not who verified it. An upstream maintainer's test is not automatically a test by this repository's maintainer.
 - Module/app statuses use the text labels Working, Occasional issues, Device-dependent, Not recommended, and Needs testing. Keep status separate from provenance. Community entries remain User Reported.
-- Profiles, generated offsets, shared kernel strings, and model aliases are candidates until a hardware result supports them. Preserve unavailable/deprecated history rather than presenting an old download as current.
+- Profiles, generated offsets, shared kernel strings, and model aliases are candidates until a hardware result supports them.
 
 Do not self-assign Maintainer Verified. Keep disputes and missing evidence visible until a maintainer reviews them.
 

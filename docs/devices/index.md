@@ -19,7 +19,6 @@ Match the full kernel release your phone reports (`uname -r`). Two phones on the
 | <kbd>Experimental</kbd> | Partial, shell-only, or unstable result. |
 | <kbd>Upstream profile</kbd> | Device kernel profile shipped upstream with no documented hardware run yet. |
 | <kbd>Unverified candidate</kbd> | Matching kernel profile exists, but this model is unconfirmed on hardware. |
-| <kbd>Deprecated/unavailable</kbd> | Upstream loader or repository is archived or removed. |
 | <kbd>Not supported</kbd> | Hardware run on this exact build reported no root; the loader refused the target or reported the kernel patched. |
 
 ## Browse by brand
@@ -35,7 +34,7 @@ Match the full kernel release your phone reports (`uname -r`). Two phones on the
 | [Xiaomi and Redmi](./xiaomi.md) | ghostlock-oneplus, Root My Device (Witaqua), DirtyFrag, GhostLock App, DFRoot, TimerRoot, Shark, CVE-2026-43499-popsicle |
 | [ASUS](./asus.md) | zenfone9-ghostlock |
 | [Nothing](./nothing.md) | Root My Device (tqmane) |
-| [Honor](./honor.md) | ANB Root, CVE-2026-98260-BRM-AN00, MnemosyneLab/ghostlock-honor |
+| [Honor](./honor.md) | ANB Root, CVE-2026-98260-BRM-AN00 |
 | [HMD and Nokia](./nokia.md) | DFRoot |
 | [Amazon, NVIDIA, Meta, Meizu, Rokid, and TCL](./other.md) | R0rt1z2/GhostLock, GhostLock NVIDIA Shield, Root My Device (Witaqua), Meizu 20 Pro / 21, Rokid RV101 GhostLock, Fire TV one-tap ports |
 | [Other brands](./other-brands.md) | Huawei, Motorola, Lenovo, Sony, TECNO, Infinix, RedMagic, Sharp, and Boox device ports plus GhostLock App kernel profiles |
