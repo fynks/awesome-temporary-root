@@ -10,7 +10,7 @@
 
 **Temporary root on a locked Android bootloader, one boot at a time.**
 
-Curated compatibility index for DirtyFrag, GhostLock, POSIX CPU timer, Adreno GPU loaders, KernelSU late-load managers, and runtime modules.
+<small> Curated compatibility index for DirtyFrag, GhostLock, POSIX CPU timer, Adreno GPU loaders, KernelSU late-load managers, and runtime modules. </small>
 
 <!-- web-app-link:start -->
 <h3><a href="https://awesome-temporary-root.pages.dev">Open the Web App (awesome-temporary-root.pages.dev)</a></h3>
