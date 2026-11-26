@@ -45,6 +45,7 @@ Entries are User Reported unless marked Maintainer Verified.
 | [Spicy EX](https://github.com/amarinne/spicy-ex) | Xposed | Working | |
 | [Vector v2.2](https://github.com/JingMatrix/Vector) | Xposed | Occasional issues | May bootloop on some setups. |
 | [Vector-SR](https://github.com/byemaxx/Vector-SR) | Xposed | Device-dependent | Enabling via soft reboot may fully reboot some devices. |
+| [AlwaysStrong v1.0.6.1](https://gitlab.com/Evokerr/AlwaysStrong) | Hiding | Working | Bundles TEESimulator-RS and Play Integrity Fork. [User report](https://github.com/fynks/awesome-temporary-root/issues/40) on Redmi Note 14 Pro 5G (malachite); activated from KernelSU after a soft reboot and kept working through repeated soft and hard reboots with root reacquired each time. |
 | [Device Spoof Labs](https://github.com/yubunus/DeviceSpoofLab-Magisk) | Hiding | Device-dependent | One UI 9: disable spoofing first if soft reboots occur. |
 | [DeviceSpoofLab-Hooks](https://github.com/yubunus/DeviceSpoofLab-Hooks) | Hiding | Working | |
 | [HMA-OSS (Hide My Applist)](https://github.com/frknkrc44/HMA-OSS) | Hiding | Working | Often enough for hiding. No banking or Play Integrity guarantee. |
