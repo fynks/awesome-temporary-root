@@ -31,25 +31,26 @@ Entries are User Reported unless marked Maintainer Verified.
 | [Magic Mount (7a72)](https://github.com/KernelSU-Modules-Repo/meta-mm) | Metamodules | Working | Repository archived but still installable; it is the reference metamodule (see the [Morphe manager](https://github.com/MorpheApp/morphe-manager) for the actively maintained Mount path). |
 | [Magic Mount-rs](https://github.com/Tools-cx-app/meta-magic_mount-rs) | Metamodules | Working | |
 | [Morphe Mount-Install Modules](https://github.com/MorpheApp/morphe-manager) | Metamodules | Working | Install path is chosen by the Morphe manager; keep a copy of the previous module set before switching mount modes. |
-| [OverlayFS Enhanced](https://github.com/RipperHybrid/meta-overlayfsx) | Metamodules | Device-dependent | |
+| [OverlayFS Enhanced](https://github.com/RipperHybrid/meta-overlayfsx) | Metamodules | Working | |
 | [NeoZygisk](https://github.com/JingMatrix/NeoZygisk) | Zygisk | Working | Maintainer Verified. |
 | [NyaZygisk v2.6](https://github.com/HSSkyBoy/NyaZygisk) | Zygisk | Working | [User report](https://github.com/fynks/awesome-temporary-root/issues/36) on Redmi Note 14 4G (tanzanite); Zygisk injection verified, including after 16 full reboots with root reacquired each time. |
 | [OnyxZygisk](https://github.com/OnyxZygisk/OnyxZygisk) | Zygisk | Device-dependent | |
 | [ReZygisk](https://github.com/PerformanC/ReZygisk) | Zygisk | Device-dependent | |
 | [ZNNext](https://github.com/VeryBaaad/ZNNext) | Zygisk | Working | |
 | [Zygisk Assistant](https://github.com/snake-4/Zygisk-Assistant) | Zygisk | Working | |
-| [Zygisk Next](https://github.com/Dr-TSNG/ZygiskNext) | Zygisk | Occasional issues | |
+| [Zygisk Next](https://github.com/Dr-TSNG/ZygiskNext) | Zygisk | Working | |
 | [Zygisk Sui](https://github.com/XiaoTong6666/Sui) | Zygisk | Working | Do not run alongside KernelSU without reading both projects. |
 | [LSPosed](https://github.com/LSPosed/LSPosed) | Xposed | Device-dependent | Requires a compatible Zygisk provider. May cause occasional GPS issues. |
 | [NexAlloy](https://github.com/NexAlloy/NexAlloy) | Xposed | Working | |
 | [Spicy EX](https://github.com/amarinne/spicy-ex) | Xposed | Working | |
-| [Vector v2.2](https://github.com/JingMatrix/Vector) | Xposed | Occasional issues | May bootloop on some setups. |
+| [NewHookVip](https://github.com/Xposed-Modules-Repo/top.hookvip.pro) | Xposed | Working | |
+| [Vector v2.2](https://github.com/JingMatrix/Vector) | Xposed | Device-dependent | May bootloop on some setups. |
 | [Vector-SR](https://github.com/byemaxx/Vector-SR) | Xposed | Device-dependent | Enabling via soft reboot may fully reboot some devices. |
 | [AlwaysStrong v1.0.6.1](https://gitlab.com/Evokerr/AlwaysStrong) | Hiding | Working | Bundles TEESimulator-RS and Play Integrity Fork. [User report](https://github.com/fynks/awesome-temporary-root/issues/40) on Redmi Note 14 Pro 5G (malachite); activated from KernelSU after a soft reboot and kept working through repeated soft and hard reboots with root reacquired each time. |
 | [Device Spoof Labs](https://github.com/yubunus/DeviceSpoofLab-Magisk) | Hiding | Device-dependent | One UI 9: disable spoofing first if soft reboots occur. |
 | [DeviceSpoofLab-Hooks](https://github.com/yubunus/DeviceSpoofLab-Hooks) | Hiding | Working | |
 | [HMA-OSS (Hide My Applist)](https://github.com/frknkrc44/HMA-OSS) | Hiding | Working | Often enough for hiding. No banking or Play Integrity guarantee. |
-| [KernelNoSu](https://github.com/fatalcoder524/kernelnosu) | Hiding | Working | |
+| [KernelNoSu](https://github.com/backslashxx/kernelnosu) | Hiding | Working | |
 | [pairipfix](https://github.com/ahmedmani/pairipfix) | Hiding | Working | |
 | [Play Integrity Fix](https://github.com/KOWX712/PlayIntegrityFix) | Hiding | Working | |
 | [Play Integrity Fork](https://github.com/osm0sis/PlayIntegrityFork) | Hiding | Working | |
@@ -72,16 +73,21 @@ Entries are User Reported unless marked Maintainer Verified.
 | [Uperf Game Turbo](https://github.com/yc9559/uperf) | Gaming | Working | Userspace performance controller by yc9559; its source has not changed since 2022 and module builds of it circulate in community repos. Avoid voltage or clock changes on locked devices. |
 | [CatSmoker](https://github.com/catsmoker/catsmoker-app) | Performance | Working | |
 | [DalvikHyperthreading](https://github.com/LeanxModulostk/DalvikHyperthreading) | Performance | Working | |
-| [Encore Tweaks](https://github.com/Rem01Gaming/encore-ksu) | Performance | Working | |
+| [Encore Tweaks](https://github.com/Rem01Gaming/encore) | Performance | Working | |
 | [HyperOptimize](https://github.com/TatshSiow/HyperOptimize) | Performance | Occasional issues | Avoid combining with modules that modify the same parameters. |
+| [Universal GMS Doze](https://github.com/gloeyisk/universal-gms-doze) | Performance | Working | |
+| [HyperCool](https://github.com/yudharn/HyperCool) | Performance | Working | |
 | [KernelSU Tuner](https://github.com/ylh440104/KernelSU-Tuner) | Performance | Needs testing | Avoid voltage or clock changes on locked devices. |
 | [AshResXcue (AshLooper)](https://github.com/RipperHybrid/AshLooper) | Bootloop protection | Occasional issues | Uninstall other bootloop protectors first. |
+| [YetAnotherBootloopProtector](https://github.com/Magisk-Modules-Alt-Repo/YetAnotherBootloopProtector) | Bootloop protection | Occasional issues | May conflict with other bootloop protection modules; uninstall existing ones first. |
 | [Always Trust User Certificates](https://github.com/NVISOsecurity/AlwaysTrustUserCerts) | Patches and tools | Working | |
 | [Block OTA Update](https://github.com/manhgdev/Block-OTA-Update) | Patches and tools | Device-dependent | May need a device-specific fork. |
 | [CaptureSposed](https://github.com/99keshav99/CaptureSposed) | Patches and tools | Needs testing | |
-| [ClearBox](https://github.com/FLYCOM-E/ClearBox) | Patches and tools | Needs testing | |
+| [ClearBox](https://github.com/FLYCOM-E/ClearBox) | Patches and tools | Working | |
 | [KernelSU Grant Toast](https://github.com/NativeStar/KernelSUGrantToast) | Patches and tools | Device-dependent | |
 | [KernelSU Toolkit](https://github.com/rifsxd/ksu_toolkit) | Patches and tools | Working | |
+| [KsuWebUI](https://github.com/adivenxnataly/KsuWebUI) | Patches and tools | Working | |
+| [Simple Flag Secure](https://github.com/ShivamXD6/Simple-Flag-Secure) | Patches and tools | Working | FLAG_SECURE bypass. |
 | [QuickSwitch](https://github.com/skittles9823/QuickSwitch) | Patches and tools | Needs testing | |
 | [ih8SecureLock](https://github.com/j-hc/ih8SecureLock) | Patches and tools | Needs testing | Zygisk `FLAG_SECURE` bypass replacing archived `FlagSecurePatcher`; Android 10 to 17. |
 | [TrustAnyCert](https://github.com/gorkemgun/TrustAnyCert) | Patches and tools | Needs testing | Installing CA certificates changes trust. |
@@ -124,14 +130,14 @@ Entries are User Reported unless marked Maintainer Verified.
 | [ColorOS_Control_Center](https://github.com/Mods-Center/ColorOS_Control_Center) | HyperOS / MIUI | Device-dependent | |
 | [FreeStyle-Control-Center](https://github.com/Mods-Center/FreeStyle-Control-Center) | HyperOS / MIUI | Device-dependent | |
 | [HyperBackground](https://github.com/Solomonstery/HyperBackground) | HyperOS / MIUI | Working | |
-| [HyperCeiler](https://github.com/ReChronoRain/HyperCeiler) | HyperOS / MIUI | Working | Disable "Icon in Settings" if icons duplicate. |
+| [HyperCeiler](https://github.com/ReChronoRain/HyperCeiler) | HyperOS / MIUI | Working | Disable "Icon in Settings"; a bug can multiply the icon (up to 1021 copies) and crash Settings, and the change is not reverted. |
 | [HyperControl](https://github.com/Orynnx/HyperControl) | HyperOS / MIUI | Working | |
 | [HyperCopy](https://github.com/1812z/HyperCopy) | HyperOS / MIUI | Working | |
 | [HyperDuo](https://github.com/yixing233/HyperDuo) | HyperOS / MIUI | Working | |
 | [HyperGlow](https://github.com/amarinne/hyperglow) | HyperOS / MIUI | Working | Requires Spicy EX. |
 | [HyperHelper](https://github.com/Xposed-Modules-Repo/dev.lackluster.mihelper) | HyperOS / MIUI | Working | |
 | [HyperIsland](https://github.com/1812z/HyperIsland) | HyperOS / MIUI | Working | |
-| [HyperLight](https://github.com/KiminonawaResa/HyperLight) | HyperOS / MIUI | Working | Disable "Icon in Settings" if icons duplicate. |
+| [HyperLight](https://github.com/KiminonawaResa/HyperLight) | HyperOS / MIUI | Working | Disable "Icon in Settings"; same icon-multiplication bug as HyperCeiler. |
 | [HyperLock](https://github.com/LXRylex/HyperLock) | HyperOS / MIUI | Working | Requires HyperDuo. |
 | [HyperLyric](https://github.com/limczhh/HyperLyric) | HyperOS / MIUI | Working | |
 | [HyperOS-AOD](https://github.com/Mods-Center/HyperOS-AOD) | HyperOS / MIUI | Device-dependent | |
@@ -143,6 +149,9 @@ Entries are User Reported unless marked Maintainer Verified.
 | [Modded HyperOS Launcher](https://github.com/Mods-Center/HyperOS-Launcher) | HyperOS / MIUI | Device-dependent | Keep a backup launcher. Fossify Launcher is suggested. |
 | [PigLauncher](https://github.com/dinopig1219/PigLauncher) | HyperOS / MIUI | Working | POCO exclusive. |
 | [XApps](https://github.com/Leekin2/XApps) | HyperOS / MIUI | Working | |
+| [APPLock-R](https://github.com/1812z/APPLock-R) | HyperOS / MIUI | Working | |
+| [FuckPrivacyGuard](https://github.com/zeroedx/fuckPrivacyGuard) | HyperOS / MIUI | Working | |
+| [HyperDesktop](https://github.com/the-marox/HyperDesktopUnlock) | HyperOS / MIUI | Working | Upstream project is HyperDesktopUnlock. |
 | [Core Patch N for One UI 9](https://github.com/igorcv88/CorePatch-OneUI9) | Samsung / One UI | Working | |
 | [Dressroom Advanced](https://github.com/BlueOutside/Dressroom-Advanced) | Samsung / One UI | Working | |
 | [KnoxPatch](https://github.com/salvogiangri/KnoxPatch) | Samsung / One UI | Working | |
@@ -159,12 +168,16 @@ Entries are User Reported unless marked Maintainer Verified.
 | [BatteryTool v1.2.0](https://github.com/Domi04151309/BatteryTool) | Utilities | Working | [User report](https://github.com/fynks/awesome-temporary-root/issues/34) on Redmi Note 14 4G (tanzanite). |
 | [Cleaner Royall](https://github.com/AraafRoyall/Cleaner-Royall) | Utilities | Working | |
 | [Clipboard Whitelist](https://github.com/fei-ke/ClipboardWhitelist) | Utilities | Working | |
+| [AClipBoardManager (ClipVault)](https://github.com/Xposed-Modules-Repo/com.clipvault.app) | Utilities | Working | |
 | [DarQ Reborn](https://github.com/Arora-Sir/DarQ-Reborn) | Utilities | Working | Works through Shizuku or root; the LSPosed part is only needed for apps that block force-dark. |
 | [Disable Target API Block](https://github.com/buttercookie42/DisableTargetAPIBlock) | Utilities | Working | |
 | [FuckDevicePolicy](https://github.com/liyafe1997/FuckDevicePolicy) | Utilities | Working | |
 | [Iconify](https://github.com/Mahmud0808/Iconify) | Utilities | Working | |
 | [IslandRecorder](https://github.com/wxxsfxyzm/IslandRecorder) | Utilities | Working | Miuix-style HyperOS Super Island recorder. |
 | [RamStatusBar](https://github.com/GJR787878/RamStatusBar) | Utilities | Working | |
+| [OpenManager](https://github.com/uamo11/OpenManager) | Utilities | Working | |
+| [PosterDroid](https://github.com/p4lemoon/PosterDroid) | Utilities | Working | |
+| [Privacy Kit Lite](https://github.com/Mohithash/privacy-kit-lite) | Utilities | Working | |
 | [CleanShare](https://github.com/hxreborn/cleanshare) | Other | Working | |
 | [Discover Ads Filter / Feed Filter](https://github.com/hxreborn/discover-ads-filter) | Other | Working | |
 | [FreeUnlock](https://github.com/TheWhiteDog9487/FreeUnlock) | Other | Working | |
@@ -175,6 +188,7 @@ Entries are User Reported unless marked Maintainer Verified.
 | [Remember My Sort](https://github.com/hxreborn/remember-my-sort) | Other | Working | |
 | [ReVancedXposed_Spotify](https://github.com/TheWinner02/ReVancedXposed_Spotify) | Other | Working | |
 | [SpotifyNext](https://github.com/Xposed-Modules-Repo/cc.meteormc.spotifynext) | Other | Working | |
+| [InstaEclipse](https://github.com/MocLG/InstaEclipse) | Other | Working | |
 | [TiktokPatchXposed](https://github.com/hik0w/TiktokPatchXposed) | Other | Working | |
 | [WA Enhancer](https://github.com/Dev4Mod/WaEnhancer) | Other | Working | |
 | [WaDeepDark](https://github.com/Dhangofa/WaDeepDark) | Other | Working | |
