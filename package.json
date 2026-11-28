@@ -3,23 +3,21 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "packageManager": "bun@1.4.4",
+  "packageManager": "bun@1.4.5",
   "engines": {
-    "node": ">=26",
-    "bun": ">=1.4.4"
+    "bun": ">=1.4.5"
   },
   "scripts": {
-    "sync:readme": "node scripts/sync-readme.mjs",
-    "dev": "node scripts/sync-readme.mjs && vitepress dev docs --host 0.0.0.0",
-    "build": "node scripts/sync-readme.mjs && vitepress build docs",
-    "preview": "vitepress preview docs --host 0.0.0.0",
-    "check": "node scripts/sync-readme.mjs && tsc --noEmit"
+    "sync:readme": "bun scripts/sync-readme.mjs",
+    "dev": "bun scripts/sync-readme.mjs && bunx vitepress dev docs --host 0.0.0.0",
+    "build": "bun scripts/sync-readme.mjs && bunx vitepress build docs",
+    "preview": "bunx vitepress preview docs --host 0.0.0.0",
+    "check": "bun scripts/sync-readme.mjs && bun check"
   },
   "devDependencies": {
     "@types/node": "^26.6.6",
     "@vite-pwa/vitepress": "^2.0.5",
     "magicast": "^0.5.5",
-    "typescript": "^7.0.2",
     "vitepress": "2.0.0-alpha.21",
     "vitepress-plugin-llms": "^1.15.0",
     "vue": "^3.5.46"

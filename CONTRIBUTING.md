@@ -49,11 +49,21 @@ Do not self-assign Maintainer Verified. Keep disputes and missing evidence visib
 
 1. Keep changes focused and cite primary sources: upstream README/support data, release notes, CVE records, or a linked hardware report. Include the date checked when updating live information.
 2. Edit `README.md` for guide content, `docs/modules/index.md` for module and app tables, or `docs/devices/*.md` for brand device tables. Do not hand-edit `docs/guide.md`.
-3. Run `bun run sync:readme` and review the generated output. For site changes, use Node 26 and the package manager declared in `package.json`. Run `bun run build` and `bun run check`.
+3. Run `bun run sync:readme` and review the generated output. Use the Bun version in `.bun-version` and `package.json`. Run `bun run check` and `bun run build`.
 4. Check links, table columns, and status wording. Keep the generated guide in sync.
 5. Explain what changed, link the evidence, and distinguish hardware verification from source-only checks.
 
 Do not submit exploit offsets for unsupported devices, requests to port a loader, bootloader-unlocking/boot-flashing instructions, paid services, or APK/firmware reuploads. Use official project release links.
+
+## Cloudflare Pages
+
+The site is a static build. Configure the Pages project with:
+
+- Build command: `bun install && bun run build`
+- Build output directory: `dist`
+- Build environment variable `BUN_VERSION`: `1.4.5`, to match `.bun-version` and `package.json`
+
+Cloudflare's build image ships Bun 1.4.4 by default. The explicit install step avoids relying on automatic dependency detection because `bun.lock` is not committed. `bun run check` is optional in deployment and runs Bun's built-in type checker locally.
 
 ## Safety and privacy
 
